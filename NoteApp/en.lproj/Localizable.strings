@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  NoteApp
+
+  Created by student46 on 2020/5/15.
+  Copyright © 2020 Vincent. All rights reserved.
+中文
+ */
+"new.note"="New note...";
+"list"="List";
