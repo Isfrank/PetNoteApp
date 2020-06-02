@@ -26,8 +26,8 @@ class PetTableViewController: UITableViewController, UITextFieldDelegate, UIImag
     let bddatePicker = UIDatePicker()
     let homedatePicker = UIDatePicker()
     let now = Date()
-
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         nameTextField.delegate = self
@@ -35,8 +35,8 @@ class PetTableViewController: UITableViewController, UITextFieldDelegate, UIImag
         homeTextField.delegate = self
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
         self.view.addGestureRecognizer(tap) // to Replace "TouchesBegan"
-
-//        let pickerView = UIPickerView()
+        
+        //        let pickerView = UIPickerView()
         bddatePicker.datePickerMode = .date
         homedatePicker.datePickerMode = .date
         self.bdTextField.inputView = bddatePicker
@@ -51,37 +51,38 @@ class PetTableViewController: UITableViewController, UITextFieldDelegate, UIImag
         let now = Date()
         let anniversary = bddatePicker.date
         var components = DateComponents()
+        self.pet = Pet(context: CoreDataHelper.shared.managedObjectContext())
         components.year = Calendar.current.component(.year, from: now)
         components.month = Calendar.current.component(.month, from: anniversary)
         components.day = Calendar.current.component(.day, from: anniversary)
-        
-        if let thisYearBirthday = Calendar.current.date(from: components), thisYearBirthday.compare(now) == ComparisonResult.orderedAscending { //前面比後面小
-            Calendar.current.dateComponents([.month,.day], from:thisYearBirthday, to: now)
-            
-        }else{
+        let thisYearBirthday = Calendar.current.date(from: components)!
+        if  thisYearBirthday.compare(now) == ComparisonResult.orderedAscending {
             components.year = Calendar.current.component(.year, from: now) + 1
             if let nextYearBirthday = Calendar.current.date(from: components){
-            Calendar.current.dateComponents([.month,.day], from: now, to: nextYearBirthday)
+                let diffDateComponents = Calendar.current.dateComponents([.month,.day], from: now, to: nextYearBirthday)
+                self.pet.bdtext = " 距離生日還有\(String(describing: diffDateComponents.month!))個月" + "\(String(describing: diffDateComponents.day!))天"
             }
+        }else{
+            let diffDateComponents =  Calendar.current.dateComponents([.year,.month,.day], from:now, to: thisYearBirthday)
+            self.pet.bdtext = " 距離生日還有\(String(describing: diffDateComponents.month!))個月" + "\(String(describing: diffDateComponents.day!))天"
         }
         
         let diffDateComponents = Calendar.current.dateComponents([.month,.day], from:anniversary , to: now)
-//        timeIntervalDisplayLabel.text = "\(String(describing: diffDateComponents.year!))年" + " \(String(describing: diffDateComponents.month!))月" + " \(String(describing: diffDateComponents.day!))日"
+        //        timeIntervalDisplayLabel.text = "\(String(describing: diffDateComponents.year!))年" + " \(String(describing: diffDateComponents.month!))月" + " \(String(describing: diffDateComponents.day!))日"
         let homeanniversary = homedatePicker.date
-              let homediffDateComponents = Calendar.current.dateComponents([.year,.month,.day], from: homeanniversary, to: now)
+        let homediffDateComponents = Calendar.current.dateComponents([.year,.month,.day], from: homeanniversary, to: now)
         
         guard let namepet = self.nameTextField?.text else{return}
-        self.pet = Pet(context: CoreDataHelper.shared.managedObjectContext())
         self.pet.petName = namepet
-//        guard let bdpet = self.bdTextField.text else{return}
-//        self.pet.age = "今年\(String(describing: diffDateComponents.year!))歲"
-        self.pet.bdtext = " 距離生日還有\(String(describing: diffDateComponents.month!))個月" + "\(String(describing: diffDateComponents.day!))天"
-//        guard let homepet = self.homeTextField.text else{return}
+        //        guard let bdpet = self.bdTextField.text else{return}
+        //        self.pet.age = "今年\(String(describing: diffDateComponents.year!))歲"
+        //        self.pet.bdtext = " 距離生日還有\(String(describing: diffDateComponents.month!))個月" + "\(String(describing: diffDateComponents.day!))天"
+        //        guard let homepet = self.homeTextField.text else{return}
         self.pet.hometext = "已經陪伴你\(String(describing: homediffDateComponents.year!))年" + "\(String(describing: homediffDateComponents.month!))個月" + "\(String(describing: homediffDateComponents.day!))天"
         self.delegate.didFinishupdate(pet: self.pet)
         self.dismiss(animated: true, completion: nil)
     }
-//    MARK: DatePicker
+    //    MARK: DatePicker
     func addDoneButtonOnKeyboard() {
         let doneToolbar = UIToolbar()
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
@@ -95,19 +96,19 @@ class PetTableViewController: UITableViewController, UITextFieldDelegate, UIImag
         self.bdTextField.inputAccessoryView = doneToolbar
         self.homeTextField.inputAccessoryView = doneToolbar
     }
-
+    
     @objc func doneButtonAction() {
         
         if let datePickerView = self.bdTextField.inputView as? UIDatePicker, self.bdTextField.isFirstResponder {
-        //if let datePickerView = self.bdTextField.inputView as? UIDatePicker {
+            //if let datePickerView = self.bdTextField.inputView as? UIDatePicker {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd"
             let dateString = dateFormatter.string(from: datePickerView.date)
             self.bdTextField.text = dateString
             self.bdTextField.resignFirstResponder()
-//            datePickerView.reloadInputViews()
+            //            datePickerView.reloadInputViews()
         }
-//        guard homeTextField.text != nil else {return}
+        //        guard homeTextField.text != nil else {return}
         if let datePickerView = self.homeTextField.inputView as? UIDatePicker, self.homeTextField.isFirstResponder {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd"
