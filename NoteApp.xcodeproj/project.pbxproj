@@ -24,17 +24,46 @@
 		D40205F1247F74FD00FF1898 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40205F0247F74FD00FF1898 /* FirstViewController.swift */; };
 		D4936355247FCA5E0050FA64 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4936354247FCA5E0050FA64 /* Pet.swift */; };
 		D4A9628C2484FC85001D0594 /* dog-park-100.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A9628B2484FC84001D0594 /* dog-park-100.png */; };
+		D4AEC39D2488D0C40063BCC8 /* FSCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AEC39C2488D0C40063BCC8 /* FSCalendarViewController.swift */; };
 		D4C010DB247D2DD600A50673 /* pointRed.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C010D8247D2DD500A50673 /* pointRed.png */; };
 		D4C010DC247D2DD600A50673 /* pointRed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C010D9247D2DD600A50673 /* pointRed@2x.png */; };
 		D4C010DD247D2DD600A50673 /* pointRed@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C010DA247D2DD600A50673 /* pointRed@3x.png */; };
 		D4C010DF247D382C00A50673 /* EGImageAnnotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C010DE247D382C00A50673 /* EGImageAnnotionView.swift */; };
 		D4CE496F247374060025F277 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4CE496E247374060025F277 /* GoogleService-Info.plist */; };
+		D4DF65C924889C33005D0051 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DF65C824889C33005D0051 /* NotificationCenter.framework */; };
+		D4DF65CC24889C33005D0051 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DF65CB24889C33005D0051 /* TodayViewController.swift */; };
+		D4DF65CF24889C33005D0051 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4DF65CD24889C33005D0051 /* MainInterface.storyboard */; };
+		D4DF65D324889C33005D0051 /* PetWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D4DF65C724889C33005D0051 /* PetWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D4ED5129246E783F006F8FE0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4ED512B246E783F006F8FE0 /* InfoPlist.strings */; };
 		D4ED512F246E7FCF006F8FE0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4ED5131246E7FCF006F8FE0 /* Localizable.strings */; };
 		D4FE0FA9247D2A42008C6A8A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FE0FA8247D2A42008C6A8A /* MapViewController.swift */; };
 		D4FE0FAB247D2A68008C6A8A /* MapViewController+LocationSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FE0FAA247D2A68008C6A8A /* MapViewController+LocationSupport.swift */; };
 		D4FE0FAD247D2A85008C6A8A /* DispatchQueue+Once.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FE0FAC247D2A85008C6A8A /* DispatchQueue+Once.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D4DF65D124889C33005D0051 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF3111712448088E0015FD94 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4DF65C624889C33005D0051;
+			remoteInfo = PetWidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D4DF65D724889C33005D0051 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D4DF65D324889C33005D0051 /* PetWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		011F2F802483860F00E90A9B /* PieChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
@@ -58,11 +87,20 @@
 		D40205F0247F74FD00FF1898 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		D4936354247FCA5E0050FA64 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		D4A9628B2484FC84001D0594 /* dog-park-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dog-park-100.png"; sourceTree = "<group>"; };
+		D4AEC39C2488D0C40063BCC8 /* FSCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSCalendarViewController.swift; sourceTree = "<group>"; };
+		D4B38DC72488BEE400A0798D /* PetWidget copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "PetWidget copy-Info.plist"; path = "/Users/student46/Desktop/PetNote/NoteApp 2/PetWidget copy-Info.plist"; sourceTree = "<absolute>"; };
 		D4C010D8247D2DD500A50673 /* pointRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pointRed.png; sourceTree = "<group>"; };
 		D4C010D9247D2DD600A50673 /* pointRed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pointRed@2x.png"; sourceTree = "<group>"; };
 		D4C010DA247D2DD600A50673 /* pointRed@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pointRed@3x.png"; sourceTree = "<group>"; };
 		D4C010DE247D382C00A50673 /* EGImageAnnotionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EGImageAnnotionView.swift; sourceTree = "<group>"; };
+		D4C2147F2488BBE200EC0D4F /* NoteApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NoteApp.entitlements; sourceTree = "<group>"; };
+		D4C214802488BC4E00EC0D4F /* PetWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PetWidget.entitlements; sourceTree = "<group>"; };
 		D4CE496E247374060025F277 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D4DF65C724889C33005D0051 /* PetWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PetWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4DF65C824889C33005D0051 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		D4DF65CB24889C33005D0051 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		D4DF65CE24889C33005D0051 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		D4DF65D024889C33005D0051 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4ED5125246E74FF006F8FE0 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
 		D4ED5126246E74FF006F8FE0 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		D4ED512A246E783F006F8FE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -84,6 +122,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D4DF65C424889C33005D0051 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4DF65C924889C33005D0051 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -91,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				FADA0D78175C45742B2174F5 /* Pods_NoteApp.framework */,
+				D4DF65C824889C33005D0051 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -100,7 +147,9 @@
 			children = (
 				BF31117B2448088E0015FD94 /* NoteApp */,
 				ED560A9C6644492210458275 /* Pods */,
+				D4DF65CA24889C33005D0051 /* PetWidget */,
 				12530027D6ACC30B696E8134 /* Frameworks */,
+				D4B38DC72488BEE400A0798D /* PetWidget copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				BF3111792448088E0015FD94 /* NoteApp.app */,
+				D4DF65C724889C33005D0051 /* PetWidget.appex */,
 			);
 			name = Products;
 			path = ..;
@@ -116,6 +166,7 @@
 		BF31117B2448088E0015FD94 /* NoteApp */ = {
 			isa = PBXGroup;
 			children = (
+				D4C2147F2488BBE200EC0D4F /* NoteApp.entitlements */,
 				D4A9628D2484FC9E001D0594 /* image */,
 				011F2F822483861600E90A9B /* PieChartView.xib */,
 				011F2F802483860F00E90A9B /* PieChartView.swift */,
@@ -123,6 +174,7 @@
 				BF3111822448088E0015FD94 /* Main.storyboard */,
 				BF311185244808920015FD94 /* Assets.xcassets */,
 				BF311187244808920015FD94 /* LaunchScreen.storyboard */,
+				D4AEC39C2488D0C40063BCC8 /* FSCalendarViewController.swift */,
 				BF31118A244808920015FD94 /* Info.plist */,
 				D4ED512B246E783F006F8FE0 /* InfoPlist.strings */,
 				BF31119224480A930015FD94 /* ListViewController.swift */,
@@ -156,6 +208,17 @@
 			path = image;
 			sourceTree = "<group>";
 		};
+		D4DF65CA24889C33005D0051 /* PetWidget */ = {
+			isa = PBXGroup;
+			children = (
+				D4C214802488BC4E00EC0D4F /* PetWidget.entitlements */,
+				D4DF65CB24889C33005D0051 /* TodayViewController.swift */,
+				D4DF65CD24889C33005D0051 /* MainInterface.storyboard */,
+				D4DF65D024889C33005D0051 /* Info.plist */,
+			);
+			path = PetWidget;
+			sourceTree = "<group>";
+		};
 		ED560A9C6644492210458275 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,15 +241,34 @@
 				BF3111772448088E0015FD94 /* Resources */,
 				436D335B45546BE354353016 /* [CP] Embed Pods Frameworks */,
 				D4CE4970247379110025F277 /* Run Script */,
+				D4DF65D724889C33005D0051 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D4DF65D224889C33005D0051 /* PBXTargetDependency */,
 			);
 			name = NoteApp;
 			productName = NoteApp;
 			productReference = BF3111792448088E0015FD94 /* NoteApp.app */;
 			productType = "com.apple.product-type.application";
+		};
+		D4DF65C624889C33005D0051 /* PetWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4DF65D424889C33005D0051 /* Build configuration list for PBXNativeTarget "PetWidget" */;
+			buildPhases = (
+				D4DF65C324889C33005D0051 /* Sources */,
+				D4DF65C424889C33005D0051 /* Frameworks */,
+				D4DF65C524889C33005D0051 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PetWidget;
+			productName = PetWidget;
+			productReference = D4DF65C724889C33005D0051 /* PetWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -200,6 +282,9 @@
 				TargetAttributes = {
 					BF3111782448088E0015FD94 = {
 						CreatedOnToolsVersion = 11.4;
+					};
+					D4DF65C624889C33005D0051 = {
+						CreatedOnToolsVersion = 11.4.1;
 					};
 				};
 			};
@@ -218,6 +303,7 @@
 			projectRoot = "";
 			targets = (
 				BF3111782448088E0015FD94 /* NoteApp */,
+				D4DF65C624889C33005D0051 /* PetWidget */,
 			);
 		};
 /* End PBXProject section */
@@ -238,6 +324,14 @@
 				BF311186244808920015FD94 /* Assets.xcassets in Resources */,
 				BF3111842448088E0015FD94 /* Main.storyboard in Resources */,
 				D4CE496F247374060025F277 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4DF65C524889C33005D0051 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4DF65CF24889C33005D0051 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +415,7 @@
 				D4936355247FCA5E0050FA64 /* Pet.swift in Sources */,
 				D4C010DF247D382C00A50673 /* EGImageAnnotionView.swift in Sources */,
 				BF3F1EB4244953170016F99D /* NoteViewController.swift in Sources */,
+				D4AEC39D2488D0C40063BCC8 /* FSCalendarViewController.swift in Sources */,
 				D4FE0FAB247D2A68008C6A8A /* MapViewController+LocationSupport.swift in Sources */,
 				D4FE0FA9247D2A42008C6A8A /* MapViewController.swift in Sources */,
 				BF3F1EB22449454A0016F99D /* NoteCell.swift in Sources */,
@@ -328,7 +423,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D4DF65C324889C33005D0051 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4DF65CC24889C33005D0051 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D4DF65D224889C33005D0051 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4DF65C624889C33005D0051 /* PetWidget */;
+			targetProxy = D4DF65D124889C33005D0051 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		BF3111822448088E0015FD94 /* Main.storyboard */ = {
@@ -347,6 +458,14 @@
 				D4ED5126246E74FF006F8FE0 /* zh-Hant */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D4DF65CD24889C33005D0051 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4DF65CE24889C33005D0051 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 		D4ED512B246E783F006F8FE0 /* InfoPlist.strings */ = {
@@ -490,10 +609,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 622C8FD776E086C7281C9703 /* Pods-NoteApp.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NoteApp/NoteApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = YLG64CYQAF;
+				DEVELOPMENT_TEAM = CKXN44F8N2;
 				INFOPLIST_FILE = NoteApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -511,9 +632,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2A3AC010A7572A92FC65EAD8 /* Pods-NoteApp.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NoteApp/NoteApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YLG64CYQAF;
+				DEVELOPMENT_TEAM = CKXN44F8N2;
 				INFOPLIST_FILE = NoteApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -522,6 +645,48 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.iiiedu.lab.NoteApp10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D4DF65D524889C33005D0051 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = PetWidget/PetWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CKXN44F8N2;
+				INFOPLIST_FILE = PetWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.iiiedu.lab.NoteApp10.PetWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D4DF65D624889C33005D0051 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = PetWidget/PetWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CKXN44F8N2;
+				INFOPLIST_FILE = PetWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.iiiedu.lab.NoteApp10.PetWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -544,6 +709,15 @@
 			buildConfigurations = (
 				BF31118E244808920015FD94 /* Debug */,
 				BF31118F244808920015FD94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4DF65D424889C33005D0051 /* Build configuration list for PBXNativeTarget "PetWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4DF65D524889C33005D0051 /* Debug */,
+				D4DF65D624889C33005D0051 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

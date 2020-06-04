@@ -44,7 +44,7 @@ class NoteViewController: UIViewController,UIImagePickerControllerDelegate,UINav
         //CG: Core Graphic是 UIKit的老爸
         self.imageView.layer.cornerRadius = 10
         //self.imageView.clipsToBounds = true
-//        self.imageView.layer.masksToBounds = true //等於self.imageView.clipsToBounds = true
+        //        self.imageView.layer.masksToBounds = true //等於self.imageView.clipsToBounds = true
         
         self.imageView.layer.shadowColor = UIColor.gray.cgColor
         self.imageView.layer.shadowOpacity = 0.8
@@ -122,12 +122,40 @@ class NoteViewController: UIViewController,UIImagePickerControllerDelegate,UINav
         }
     }
     @IBAction func camera(_ sender: Any) {
-        // todo NSPhotoLibraryUsageDescription in the info.plist
-        let imagePicker = UIImagePickerController()//內建裝置課程老師會再講
-        imagePicker.sourceType = .savedPhotosAlbum //從相簿中選照片
-        imagePicker.delegate = self
-        self.present(imagePicker, animated: true, completion: nil)//跳出選照片Controller
         
+        let photoSourceRequestController = UIAlertController(title: "", message: "Choose your photo source", preferredStyle: .actionSheet)
+        
+        let cameraAction = UIAlertAction(title: "Camera", style: .default) { (action) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera){
+                let imagePicker = UIImagePickerController()
+                imagePicker.allowsEditing = false
+                imagePicker.delegate = self
+                imagePicker.sourceType = .camera
+                self.present(imagePicker, animated: true, completion: nil)
+            }
+        }
+        let photoLibraryAction = UIAlertAction(title: "Photo library", style: .default) { (action) in
+            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+                let imagePicker = UIImagePickerController()
+                imagePicker.allowsEditing = false
+                imagePicker.sourceType = .photoLibrary
+                imagePicker.delegate = self
+                
+                self.present(imagePicker, animated: true, completion: nil)
+            }
+        }
+        photoSourceRequestController.addAction(cameraAction)
+        photoSourceRequestController.addAction(photoLibraryAction)
+        
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        photoSourceRequestController.addAction(cancelAction)
+        self.present(photoSourceRequestController, animated: true, completion: nil)
+        
+        // todo NSPhotoLibraryUsageDescription in the info.plist
+        //        let imagePicker = UIImagePickerController()//內建裝置課程老師會再講
+        //        imagePicker.sourceType = .savedPhotosAlbum //從相簿中選照片
+        //        imagePicker.delegate = self
+        //        self.present(imagePicker, animated: true, completion: nil)//跳出選照片Controller
     }
     //MARK: UIImagePickerControllerDelegate
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -141,10 +169,6 @@ class NoteViewController: UIViewController,UIImagePickerControllerDelegate,UINav
         //picker.dismiss(animated: true, completion: nil)
         
     }
-    
-    
-    
-    
     /*
      // MARK: - Navigation
      

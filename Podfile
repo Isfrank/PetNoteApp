@@ -9,4 +9,5 @@ target 'NoteApp' do
 pod 'Firebase/Crashlytics'
 pod 'Firebase/Analytics'
 pod 'Google-Mobile-Ads-SDK'
+pod 'FSCalendar'
 end

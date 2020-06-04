@@ -66,18 +66,18 @@ class PetTableViewController: UITableViewController, UITextFieldDelegate, UIImag
             let diffDateComponents =  Calendar.current.dateComponents([.year,.month,.day], from:now, to: thisYearBirthday)
             self.pet.bdtext = " 距離生日還有\(String(describing: diffDateComponents.month!))個月" + "\(String(describing: diffDateComponents.day!))天"
         }
-        
-        let diffDateComponents = Calendar.current.dateComponents([.month,.day], from:anniversary , to: now)
+        let diffDateComponents = Calendar.current.dateComponents([.year,.month,.day], from:anniversary , to: now)
         //        timeIntervalDisplayLabel.text = "\(String(describing: diffDateComponents.year!))年" + " \(String(describing: diffDateComponents.month!))月" + " \(String(describing: diffDateComponents.day!))日"
         let homeanniversary = homedatePicker.date
         let homediffDateComponents = Calendar.current.dateComponents([.year,.month,.day], from: homeanniversary, to: now)
         
         guard let namepet = self.nameTextField?.text else{return}
         self.pet.petName = namepet
-        //        guard let bdpet = self.bdTextField.text else{return}
-        //        self.pet.age = "今年\(String(describing: diffDateComponents.year!))歲"
-        //        self.pet.bdtext = " 距離生日還有\(String(describing: diffDateComponents.month!))個月" + "\(String(describing: diffDateComponents.day!))天"
-        //        guard let homepet = self.homeTextField.text else{return}
+//        guard var bdpet = self.bdTextField.text else{return}
+//        bdpet = "今年\(String(describing: diffDateComponents.year!))歲"
+        self.pet.age = "今年\(String(describing: diffDateComponents.year!))歲"
+//        self.pet.bdtext = " 距離生日還有\(String(describing: diffDateComponents.month!))個月" + "\(String(describing: diffDateComponents.day!))天"
+//        guard let homepet = self.homeTextField.text else{return}
         self.pet.hometext = "已經陪伴你\(String(describing: homediffDateComponents.year!))年" + "\(String(describing: homediffDateComponents.month!))個月" + "\(String(describing: homediffDateComponents.day!))天"
         self.delegate.didFinishupdate(pet: self.pet)
         self.dismiss(animated: true, completion: nil)

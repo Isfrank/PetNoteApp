@@ -44,6 +44,7 @@ PODS:
     - GoogleUtilities/Environment (~> 6.6)
     - GoogleUtilities/UserDefaults (~> 6.6)
     - PromisesObjC (~> 1.2)
+  - FSCalendar (2.8.1)
   - Google-Mobile-Ads-SDK (7.59.0):
     - GoogleAppMeasurement (~> 6.0)
   - GoogleAppMeasurement (6.5.0):
@@ -85,6 +86,7 @@ PODS:
 DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Crashlytics
+  - FSCalendar
   - Google-Mobile-Ads-SDK
 
 SPEC REPOS:
@@ -97,6 +99,7 @@ SPEC REPOS:
     - FirebaseCoreDiagnosticsInterop
     - FirebaseCrashlytics
     - FirebaseInstallations
+    - FSCalendar
     - Google-Mobile-Ads-SDK
     - GoogleAppMeasurement
     - GoogleDataTransport
@@ -114,6 +117,7 @@ SPEC CHECKSUMS:
   FirebaseCoreDiagnosticsInterop: 296e2c5f5314500a850ad0b83e9e7c10b011a850
   FirebaseCrashlytics: fff345f16a07f0b23cb342d8de5a42cec6de3492
   FirebaseInstallations: 2119fb3e46b0a88bfdbf12562f855ee3252462fa
+  FSCalendar: 5245140456fcbcac5824c203b98bd8068bdfee1a
   Google-Mobile-Ads-SDK: 118217ac8b80e28aabe0c00aedab1cd885857776
   GoogleAppMeasurement: 4c644d86835d827bab30ab6aabb9ecaf1f500735
   GoogleDataTransport: f6f8eba931df03ebd2232ff4645aa85f8f47b5ab
@@ -122,6 +126,6 @@ SPEC CHECKSUMS:
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
 
-PODFILE CHECKSUM: ba5f9040f31de0bd2ca4a763018b70e1f7c5bc5f
+PODFILE CHECKSUM: 8d49cb142535e3af710538e5a013fa300ebe02e0
 
 COCOAPODS: 1.9.1

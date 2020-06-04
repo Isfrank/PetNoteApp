@@ -42,6 +42,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     @IBAction func walkBtn(_ sender: Any) {
         self.dayLabel.text = "0"
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -58,7 +59,8 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.bdLabel.text = pet.bdtext
         self.ageLabel.text = pet.age
         self.homeLabel.text = pet.hometext
-        
+        let userDefaults = UserDefaults(suiteName: "group.org.iiiedu.lab.NoteApp10.PetWidget")
+        userDefaults?.set( self.bdLabel.text, forKey: "bdlabel")
     }
     @IBAction func camera(_ sender: Any) {
         let photoSourceRequestController = UIAlertController(title: "", message: "Choose your photo source", preferredStyle: .actionSheet)
@@ -81,9 +83,13 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         self.present(imagePicker, animated: true, completion: nil)
         }
-        }
+    }
         photoSourceRequestController.addAction(cameraAction)
         photoSourceRequestController.addAction(photoLibraryAction)
+        
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        photoSourceRequestController.addAction(cancelAction)
+        self.present(photoSourceRequestController, animated: true, completion: nil)
 //        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
 //            let imagePicker = UIImagePickerController()//內建裝置課程老師會再講
 //            imagePicker.sourceType = .savedPhotosAlbum //從相簿中選照片
@@ -101,7 +107,10 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         let image = info[.originalImage] as! UIImage//取得使用者選擇的照片
         self.imageView.image = image //放在imageView上
         self.isNewImage = true //表示使用者有選過新照片
-        self.dismiss(animated: true, completion: nil)//關閉UIImagePickerController        
+        
+        let userDefaults = UserDefaults(suiteName: "group.org.iiiedu.lab.NoteApp10.PetWidget")
+        userDefaults?.set( self.imageView.image , forKey: "image")
+        self.dismiss(animated: true, completion: nil)//關閉UIImagePickerController
     }
 }
 /*
