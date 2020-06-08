@@ -18,7 +18,7 @@ class PetTableViewController: UITableViewController, UITextFieldDelegate, UIImag
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var bdTextField: UITextField!
     @IBOutlet weak var homeTextField: UITextField!
-    @IBOutlet weak var timeIntervalDisplayLabel: UILabel!
+    
     //    var data : [Pet] = [] //model:資料用Array來裝，裡面只能放Pet類型的物件
     var pet: Pet!
     weak var delegate: PetTableViewControllerdelegate!
@@ -33,6 +33,8 @@ class PetTableViewController: UITableViewController, UITextFieldDelegate, UIImag
         nameTextField.delegate = self
         bdTextField.delegate = self
         homeTextField.delegate = self
+        bddatePicker.maximumDate = Date()
+        homedatePicker.maximumDate = Date()
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
         self.view.addGestureRecognizer(tap) // to Replace "TouchesBegan"
         
@@ -56,11 +58,12 @@ class PetTableViewController: UITableViewController, UITextFieldDelegate, UIImag
         components.month = Calendar.current.component(.month, from: anniversary)
         components.day = Calendar.current.component(.day, from: anniversary)
         let thisYearBirthday = Calendar.current.date(from: components)!
+        //今年生日比現在時間少
         if  thisYearBirthday.compare(now) == ComparisonResult.orderedAscending {
             components.year = Calendar.current.component(.year, from: now) + 1
             if let nextYearBirthday = Calendar.current.date(from: components){
                 let diffDateComponents = Calendar.current.dateComponents([.month,.day], from: now, to: nextYearBirthday)
-                self.pet.bdtext = " 距離生日還有\(String(describing: diffDateComponents.month!))個月" + "\(String(describing: diffDateComponents.day!))天"
+                self.pet.bdtext = "距離生日還有\(String(describing: diffDateComponents.month!))個月" + "\(String(describing: diffDateComponents.day!))天"
             }
         }else{
             let diffDateComponents =  Calendar.current.dateComponents([.year,.month,.day], from:now, to: thisYearBirthday)

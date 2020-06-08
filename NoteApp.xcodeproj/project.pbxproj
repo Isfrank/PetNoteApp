@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		011F2F812483860F00E90A9B /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F2F802483860F00E90A9B /* PieChartView.swift */; };
 		011F2F832483861600E90A9B /* PieChartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 011F2F822483861600E90A9B /* PieChartView.xib */; };
+		013994FA248CE55B001A3619 /* dog-tags-military.png in Resources */ = {isa = PBXBuildFile; fileRef = 013994F9248CE55A001A3619 /* dog-tags-military.png */; };
 		01836852247EB08F008900CE /* PetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01836851247EB08F008900CE /* PetTableViewController.swift */; };
 		299A412441AD962F8707D7EA /* Pods_NoteApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FADA0D78175C45742B2174F5 /* Pods_NoteApp.framework */; };
 		BF31117D2448088E0015FD94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF31117C2448088E0015FD94 /* AppDelegate.swift */; };
@@ -68,6 +69,7 @@
 /* Begin PBXFileReference section */
 		011F2F802483860F00E90A9B /* PieChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
 		011F2F822483861600E90A9B /* PieChartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PieChartView.xib; sourceTree = "<group>"; };
+		013994F9248CE55A001A3619 /* dog-tags-military.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dog-tags-military.png"; sourceTree = "<group>"; };
 		01836851247EB08F008900CE /* PetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetTableViewController.swift; sourceTree = "<group>"; };
 		2A3AC010A7572A92FC65EAD8 /* Pods-NoteApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoteApp.release.xcconfig"; path = "Target Support Files/Pods-NoteApp/Pods-NoteApp.release.xcconfig"; sourceTree = "<group>"; };
 		622C8FD776E086C7281C9703 /* Pods-NoteApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoteApp.debug.xcconfig"; path = "Target Support Files/Pods-NoteApp/Pods-NoteApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -133,6 +135,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		013994F7248A7D87001A3619 /* Note */ = {
+			isa = PBXGroup;
+			children = (
+				BF31119224480A930015FD94 /* ListViewController.swift */,
+				BF373C262448206D0051387B /* Note.swift */,
+				BF3F1EB12449454A0016F99D /* NoteCell.swift */,
+				BF3F1EB3244953170016F99D /* NoteViewController.swift */,
+			);
+			path = Note;
+			sourceTree = "<group>";
+		};
+		013994F8248A7DA4001A3619 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				D4C010DE247D382C00A50673 /* EGImageAnnotionView.swift */,
+				D4FE0FA8247D2A42008C6A8A /* MapViewController.swift */,
+				D4FE0FAA247D2A68008C6A8A /* MapViewController+LocationSupport.swift */,
+				D4FE0FAC247D2A85008C6A8A /* DispatchQueue+Once.swift */,
+				D4C010D8247D2DD500A50673 /* pointRed.png */,
+				D4C010D9247D2DD600A50673 /* pointRed@2x.png */,
+				D4C010DA247D2DD600A50673 /* pointRed@3x.png */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		12530027D6ACC30B696E8134 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,31 +193,22 @@
 		BF31117B2448088E0015FD94 /* NoteApp */ = {
 			isa = PBXGroup;
 			children = (
+				BF3111822448088E0015FD94 /* Main.storyboard */,
+				013994F7248A7D87001A3619 /* Note */,
 				D4C2147F2488BBE200EC0D4F /* NoteApp.entitlements */,
 				D4A9628D2484FC9E001D0594 /* image */,
 				011F2F822483861600E90A9B /* PieChartView.xib */,
 				011F2F802483860F00E90A9B /* PieChartView.swift */,
 				BF31117C2448088E0015FD94 /* AppDelegate.swift */,
-				BF3111822448088E0015FD94 /* Main.storyboard */,
+				013994F8248A7DA4001A3619 /* Map */,
 				BF311185244808920015FD94 /* Assets.xcassets */,
 				BF311187244808920015FD94 /* LaunchScreen.storyboard */,
 				D4AEC39C2488D0C40063BCC8 /* FSCalendarViewController.swift */,
 				BF31118A244808920015FD94 /* Info.plist */,
 				D4ED512B246E783F006F8FE0 /* InfoPlist.strings */,
-				BF31119224480A930015FD94 /* ListViewController.swift */,
 				D4CE496E247374060025F277 /* GoogleService-Info.plist */,
-				BF373C262448206D0051387B /* Note.swift */,
-				BF3F1EB12449454A0016F99D /* NoteCell.swift */,
-				BF3F1EB3244953170016F99D /* NoteViewController.swift */,
 				BF4D77C22457CDBB0052E461 /* NoteDataModel.xcdatamodeld */,
-				D4C010DE247D382C00A50673 /* EGImageAnnotionView.swift */,
 				BF4D77C52457D4250052E461 /* CoreDataHelper.swift */,
-				D4FE0FA8247D2A42008C6A8A /* MapViewController.swift */,
-				D4FE0FAA247D2A68008C6A8A /* MapViewController+LocationSupport.swift */,
-				D4FE0FAC247D2A85008C6A8A /* DispatchQueue+Once.swift */,
-				D4C010D8247D2DD500A50673 /* pointRed.png */,
-				D4C010D9247D2DD600A50673 /* pointRed@2x.png */,
-				D4C010DA247D2DD600A50673 /* pointRed@3x.png */,
 				D4936354247FCA5E0050FA64 /* Pet.swift */,
 				01836851247EB08F008900CE /* PetTableViewController.swift */,
 				D4ED5131246E7FCF006F8FE0 /* Localizable.strings */,
@@ -203,6 +221,7 @@
 		D4A9628D2484FC9E001D0594 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				013994F9248CE55A001A3619 /* dog-tags-military.png */,
 				D4A9628B2484FC84001D0594 /* dog-park-100.png */,
 			);
 			path = image;
@@ -323,6 +342,7 @@
 				011F2F832483861600E90A9B /* PieChartView.xib in Resources */,
 				BF311186244808920015FD94 /* Assets.xcassets in Resources */,
 				BF3111842448088E0015FD94 /* Main.storyboard in Resources */,
+				013994FA248CE55B001A3619 /* dog-tags-military.png in Resources */,
 				D4CE496F247374060025F277 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

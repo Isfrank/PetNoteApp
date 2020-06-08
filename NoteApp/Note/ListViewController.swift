@@ -21,7 +21,8 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
     @IBOutlet weak var tableView: UITableView!
     
     var data : [Note] = []//model:資料用Array來裝，裏面只能放Note類型的物件
-    
+    var searchResults :[Note]  = []
+    var searchController: UISearchController!
     //storyboard會呼叫
     //xib
     
@@ -77,7 +78,19 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
         self.bannerView.delegate = self
         self.bannerView.rootViewController = self
         self.bannerView.load(GADRequest())
+        searchController = UISearchController(searchResultsController: nil)
+        self.navigationItem.searchController = searchController
     }
+    func filterContent(searchText: String){
+        searchResults = searchResults.filter({ (Note) -> Bool in
+            if let text = Note.text {
+                let isMatch = text.localizedCaseInsensitiveContains(searchText)
+                return isMatch
+            }
+            return false
+        })
+    }
+    
     //廣告進來時會呼叫,GADBannerViewDelegate
     func adViewDidReceiveAd(_ bannerView: GADBannerView) {
         //self.tableView.tableHeaderView = self.bannerView
@@ -134,7 +147,11 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
     
     // MARK: UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.data.count
+        if searchController.isActive{
+            return searchResults.count
+        }else{
+            return self.data.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -157,7 +174,7 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
         //cell.accessoryView = UISwitch()
         
         let now = Date()
-        //cell.detailTextLabel?.text = DateFormatter.localizedString(from: now, dateStyle: .medium, timeStyle: .short)
+        cell.detailTextLabel?.text = DateFormatter.localizedString(from: now, dateStyle: .medium, timeStyle: .short)
         
         let dataformatter = DateFormatter()
         let calendar = Calendar(identifier: .republicOfChina) //民國
@@ -167,8 +184,9 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
         dataformatter.timeStyle = .short
         cell.detailTextLabel?.text = dataformatter.string(from: now)
         
-        cell.detailTextLabel?.text = NumberFormatter.localizedString(from: 1234.56, number: .currencyAccounting)
         
+//        cell.detailTextLabel?.text = NumberFormatter.localizedString(from: 1234.56, number: .currencyAccounting)
+//
         return cell
         
     }
@@ -424,7 +442,16 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
 extension Notification.Name{
     static let noteUpdated = Notification.Name("noteUpdated")
 }
-
+extension ListViewController: NSFetchedResultsControllerDelegate, UISearchResultsUpdating{
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text{
+            filterContent(searchText: searchText)
+            tableView.reloadData()
+        }
+    }
+    
+    
+}
 
 
 

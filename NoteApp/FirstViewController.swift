@@ -59,6 +59,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.bdLabel.text = pet.bdtext
         self.ageLabel.text = pet.age
         self.homeLabel.text = pet.hometext
+        
         let userDefaults = UserDefaults(suiteName: "group.org.iiiedu.lab.NoteApp10.PetWidget")
         userDefaults?.set( self.bdLabel.text, forKey: "bdlabel")
     }
@@ -108,9 +109,33 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.imageView.image = image //放在imageView上
         self.isNewImage = true //表示使用者有選過新照片
         
-        let userDefaults = UserDefaults(suiteName: "group.org.iiiedu.lab.NoteApp10.PetWidget")
-        userDefaults?.set( self.imageView.image , forKey: "image")
+        save(image: self.imageView.image)
+        
+        let path = NSHomeDirectory() + "/Documents/Main.jpg"
+        let url = URL(fileURLWithPath: path)
+        do {
+            let data = try Data(contentsOf: url)
+            let myUserDefault = UserDefaults(suiteName: "group.org.iiiedu.lab.NoteApp10.PetWidget")
+            myUserDefault?.set(data, forKey: "image")
+        }catch{
+            print("error \(error.localizedDescription)")
+        }
         self.dismiss(animated: true, completion: nil)//關閉UIImagePickerController
+    }
+    func save (image: UIImage?){
+        let jpgData = image?.jpegData(compressionQuality: 0.8)
+
+        guard let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else{
+            assertionFailure("Fail tp get documents url.")
+            return
+        }
+
+        let finalUrl = url.appendingPathComponent("Main.jpg")
+        do{
+            try jpgData?.write(to: finalUrl)
+        }catch{
+            print(error.localizedDescription)
+        }
     }
 }
 /*
