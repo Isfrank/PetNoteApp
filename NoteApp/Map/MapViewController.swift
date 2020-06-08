@@ -50,7 +50,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             showNearBy(searchName: "公園")
         default:
             showNearBy(searchName: "寵物用品")
-
         }
         
     }
