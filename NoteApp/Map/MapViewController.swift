@@ -36,6 +36,24 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         mainMapView.addAnnotation(annotation)
     }
     
+    @IBAction func modeChanged(_ sender: UISegmentedControl) {
+        
+        let targetIndex = sender.selectedSegmentIndex
+        
+        switch targetIndex {
+            
+        case 0:
+           showNearBy(searchName: "寵物用品")
+        case 1:
+            showNearBy(searchName: "寵物餐廳")
+        case 2:
+            showNearBy(searchName: "公園")
+        default:
+            showNearBy(searchName: "寵物用品")
+
+        }
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         //定位是否有開 沒開return提示給他 , Class method , Class function, 用一下就不用了就不用new一個物件, 全域

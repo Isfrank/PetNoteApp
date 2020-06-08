@@ -63,7 +63,8 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.navigationItem.title = NSLocalizedString("list", comment: "aaac")
-        
+        self.tableView.rowHeight = 70
+
         //iOS 11以上的環境才會執行
         if #available(iOS 11.0, *){
             self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -166,7 +167,14 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
         let note = self.data[indexPath.row]//如果傳入的位置是(s:0,row:0)，那就取self.data[0]
         
         cell.textLabel?.text = note.text
-        cell.imageView?.image = note.thumbnailImage()
+        if note.imageName != nil {
+            cell.imageView?.image = note.thumbnailImage()
+        }else{
+            cell.imageView?.image = UIImage(named: "dog-park-100.png")
+        }
+        cell.showsReorderControl = true
+        cell.selectedBackgroundView?.backgroundColor = .blue
+//        cell.imageView?.image = note.thumbnailImage()
         //cell.myLabel?.text = note.text
         
         cell.showsReorderControl = true
