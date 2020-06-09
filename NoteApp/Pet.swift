@@ -17,6 +17,10 @@ class Pet: NSManagedObject{
     @NSManaged var age: String?
     @NSManaged var bdtext: String?
     @NSManaged var hometext: String?
+    @NSManaged var birthdayPicker :Date?
+    @NSManaged var homePicker :Date?
+    @NSManaged var lastwalkDate :Date?
+
     override func awakeFromInsert() {
         self.petID = UUID().uuidString
     }
@@ -31,4 +35,5 @@ class Pet: NSManagedObject{
         }
         return nil
     }
+    
 }

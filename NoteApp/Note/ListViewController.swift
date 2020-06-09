@@ -165,7 +165,7 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
         
         
         let note = self.data[indexPath.row]//如果傳入的位置是(s:0,row:0)，那就取self.data[0]
-        
+
         cell.textLabel?.text = note.text
         if note.imageName != nil {
             cell.imageView?.image = note.thumbnailImage()
@@ -191,7 +191,7 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
         dataformatter.dateStyle = .long
         dataformatter.timeStyle = .short
         cell.detailTextLabel?.text = dataformatter.string(from: now)
-        
+        note.date = cell.detailTextLabel?.text
         
 //        cell.detailTextLabel?.text = NumberFormatter.localizedString(from: 1234.56, number: .currencyAccounting)
 //

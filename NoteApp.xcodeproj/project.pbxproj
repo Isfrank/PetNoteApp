@@ -23,6 +23,7 @@
 		BF4D77C42457CDBB0052E461 /* NoteDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF4D77C22457CDBB0052E461 /* NoteDataModel.xcdatamodeld */; };
 		BF4D77C62457D4250052E461 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D77C52457D4250052E461 /* CoreDataHelper.swift */; };
 		D40205F1247F74FD00FF1898 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40205F0247F74FD00FF1898 /* FirstViewController.swift */; };
+		D46ED7C1248F2D7F00D5595A /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46ED7C0248F2D7F00D5595A /* Camera.swift */; };
 		D4936355247FCA5E0050FA64 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4936354247FCA5E0050FA64 /* Pet.swift */; };
 		D4A9628C2484FC85001D0594 /* dog-park-100.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A9628B2484FC84001D0594 /* dog-park-100.png */; };
 		D4AEC39D2488D0C40063BCC8 /* FSCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AEC39C2488D0C40063BCC8 /* FSCalendarViewController.swift */; };
@@ -87,6 +88,7 @@
 		BF4D77C52457D4250052E461 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		BF4D77C72457FF0C0052E461 /* 2.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = 2.0.xcdatamodel; sourceTree = "<group>"; };
 		D40205F0247F74FD00FF1898 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		D46ED7C0248F2D7F00D5595A /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		D4936354247FCA5E0050FA64 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		D4A9628B2484FC84001D0594 /* dog-park-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dog-park-100.png"; sourceTree = "<group>"; };
 		D4AEC39C2488D0C40063BCC8 /* FSCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSCalendarViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 		BF3111702448088E0015FD94 = {
 			isa = PBXGroup;
 			children = (
+				D46ED7C0248F2D7F00D5595A /* Camera.swift */,
 				BF31117B2448088E0015FD94 /* NoteApp */,
 				ED560A9C6644492210458275 /* Pods */,
 				D4DF65CA24889C33005D0051 /* PetWidget */,
@@ -430,6 +433,7 @@
 				BF4D77C62457D4250052E461 /* CoreDataHelper.swift in Sources */,
 				BF31119324480A930015FD94 /* ListViewController.swift in Sources */,
 				D40205F1247F74FD00FF1898 /* FirstViewController.swift in Sources */,
+				D46ED7C1248F2D7F00D5595A /* Camera.swift in Sources */,
 				011F2F812483860F00E90A9B /* PieChartView.swift in Sources */,
 				BF373C272448206D0051387B /* Note.swift in Sources */,
 				D4936355247FCA5E0050FA64 /* Pet.swift in Sources */,

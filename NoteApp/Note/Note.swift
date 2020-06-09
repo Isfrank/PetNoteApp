@@ -50,6 +50,7 @@ class Note : NSManagedObject {
     @NSManaged var noteID : String //id一定要有，所以沒有用optional
     @NSManaged var text : String? //文字可能為空白，用optional
     @NSManaged var imageName : String?//照片檔名（noteID.jpg or ni)
+    @NSManaged var date : String?//照片檔名（noteID.jpg or ni)
 
     //var image : UIImage?//image可能為空的，用optional
     

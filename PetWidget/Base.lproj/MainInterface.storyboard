@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -15,24 +15,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="370" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xu5-kp-aRu">
-                                <rect key="frame" x="0.0" y="8" width="370" height="304"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tLc-cG-mVv">
-                                <rect key="frame" x="0.0" y="15" width="338" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BD" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tLc-cG-mVv">
+                                <rect key="frame" x="16" y="15" width="23" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aft-TO-Jlw">
+                                <rect key="frame" x="16" y="43" width="44" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xu5-kp-aRu">
+                                <rect key="frame" x="0.0" y="35" width="370" height="265"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="tLc-cG-mVv" firstAttribute="top" secondItem="xu5-kp-aRu" secondAttribute="bottom" constant="8" id="9L5-KB-HSd"/>
-                            <constraint firstItem="xu5-kp-aRu" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="topMargin" constant="-36" id="A5i-El-GEN"/>
-                            <constraint firstItem="xu5-kp-aRu" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="F57-R1-C6X"/>
-                            <constraint firstItem="xu5-kp-aRu" firstAttribute="centerX" secondItem="tLc-cG-mVv" secondAttribute="centerX" id="G33-dD-GW6"/>
-                            <constraint firstItem="xu5-kp-aRu" firstAttribute="centerY" secondItem="S3S-Oj-5AN" secondAttribute="centerY" id="aTw-AN-jdz"/>
-                            <constraint firstItem="xu5-kp-aRu" firstAttribute="centerX" secondItem="S3S-Oj-5AN" secondAttribute="centerX" id="oO3-EV-w3R"/>
+                            <constraint firstItem="ssy-KU-ocm" firstAttribute="bottom" secondItem="xu5-kp-aRu" secondAttribute="bottom" constant="20" id="0J1-6y-1fQ"/>
+                            <constraint firstItem="tLc-cG-mVv" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" constant="16" id="APg-rL-2ZM"/>
+                            <constraint firstItem="tLc-cG-mVv" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="top" constant="15" id="BOv-s3-E6N"/>
+                            <constraint firstItem="xu5-kp-aRu" firstAttribute="trailing" secondItem="ssy-KU-ocm" secondAttribute="trailing" id="F7T-LA-Pc7"/>
+                            <constraint firstItem="xu5-kp-aRu" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="Oam-vx-mEL"/>
+                            <constraint firstItem="xu5-kp-aRu" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="top" constant="35" id="SbJ-N5-cXt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ssy-KU-ocm"/>
                     </view>
@@ -41,6 +48,7 @@
                     <size key="freeformSize" width="370" height="320"/>
                     <connections>
                         <outlet property="bdLabelWidget" destination="tLc-cG-mVv" id="zif-ao-lh0"/>
+                        <outlet property="homeLabel" destination="Aft-TO-Jlw" id="M8t-D4-rSn"/>
                         <outlet property="imageView" destination="xu5-kp-aRu" id="otT-Pf-YvY"/>
                     </connections>
                 </viewController>

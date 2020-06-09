@@ -15,6 +15,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var bdLabelWidget: UILabel!
     @IBOutlet weak var dataLabel: UILabel!
+    @IBOutlet weak var homeLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -22,6 +24,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         let userDefaults = UserDefaults(suiteName: "group.org.iiiedu.lab.NoteApp10.PetWidget")
         if let bdlabel = userDefaults?.string(forKey: "bdlabel"){
             self.bdLabelWidget.text = bdlabel
+        }
+        if let homelabel = userDefaults?.string(forKey: "homelabel"){
+                   self.homeLabel.text = homelabel
+               }
             let myUserDefault = UserDefaults(suiteName: "group.org.iiiedu.lab.NoteApp10.PetWidget")
             
             if let viewimage = myUserDefault?.data(forKey: "image"){
@@ -30,7 +36,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                 print("Fail")
                 imageView.image = UIImage(named: "setup.png")
             }
-        }
+        
         
     }
     override func viewDidAppear(_ animated: Bool) {

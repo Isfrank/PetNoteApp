@@ -72,7 +72,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         LocationManager.startUpdatingLocation()
         LocationManager.allowsBackgroundLocationUpdates = true
         mainMapView.delegate = self
-
+        
     }
     func showNearBy(searchName: String){
         self.nearbyAnnotations = []

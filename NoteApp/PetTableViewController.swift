@@ -18,6 +18,7 @@ class PetTableViewController: UITableViewController, UITextFieldDelegate, UIImag
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var bdTextField: UITextField!
     @IBOutlet weak var homeTextField: UITextField!
+   
     
     //    var data : [Pet] = [] //model:資料用Array來裝，裡面只能放Pet類型的物件
     var pet: Pet!
@@ -28,6 +29,35 @@ class PetTableViewController: UITableViewController, UITextFieldDelegate, UIImag
     let now = Date()
     
     
+    @IBAction func imageBtn(_ sender: Any) {
+        let photoSourceRequestController = UIAlertController(title: "", message: "Choose your photo source", preferredStyle: .actionSheet)
+        
+        let cameraAction = UIAlertAction(title: "Camera", style: .default) { (action) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera){
+                let imagePicker = UIImagePickerController()
+                imagePicker.allowsEditing = false
+                imagePicker.delegate = self
+                imagePicker.sourceType = .camera
+                self.present(imagePicker, animated: true, completion: nil)
+            }
+        }
+        let photoLibraryAction = UIAlertAction(title: "Photo library", style: .default) { (action) in
+            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+                let imagePicker = UIImagePickerController()
+                imagePicker.allowsEditing = false
+                imagePicker.sourceType = .photoLibrary
+                imagePicker.delegate = self
+                
+                self.present(imagePicker, animated: true, completion: nil)
+            }
+        }
+        photoSourceRequestController.addAction(cameraAction)
+        photoSourceRequestController.addAction(photoLibraryAction)
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        photoSourceRequestController.addAction(cancelAction)
+        self.present(photoSourceRequestController, animated: true, completion: nil)
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         nameTextField.delegate = self
@@ -46,14 +76,24 @@ class PetTableViewController: UITableViewController, UITextFieldDelegate, UIImag
         bddatePicker.reloadInputViews()
         homedatePicker.reloadInputViews()
         addDoneButtonOnKeyboard()
-        
         photoImageView.isUserInteractionEnabled = true
+        
+        
     }
     @IBAction func Done(_ sender: Any) {
+        if self.nameTextField.text?.isEmpty == true || self.bdTextField.text?.isEmpty == true || self.homeTextField.text?.isEmpty == true {
+        let controller = UIAlertController(title: "不可以有空格", message: "請輸入完成", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        controller.addAction(okAction)
+        present(controller, animated: true, completion: nil)
+            return
+    }
         let now = Date()
         let anniversary = bddatePicker.date
         var components = DateComponents()
         self.pet = Pet(context: CoreDataHelper.shared.managedObjectContext())
+        //birthday
+        self.pet.birthdayPicker = anniversary
         components.year = Calendar.current.component(.year, from: now)
         components.month = Calendar.current.component(.month, from: anniversary)
         components.day = Calendar.current.component(.day, from: anniversary)
@@ -69,22 +109,26 @@ class PetTableViewController: UITableViewController, UITextFieldDelegate, UIImag
             let diffDateComponents =  Calendar.current.dateComponents([.year,.month,.day], from:now, to: thisYearBirthday)
             self.pet.bdtext = " 距離生日還有\(String(describing: diffDateComponents.month!))個月" + "\(String(describing: diffDateComponents.day!))天"
         }
+        //how old
         let diffDateComponents = Calendar.current.dateComponents([.year,.month,.day], from:anniversary , to: now)
+        self.pet.age = "今年\(String(describing: diffDateComponents.year!))歲"
         //        timeIntervalDisplayLabel.text = "\(String(describing: diffDateComponents.year!))年" + " \(String(describing: diffDateComponents.month!))月" + " \(String(describing: diffDateComponents.day!))日"
+        //home
         let homeanniversary = homedatePicker.date
+        self.pet.homePicker = homeanniversary
         let homediffDateComponents = Calendar.current.dateComponents([.year,.month,.day], from: homeanniversary, to: now)
         
         guard let namepet = self.nameTextField?.text else{return}
         self.pet.petName = namepet
 //        guard var bdpet = self.bdTextField.text else{return}
 //        bdpet = "今年\(String(describing: diffDateComponents.year!))歲"
-        self.pet.age = "今年\(String(describing: diffDateComponents.year!))歲"
 //        self.pet.bdtext = " 距離生日還有\(String(describing: diffDateComponents.month!))個月" + "\(String(describing: diffDateComponents.day!))天"
 //        guard let homepet = self.homeTextField.text else{return}
         self.pet.hometext = "已經陪伴你\(String(describing: homediffDateComponents.year!))年" + "\(String(describing: homediffDateComponents.month!))個月" + "\(String(describing: homediffDateComponents.day!))天"
         self.delegate.didFinishupdate(pet: self.pet)
+        CoreDataHelper.shared.saveContext()
         self.dismiss(animated: true, completion: nil)
-    }
+}
     //    MARK: DatePicker
     func addDoneButtonOnKeyboard() {
         let doneToolbar = UIToolbar()
@@ -99,7 +143,7 @@ class PetTableViewController: UITableViewController, UITextFieldDelegate, UIImag
         self.bdTextField.inputAccessoryView = doneToolbar
         self.homeTextField.inputAccessoryView = doneToolbar
     }
-    
+
     @objc func doneButtonAction() {
         
         if let datePickerView = self.bdTextField.inputView as? UIDatePicker, self.bdTextField.isFirstResponder {
@@ -129,34 +173,37 @@ class PetTableViewController: UITableViewController, UITextFieldDelegate, UIImag
         self.view.endEditing(true)
     }
     // MARK: - Table view data source
-    /*override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-     if indexPath.row == 0 {
-     let photoSourceRequestController = UIAlertController(title: "", message: "Choose your photo source", preferredStyle: .actionSheet)
-     
-     let cameraAction = UIAlertAction(title: "Camera", style: .default) { (action) in
-     if UIImagePickerController.isSourceTypeAvailable(.camera){
-     let imagePicker = UIImagePickerController()
-     imagePicker.allowsEditing = false
-     imagePicker.delegate = self
-     imagePicker.sourceType = .camera
-     self.present(imagePicker, animated: true, completion: nil)
-     }
-     }
-     let photoLibraryAction = UIAlertAction(title: "Photo library", style: .default) { (action) in
-     if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
-     let imagePicker = UIImagePickerController()
-     imagePicker.allowsEditing = false
-     imagePicker.sourceType = .photoLibrary
-     imagePicker.delegate = self
-     
-     self.present(imagePicker, animated: true, completion: nil)
-     }
-     }
-     photoSourceRequestController.addAction(cameraAction)
-     photoSourceRequestController.addAction(photoLibraryAction)
-     
-     }
-     }*/
+    /*
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            let photoSourceRequestController = UIAlertController(title: "", message: "Choose your photo source", preferredStyle: .actionSheet)
+            
+            let cameraAction = UIAlertAction(title: "Camera", style: .default) { (action) in
+                if UIImagePickerController.isSourceTypeAvailable(.camera){
+                    let imagePicker = UIImagePickerController()
+                    imagePicker.allowsEditing = false
+                    imagePicker.delegate = self
+                    imagePicker.sourceType = .camera
+                    self.present(imagePicker, animated: true, completion: nil)
+                }
+            }
+            let photoLibraryAction = UIAlertAction(title: "Photo library", style: .default) { (action) in
+                if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+                    let imagePicker = UIImagePickerController()
+                    imagePicker.allowsEditing = false
+                    imagePicker.sourceType = .photoLibrary
+                    imagePicker.delegate = self
+                    
+                    self.present(imagePicker, animated: true, completion: nil)
+                }
+            }
+            photoSourceRequestController.addAction(cameraAction)
+            photoSourceRequestController.addAction(photoLibraryAction)
+            let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+            photoSourceRequestController.addAction(cancelAction)
+            self.present(photoSourceRequestController, animated: true, completion: nil)
+        }
+    }*/
     //MARK: UIImagePickerControllerDelegate
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let selectedImage = info[.originalImage] as? UIImage{
