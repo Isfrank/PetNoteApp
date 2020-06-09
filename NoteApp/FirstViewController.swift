@@ -20,6 +20,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var todayDate: UILabel!
     @IBOutlet weak var lastWalkDay: UILabel!
+    @IBOutlet weak var addBtn: UIButton!
     var birthdatPicker: Date?
     var homePicker: Date?
     let now = Date()
@@ -42,7 +43,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         print(today)
         let modifiedDate = Calendar.current.date(byAdding: .day, value: 1, to: today)!
         print(modifiedDate)
-        
+        //query
         let request = NSFetchRequest<Pet>(entityName: "Pet")
         do{
             data = try CoreDataHelper.shared.managedObjectContext().fetch(request)
@@ -80,6 +81,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.homeLabel.text = pet.hometext
         self.birthdatPicker = pet.birthdayPicker
         self.homePicker = pet.homePicker
+//        self.addBtn.imageView?.image = pet.
         let userDefaults = UserDefaults(suiteName: "group.org.iiiedu.lab.NoteApp10.PetWidget")
         userDefaults?.set( self.bdLabel.text, forKey: "bdlabel")
         CoreDataHelper.shared.saveContext()
