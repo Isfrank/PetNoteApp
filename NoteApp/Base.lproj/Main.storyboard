@@ -444,6 +444,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="首頁" image="house" catalog="system" id="mTB-Ng-sMV"/>
                     <connections>
+                        <outlet property="addBtn" destination="fJr-mK-5Ve" id="kFF-lz-VhE"/>
                         <outlet property="ageLabel" destination="0dW-Et-phU" id="OIg-O0-boU"/>
                         <outlet property="bdLabel" destination="p55-HX-YdT" id="rON-rv-dF5"/>
                         <outlet property="homeLabel" destination="Z6F-Rl-srU" id="zE8-jn-yNQ"/>
@@ -485,24 +486,26 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5Hk-e2-oQv">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5Hk-e2-oQv">
                                                     <rect key="frame" x="16" y="13" width="343" height="164"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q9W-9g-UWR">
-                                                    <rect key="frame" x="16" y="11" width="343" height="167"/>
-                                                    <state key="normal" title="Button"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                                     <connections>
                                                         <action selector="imageBtn:" destination="AM3-r8-Idg" eventType="touchUpInside" id="yK1-iM-TEM"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Q9W-9g-UWR" secondAttribute="bottom" constant="11" id="6ec-1y-qPi"/>
-                                                <constraint firstItem="Q9W-9g-UWR" firstAttribute="leading" secondItem="YdY-bx-eph" secondAttribute="leadingMargin" id="EtN-9h-yVi"/>
-                                                <constraint firstItem="Q9W-9g-UWR" firstAttribute="trailing" secondItem="YdY-bx-eph" secondAttribute="trailingMargin" id="baz-D6-T3E"/>
-                                                <constraint firstItem="Q9W-9g-UWR" firstAttribute="top" secondItem="YdY-bx-eph" secondAttribute="topMargin" id="gYT-l0-S0m"/>
+                                                <constraint firstAttribute="bottom" secondItem="Q9W-9g-UWR" secondAttribute="bottom" id="Ush-QX-IZb"/>
+                                                <constraint firstItem="5Hk-e2-oQv" firstAttribute="top" secondItem="YdY-bx-eph" secondAttribute="topMargin" constant="0.33000000000000002" id="WPd-1g-LyG"/>
+                                                <constraint firstItem="5Hk-e2-oQv" firstAttribute="leading" secondItem="YdY-bx-eph" secondAttribute="leadingMargin" id="bSg-KX-WFD"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="5Hk-e2-oQv" secondAttribute="bottom" constant="10.67" id="cuM-ei-ckk"/>
+                                                <constraint firstItem="5Hk-e2-oQv" firstAttribute="trailing" secondItem="YdY-bx-eph" secondAttribute="trailingMargin" id="d7o-bH-JTx"/>
+                                                <constraint firstAttribute="trailing" secondItem="Q9W-9g-UWR" secondAttribute="trailing" id="fgN-S5-fFi"/>
+                                                <constraint firstItem="Q9W-9g-UWR" firstAttribute="top" secondItem="YdY-bx-eph" secondAttribute="top" id="gin-N2-3sK"/>
+                                                <constraint firstItem="Q9W-9g-UWR" firstAttribute="leading" secondItem="YdY-bx-eph" secondAttribute="leading" id="pLN-uR-VKP"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>

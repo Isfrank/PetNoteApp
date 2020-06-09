@@ -181,17 +181,20 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
         //cell.accessoryType = .disclosureIndicator
         //cell.accessoryView = UISwitch()
         
-        let now = Date()
-        cell.detailTextLabel?.text = DateFormatter.localizedString(from: now, dateStyle: .medium, timeStyle: .short)
         
-        let dataformatter = DateFormatter()
-        let calendar = Calendar(identifier: .republicOfChina) //民國
-        //let calendar = Calendar(identifier: .chinese) //農民歷
-        dataformatter.calendar = calendar //沒有設定日曆,會以手機的為主,通常是西歷
-        dataformatter.dateStyle = .long
-        dataformatter.timeStyle = .short
-        cell.detailTextLabel?.text = dataformatter.string(from: now)
-        note.date = cell.detailTextLabel?.text
+        cell.detailTextLabel?.text = note.date
+
+//        let now = Date()
+//        cell.detailTextLabel?.text = DateFormatter.localizedString(from: now, dateStyle: .medium, timeStyle: .short)
+        
+//        let dataformatter = DateFormatter()
+//        let calendar = Calendar(identifier: .republicOfChina) //民國
+//        //let calendar = Calendar(identifier: .chinese) //農民歷
+//        dataformatter.calendar = calendar //沒有設定日曆,會以手機的為主,通常是西歷
+//        dataformatter.dateStyle = .long
+//        dataformatter.timeStyle = .short
+//        cell.detailTextLabel?.text = dataformatter.string(from: now)
+//        note.date = cell.detailTextLabel?.text
         
 //        cell.detailTextLabel?.text = NumberFormatter.localizedString(from: 1234.56, number: .currencyAccounting)
 //
@@ -298,10 +301,11 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
         //let predicate = NSPredicate(format: "text contains[cd] %@", "Note")//like
         //let predicate = NSPredicate(format: "text like %@", "*Note*")//like
         //fetchRequest.predicate = predicate
-        //排序
-        let sort = NSSortDescriptor(key: "text", ascending: true)//根據text欄位排序，由小到大
-        fetchRequest.sortDescriptors = [sort]
-        
+//        //排序
+//        let sort = NSSortDescriptor(key: "text", ascending: true)//根據text欄位排序，由小到大
+//        fetchRequest.sortDescriptors = [sort]
+        let sortDescriptor = NSSortDescriptor(key: "coreDate", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
         
         moc.performAndWait {
             do{
@@ -348,6 +352,9 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
         //新增至第一筆
         self.data.insert(note, at: 0)//array中的位置
         //self.writeToFile()
+        let now = Date()
+        note.date = DateFormatter.localizedString(from: now, dateStyle: .full, timeStyle: .short)
+        note.coreDate = now
         self.saveToCoreData()
         
         let indexPath = IndexPath(row: 0, section: 0)//畫面上index =10
