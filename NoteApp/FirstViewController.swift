@@ -81,7 +81,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.homeLabel.text = pet.hometext
         self.birthdatPicker = pet.birthdayPicker
         self.homePicker = pet.homePicker
-//        self.addBtn.imageView?.image = pet.
+        self.addBtn.imageView?.image = pet.petimage()
         let userDefaults = UserDefaults(suiteName: "group.org.iiiedu.lab.NoteApp10.PetWidget")
         userDefaults?.set( self.bdLabel.text, forKey: "bdlabel")
         CoreDataHelper.shared.saveContext()
@@ -131,7 +131,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         userDefaults?.set( self.homeLabel.text, forKey: "homelabel")
         CoreDataHelper.shared.saveContext()
         //walk
-        var pet = data[0]
+        let pet = data[0]
         guard let walk = pet.lastwalkDate else {
             print("Fail to lastwalkDate.")
             return

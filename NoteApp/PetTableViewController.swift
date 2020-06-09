@@ -27,7 +27,7 @@ class PetTableViewController: UITableViewController, UITextFieldDelegate, UIImag
     let bddatePicker = UIDatePicker()
     let homedatePicker = UIDatePicker()
     let now = Date()
-    
+    var isNewImage : Bool = false
     
     @IBAction func imageBtn(_ sender: Any) {
         let photoSourceRequestController = UIAlertController(title: "", message: "Choose your photo source", preferredStyle: .actionSheet)
@@ -88,10 +88,28 @@ class PetTableViewController: UITableViewController, UITextFieldDelegate, UIImag
         present(controller, animated: true, completion: nil)
             return
     }
+        self.pet = Pet(context: CoreDataHelper.shared.managedObjectContext())
+        if self.isNewImage {
+            //image寫到檔案中  c:\iOS\Documents\uuidxxxxxxx.jpg
+            let homeURL = URL(fileURLWithPath: NSHomeDirectory()) //取得Sandbox
+            let documents = homeURL.appendingPathComponent("Documents") //取得Documents目錄位置
+            
+            let fileName = "\(self.pet.petID).jpg"
+            
+            let fileURL = documents.appendingPathComponent(fileName)// Documents/xxxx.jpg
+            
+            if let imageData = self.photoImageView.image?.jpegData(compressionQuality: 1){
+                do {
+                    try imageData.write(to: fileURL, options: [.atomicWrite])
+                    self.pet.petimageName = fileName
+                }catch{
+                    print("error saving photo \(error)")
+                }
+            }
+        }
         let now = Date()
         let anniversary = bddatePicker.date
         var components = DateComponents()
-        self.pet = Pet(context: CoreDataHelper.shared.managedObjectContext())
         //birthday
         self.pet.birthdayPicker = anniversary
         components.year = Calendar.current.component(.year, from: now)
@@ -210,7 +228,7 @@ class PetTableViewController: UITableViewController, UITextFieldDelegate, UIImag
             photoImageView.image = selectedImage
             let image = selectedImage
             let imageData = image.jpegData(compressionQuality: 32)
-            
+            self.isNewImage = true //表示使用者有選過新照片
             photoImageView.contentMode = .scaleToFill
             photoImageView.clipsToBounds = true
         }
