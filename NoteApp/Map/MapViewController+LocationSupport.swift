@@ -21,7 +21,7 @@ extension MapViewController : CLLocationManagerDelegate{
             guard let coordinate = locations.last?.coordinate else{
                 return
             }
-            print("Coordinate: \(coordinate.latitude ),\(coordinate.longitude)")
+            print("Use location Coordinate: \(coordinate.latitude ),\(coordinate.longitude)")
             
             DispatchQueue.once(token:"Co"){
                  addAnnoatation(coordinate: coordinate)

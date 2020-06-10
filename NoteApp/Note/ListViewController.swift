@@ -21,8 +21,11 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
     @IBOutlet weak var tableView: UITableView!
     
     var data : [Note] = []//model:資料用Array來裝，裏面只能放Note類型的物件
-    var searchResults :[Note]  = []
+    var filteredNotes :[Note]  = []
     var searchController: UISearchController!
+    var isSearchBarEmpty: Bool {
+      return searchController.searchBar.text?.isEmpty ?? true
+    }
     //storyboard會呼叫
     //xib
     
@@ -79,11 +82,18 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
         self.bannerView.delegate = self
         self.bannerView.rootViewController = self
         self.bannerView.load(GADRequest())
-        searchController = UISearchController(searchResultsController: nil)
+        //search
+        self.searchController = UISearchController(searchResultsController: nil)
+        self.searchController.searchBar.sizeToFit()
+        self.searchController.searchBar.delegate = self
+        self.searchController.searchResultsUpdater = self
+        self.searchController.obscuresBackgroundDuringPresentation = false
+        self.searchController.searchBar.placeholder = "Search text"
         self.navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
     func filterContent(searchText: String){
-        searchResults = searchResults.filter({ (Note) -> Bool in
+        filteredNotes = filteredNotes.filter({ (Note) -> Bool in
             if let text = Note.text {
                 let isMatch = text.localizedCaseInsensitiveContains(searchText)
                 return isMatch
@@ -149,7 +159,7 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
     // MARK: UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchController.isActive{
-            return searchResults.count
+            return filteredNotes.count
         }else{
             return self.data.count
         }
@@ -162,7 +172,18 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
         let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath)//storyboard作法 「留意」：noteCell 一定要定義在storyboard上
         
         //let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! NoteCell//子類別，多型
-        
+        if (searchController.isActive) {
+            cell.textLabel?.text = filteredNotes[indexPath.row].text
+            if filteredNotes[indexPath.row].imageName != nil {
+                cell.imageView?.image = filteredNotes[indexPath.row].thumbnailImage()
+            }else{
+                cell.imageView?.image = UIImage(named: "dog-park-100.png")
+            }
+            cell.showsReorderControl = true
+            cell.selectedBackgroundView?.backgroundColor = .blue
+            cell.detailTextLabel?.text = filteredNotes[indexPath.row].date
+            return cell
+        }else{
         
         let note = self.data[indexPath.row]//如果傳入的位置是(s:0,row:0)，那就取self.data[0]
 
@@ -199,7 +220,7 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
 //        cell.detailTextLabel?.text = NumberFormatter.localizedString(from: 1234.56, number: .currencyAccounting)
 //
         return cell
-        
+        }
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -457,7 +478,8 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
 extension Notification.Name{
     static let noteUpdated = Notification.Name("noteUpdated")
 }
-extension ListViewController: NSFetchedResultsControllerDelegate, UISearchResultsUpdating{
+//NSFetchedResultsControllerDelegate,UISearchControllerDelegate
+extension ListViewController: UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text{
             filterContent(searchText: searchText)

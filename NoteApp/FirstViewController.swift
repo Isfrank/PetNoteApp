@@ -30,6 +30,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         imageView.contentMode = .scaleAspectFill
+        addBtn.imageView?.contentMode = .scaleAspectFill
         pieChartView.slices = [
             Slice(percent: 0.4, color: UIColor.red),
             Slice(percent: 0.3, color: UIColor.blue),
@@ -50,7 +51,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }catch{
             print("error \(error)")
         }
-        
+    
         // Do any additional setup after loading the view.
     }
     @IBAction func walkBtn(_ sender: Any) {
@@ -81,7 +82,8 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.homeLabel.text = pet.hometext
         self.birthdatPicker = pet.birthdayPicker
         self.homePicker = pet.homePicker
-        self.addBtn.imageView?.image = pet.petimage()
+        self.imageView.image = pet.petimage()
+//        self.addBtn.imageView?.image = pet.petimage()
         let userDefaults = UserDefaults(suiteName: "group.org.iiiedu.lab.NoteApp10.PetWidget")
         userDefaults?.set( self.bdLabel.text, forKey: "bdlabel")
         CoreDataHelper.shared.saveContext()

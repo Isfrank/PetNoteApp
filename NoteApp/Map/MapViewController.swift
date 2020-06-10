@@ -35,7 +35,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         mainMapView.addAnnotation(annotation)
     }
-    
+    func mapThisRoute(){
+        
+    }
     @IBAction func modeChanged(_ sender: UISegmentedControl) {
         
         let targetIndex = sender.selectedSegmentIndex
@@ -72,8 +74,15 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         LocationManager.startUpdatingLocation()
         LocationManager.allowsBackgroundLocationUpdates = true
         mainMapView.delegate = self
-        
+        //MKDirections Request
+//
+
     }
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+           let renderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
+           renderer.strokeColor = UIColor.blue
+           return renderer
+       }
     func showNearBy(searchName: String){
         self.nearbyAnnotations = []
         let searchRequest = MKLocalSearch.Request()
@@ -105,4 +114,5 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         }
     }
 }
+
 

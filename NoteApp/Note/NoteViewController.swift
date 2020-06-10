@@ -18,19 +18,12 @@ class NoteViewController: UIViewController,UIImagePickerControllerDelegate,UINav
     
     var adView: GADInterstitial!
     @IBOutlet weak var textView: UITextView!
-    
     @IBOutlet weak var imageView: UIImageView!
-    
     @IBOutlet weak var toolbar: UIToolbar!
-    
     var currentNote : Note!
-    
     weak var delegate : NoteViewControllerDelegate?
-    
     var isNewImage : Bool = false
-    
     //條件改成：所有型態的物件都可以，但是他一定要有didFinishUpdate方法
-    
     var imageHeighConstraint : NSLayoutConstraint!
     
     override func viewDidLoad() {
