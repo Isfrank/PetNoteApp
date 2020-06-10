@@ -19,8 +19,10 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var bdLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var todayDate: UILabel!
-    @IBOutlet weak var lastWalkDay: UILabel!
+    @IBOutlet weak var lastWalkLabel: UILabel!
     @IBOutlet weak var addBtn: UIButton!
+    @IBOutlet weak var bdTitleLabel: UILabel!
+    @IBOutlet weak var homeTitleLabel: UILabel!
     var birthdatPicker: Date?
     var homePicker: Date?
     let now = Date()
@@ -51,7 +53,27 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }catch{
             print("error \(error)")
         }
-    
+        
+        //customFont
+        guard let customFont = UIFont(name: "Nagurigaki Crayon", size: UIFont.labelFontSize) else {
+            fatalError("""
+                Failed to load the "CustomFont-Light" font.
+                Make sure the font file is included in the project and the font name is spelled correctly.
+                """
+            )
+        }
+        self.bdTitleLabel.font = UIFontMetrics.default.scaledFont(for: customFont)
+        self.bdTitleLabel.adjustsFontForContentSizeCategory = true
+        self.homeTitleLabel.font = UIFontMetrics.default.scaledFont(for: customFont)
+        self.homeTitleLabel.adjustsFontForContentSizeCategory = true
+        self.ageLabel.font = UIFontMetrics.default.scaledFont(for: customFont)
+        self.ageLabel.adjustsFontForContentSizeCategory = true
+        self.homeLabel.font = UIFontMetrics.default.scaledFont(for: customFont)
+        self.homeLabel.adjustsFontForContentSizeCategory = true
+//        self.bdLabel.font = UIFontMetrics.default.scaledFont(for: customFont)
+//        self.bdLabel.adjustsFontForContentSizeCategory = true
+        
+        
         // Do any additional setup after loading the view.
     }
     @IBAction func walkBtn(_ sender: Any) {
@@ -62,7 +84,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         CoreDataHelper.shared.saveContext()
         //pet.lastwalkDate = now
         //        self.lastWalkDay.text = formatter.string(from: now)
-        self.lastWalkDay.text = "0天沒散步"
+        self.lastWalkLabel.text = "0天沒散步"
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -95,6 +117,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
             print("Fail to birthdatPicker.")
             return
         }
+//        self.imageView.image =
         self.petNameLabel.text = data[0].petName
         //birthday
         guard let anniversary = data[0].birthdayPicker else{
@@ -109,11 +132,11 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
             components.year = Calendar.current.component(.year, from: now) + 1
             if let nextYearBirthday = Calendar.current.date(from: components){
                 let diffDateComponents = Calendar.current.dateComponents([.month,.day], from: now, to: nextYearBirthday)
-                self.bdLabel.text = "距離生日還有\(String(describing: diffDateComponents.month!))個月" + "\(String(describing: diffDateComponents.day!))天"
+                self.bdLabel.text = "\(String(describing: diffDateComponents.month!))個月" + "\(String(describing: diffDateComponents.day!))天"
             }
         }else{
             let diffDateComponents =  Calendar.current.dateComponents([.year,.month,.day], from:now, to: thisYearBirthday)
-            self.bdLabel.text = " 距離生日還有\(String(describing: diffDateComponents.month!))個月" + "\(String(describing: diffDateComponents.day!))天"
+            self.bdLabel.text = "\(String(describing: diffDateComponents.month!))個月" + "\(String(describing: diffDateComponents.day!))天"
         }
         //widget birthday label
         let userDefaults = UserDefaults(suiteName: "group.org.iiiedu.lab.NoteApp10.PetWidget")
@@ -128,7 +151,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }
         let homediffDateComponents = Calendar.current.dateComponents([.year,.month,.day], from: homeanniversary, to: now)
         
-        self.homeLabel.text = "已經陪伴你\(String(describing: homediffDateComponents.year!))年" + "\(String(describing: homediffDateComponents.month!))個月" + "\(String(describing: homediffDateComponents.day!))天"
+        self.homeLabel.text = "\(String(describing: homediffDateComponents.year!))年" + "\(String(describing: homediffDateComponents.month!))個月" + "\(String(describing: homediffDateComponents.day!))天"
         //home widget
         userDefaults?.set( self.homeLabel.text, forKey: "homelabel")
         CoreDataHelper.shared.saveContext()
@@ -139,7 +162,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
             return
         }
         let walkdiffDateComponents = Calendar.current.dateComponents([.month,.day], from: walk, to: now)
-        self.lastWalkDay.text = "已經\(String(describing: walkdiffDateComponents.day!))天沒散步"
+        self.lastWalkLabel.text = "已經\(String(describing: walkdiffDateComponents.day!))天沒散步"
         //CoreDataHelper.shared.saveContext()
 //        self.imageView.image = data.petimage()
     }

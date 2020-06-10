@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		010EDD7B24913CF900AC6775 /* crayon_1-1.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 010EDD7A24913CF800AC6775 /* crayon_1-1.ttf */; };
+		010EDD7C24913CF900AC6775 /* crayon_1-1.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 010EDD7A24913CF800AC6775 /* crayon_1-1.ttf */; };
 		011F2F812483860F00E90A9B /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F2F802483860F00E90A9B /* PieChartView.swift */; };
 		011F2F832483861600E90A9B /* PieChartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 011F2F822483861600E90A9B /* PieChartView.xib */; };
 		013994FA248CE55B001A3619 /* dog-tags-military.png in Resources */ = {isa = PBXBuildFile; fileRef = 013994F9248CE55A001A3619 /* dog-tags-military.png */; };
@@ -68,6 +70,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		010EDD7A24913CF800AC6775 /* crayon_1-1.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "crayon_1-1.ttf"; sourceTree = "<group>"; };
 		011F2F802483860F00E90A9B /* PieChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
 		011F2F822483861600E90A9B /* PieChartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PieChartView.xib; sourceTree = "<group>"; };
 		013994F9248CE55A001A3619 /* dog-tags-military.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dog-tags-military.png"; sourceTree = "<group>"; };
@@ -137,6 +140,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		010EDD7D24913E7D00AC6775 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				010EDD7A24913CF800AC6775 /* crayon_1-1.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		013994F7248A7D87001A3619 /* Note */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +207,7 @@
 		BF31117B2448088E0015FD94 /* NoteApp */ = {
 			isa = PBXGroup;
 			children = (
+				010EDD7D24913E7D00AC6775 /* fonts */,
 				BF3111822448088E0015FD94 /* Main.storyboard */,
 				013994F7248A7D87001A3619 /* Note */,
 				D4C2147F2488BBE200EC0D4F /* NoteApp.entitlements */,
@@ -340,6 +352,7 @@
 				D4C010DC247D2DD600A50673 /* pointRed@2x.png in Resources */,
 				D4C010DB247D2DD600A50673 /* pointRed.png in Resources */,
 				BF311189244808920015FD94 /* LaunchScreen.storyboard in Resources */,
+				010EDD7B24913CF900AC6775 /* crayon_1-1.ttf in Resources */,
 				D4ED5129246E783F006F8FE0 /* InfoPlist.strings in Resources */,
 				D4C010DD247D2DD600A50673 /* pointRed@3x.png in Resources */,
 				011F2F832483861600E90A9B /* PieChartView.xib in Resources */,
@@ -354,6 +367,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				010EDD7C24913CF900AC6775 /* crayon_1-1.ttf in Resources */,
 				D4DF65CF24889C33005D0051 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

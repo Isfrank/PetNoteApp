@@ -121,11 +121,11 @@ class PetTableViewController: UITableViewController, UITextFieldDelegate, UIImag
             components.year = Calendar.current.component(.year, from: now) + 1
             if let nextYearBirthday = Calendar.current.date(from: components){
                 let diffDateComponents = Calendar.current.dateComponents([.month,.day], from: now, to: nextYearBirthday)
-                self.pet.bdtext = "距離生日還有\(String(describing: diffDateComponents.month!))個月" + "\(String(describing: diffDateComponents.day!))天"
+                self.pet.bdtext = "\(String(describing: diffDateComponents.month!))個月" + "\(String(describing: diffDateComponents.day!))天"
             }
         }else{
             let diffDateComponents =  Calendar.current.dateComponents([.year,.month,.day], from:now, to: thisYearBirthday)
-            self.pet.bdtext = " 距離生日還有\(String(describing: diffDateComponents.month!))個月" + "\(String(describing: diffDateComponents.day!))天"
+            self.pet.bdtext = "\(String(describing: diffDateComponents.month!))個月" + "\(String(describing: diffDateComponents.day!))天"
         }
         //how old
         let diffDateComponents = Calendar.current.dateComponents([.year,.month,.day], from:anniversary , to: now)
@@ -142,7 +142,7 @@ class PetTableViewController: UITableViewController, UITextFieldDelegate, UIImag
 //        bdpet = "今年\(String(describing: diffDateComponents.year!))歲"
 //        self.pet.bdtext = " 距離生日還有\(String(describing: diffDateComponents.month!))個月" + "\(String(describing: diffDateComponents.day!))天"
 //        guard let homepet = self.homeTextField.text else{return}
-        self.pet.hometext = "已經陪伴你\(String(describing: homediffDateComponents.year!))年" + "\(String(describing: homediffDateComponents.month!))個月" + "\(String(describing: homediffDateComponents.day!))天"
+        self.pet.hometext = "\(String(describing: homediffDateComponents.year!))年" + "\(String(describing: homediffDateComponents.month!))個月" + "\(String(describing: homediffDateComponents.day!))天"
         self.delegate.didFinishupdate(pet: self.pet)
         CoreDataHelper.shared.saveContext()
         self.dismiss(animated: true, completion: nil)

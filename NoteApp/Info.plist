@@ -43,6 +43,10 @@
 	<string>寫入 photo album的權限請求</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>讀取 photo album的權限請求</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>crayon_1-1.ttf</string>
+	</array>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>
