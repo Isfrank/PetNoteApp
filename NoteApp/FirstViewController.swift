@@ -27,18 +27,18 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
     var homePicker: Date?
     let now = Date()
     
-    var isNewImage : Bool = false
+//    var isNewImage : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imageView.contentMode = .scaleAspectFill
         addBtn.imageView?.contentMode = .scaleAspectFill
-        pieChartView.slices = [
-            Slice(percent: 0.4, color: UIColor.red),
-            Slice(percent: 0.3, color: UIColor.blue),
-            Slice(percent: 0.2, color: UIColor.purple),
-            Slice(percent: 0, color: UIColor.green)
-        ]
+//        pieChartView.slices = [
+//            Slice(percent: 0.4, color: UIColor.red),
+//            Slice(percent: 0.3, color: UIColor.blue),
+//            Slice(percent: 0.2, color: UIColor.purple),
+//            Slice(percent: 0, color: UIColor.green)
+//        ]
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy年MM月dd日"
         todayDate.text = formatter.string(from: now)
@@ -68,8 +68,16 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.homeTitleLabel.adjustsFontForContentSizeCategory = true
         self.ageLabel.font = UIFontMetrics.default.scaledFont(for: customFont)
         self.ageLabel.adjustsFontForContentSizeCategory = true
-        self.homeLabel.font = UIFontMetrics.default.scaledFont(for: customFont)
-        self.homeLabel.adjustsFontForContentSizeCategory = true
+        
+        let path = NSHomeDirectory() + "/Documents/" + "Main.jpg"
+        let url = URL(fileURLWithPath: path)
+        
+        if let data = try? Data(contentsOf: url) {
+            imageView.image = UIImage(data: data)
+        } else {
+            imageView.image = UIImage(named: "512.png")
+        }
+        
 //        self.bdLabel.font = UIFontMetrics.default.scaledFont(for: customFont)
 //        self.bdLabel.adjustsFontForContentSizeCategory = true
         
@@ -94,7 +102,9 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         if segue.identifier == "addPet"{
             let showPV = segue.destination as? PetTableViewController
             showPV?.delegate = self
-//            showPV?.pet = self.data[0]
+//            if self.data.count > 0 {
+//                showPV?.pet.petName = self.data[0].petName
+//            }
         }
     }
     func didFinishupdate(pet: Pet){
@@ -104,7 +114,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.homeLabel.text = pet.hometext
         self.birthdatPicker = pet.birthdayPicker
         self.homePicker = pet.homePicker
-        self.imageView.image = pet.petimage()
+//        self.imageView.image = pet.petimage()
 //        self.addBtn.imageView?.image = pet.petimage()
         let userDefaults = UserDefaults(suiteName: "group.org.iiiedu.lab.NoteApp10.PetWidget")
         userDefaults?.set( self.bdLabel.text, forKey: "bdlabel")
@@ -163,6 +173,9 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }
         let walkdiffDateComponents = Calendar.current.dateComponents([.month,.day], from: walk, to: now)
         self.lastWalkLabel.text = "已經\(String(describing: walkdiffDateComponents.day!))天沒散步"
+        //walkwidget
+       
+        
         //CoreDataHelper.shared.saveContext()
 //        self.imageView.image = data.petimage()
     }
@@ -180,10 +193,12 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }
         let photoLibraryAction = UIAlertAction(title: "Photo library", style: .default) { (action) in
             if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+                
                 let imagePicker = UIImagePickerController()
                 imagePicker.allowsEditing = false
                 imagePicker.sourceType = .photoLibrary
                 imagePicker.delegate = self
+                imagePicker.allowsEditing = true
                 
                 self.present(imagePicker, animated: true, completion: nil)
             }
@@ -208,9 +223,10 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         //        }
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let image = info[.originalImage] as! UIImage//取得使用者選擇的照片
+        
+        let image = info[.editedImage] as? UIImage//取得使用者選擇的照片
         self.imageView.image = image //放在imageView上
-        self.isNewImage = true //表示使用者有選過新照片
+//        self.isNewImage = true //表示使用者有選過新照片
         
         save(image: self.imageView.image)
         

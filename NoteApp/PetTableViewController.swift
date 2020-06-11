@@ -77,18 +77,25 @@ class PetTableViewController: UITableViewController, UITextFieldDelegate, UIImag
         homedatePicker.reloadInputViews()
         addDoneButtonOnKeyboard()
         photoImageView.isUserInteractionEnabled = true
-        
-        
+//        if self.pet.petName != nil{
+//            self.nameTextField.text = self.pet.petName
+//        }
     }
     @IBAction func Done(_ sender: Any) {
         if self.nameTextField.text?.isEmpty == true || self.bdTextField.text?.isEmpty == true || self.homeTextField.text?.isEmpty == true {
+            
         let controller = UIAlertController(title: "不可以有空格", message: "請輸入完成", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         controller.addAction(okAction)
         present(controller, animated: true, completion: nil)
             return
     }
+        
         self.pet = Pet(context: CoreDataHelper.shared.managedObjectContext())
+//        if self.pet.petName != nil{
+//            self.pet.petName = self.nameTextField.text
+//
+//        }
         if self.isNewImage {
             //image寫到檔案中  c:\iOS\Documents\uuidxxxxxxx.jpg
             let homeURL = URL(fileURLWithPath: NSHomeDirectory()) //取得Sandbox

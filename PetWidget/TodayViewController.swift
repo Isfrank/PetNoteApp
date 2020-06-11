@@ -16,6 +16,13 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var bdLabelWidget: UILabel!
     @IBOutlet weak var dataLabel: UILabel!
     @IBOutlet weak var homeLabel: UILabel!
+    @IBAction func TapGesture(_ sender: Any) {
+        guard let url = URL(string: "toWidget://") else{
+            assertionFailure("Invalid URL")
+            return
+        }
+        self.extensionContext?.open(url, completionHandler: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

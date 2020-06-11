@@ -30,8 +30,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         //計算的或要可以繼承用class(耗費的資源會比較大)
         let annotation = MKPointAnnotation()
         annotation.coordinate = annotationCoordinate //座標放進去
-        annotation.title = "肯德基"
-        annotation.subtitle = "真好吃"
+//        annotation.title = "肯德基"
+//        annotation.subtitle = "真好吃"
         
         mainMapView.addAnnotation(annotation)
     }

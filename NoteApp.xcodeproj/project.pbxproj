@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		010EDD7B24913CF900AC6775 /* crayon_1-1.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 010EDD7A24913CF800AC6775 /* crayon_1-1.ttf */; };
 		010EDD7C24913CF900AC6775 /* crayon_1-1.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 010EDD7A24913CF800AC6775 /* crayon_1-1.ttf */; };
+		010EDD8224923D8C00AC6775 /* 512.png in Resources */ = {isa = PBXBuildFile; fileRef = 010EDD8124923D8C00AC6775 /* 512.png */; };
+		010EDD8324923D8C00AC6775 /* 512.png in Resources */ = {isa = PBXBuildFile; fileRef = 010EDD8124923D8C00AC6775 /* 512.png */; };
 		011F2F812483860F00E90A9B /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F2F802483860F00E90A9B /* PieChartView.swift */; };
 		011F2F832483861600E90A9B /* PieChartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 011F2F822483861600E90A9B /* PieChartView.xib */; };
 		013994FA248CE55B001A3619 /* dog-tags-military.png in Resources */ = {isa = PBXBuildFile; fileRef = 013994F9248CE55A001A3619 /* dog-tags-military.png */; };
@@ -71,6 +73,7 @@
 
 /* Begin PBXFileReference section */
 		010EDD7A24913CF800AC6775 /* crayon_1-1.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "crayon_1-1.ttf"; sourceTree = "<group>"; };
+		010EDD8124923D8C00AC6775 /* 512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 512.png; sourceTree = "<group>"; };
 		011F2F802483860F00E90A9B /* PieChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
 		011F2F822483861600E90A9B /* PieChartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PieChartView.xib; sourceTree = "<group>"; };
 		013994F9248CE55A001A3619 /* dog-tags-military.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dog-tags-military.png"; sourceTree = "<group>"; };
@@ -236,6 +239,7 @@
 		D4A9628D2484FC9E001D0594 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				010EDD8124923D8C00AC6775 /* 512.png */,
 				013994F9248CE55A001A3619 /* dog-tags-military.png */,
 				D4A9628B2484FC84001D0594 /* dog-park-100.png */,
 			);
@@ -352,6 +356,7 @@
 				D4C010DC247D2DD600A50673 /* pointRed@2x.png in Resources */,
 				D4C010DB247D2DD600A50673 /* pointRed.png in Resources */,
 				BF311189244808920015FD94 /* LaunchScreen.storyboard in Resources */,
+				010EDD8224923D8C00AC6775 /* 512.png in Resources */,
 				010EDD7B24913CF900AC6775 /* crayon_1-1.ttf in Resources */,
 				D4ED5129246E783F006F8FE0 /* InfoPlist.strings in Resources */,
 				D4C010DD247D2DD600A50673 /* pointRed@3x.png in Resources */,
@@ -368,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				010EDD7C24913CF900AC6775 /* crayon_1-1.ttf in Resources */,
+				010EDD8324923D8C00AC6775 /* 512.png in Resources */,
 				D4DF65CF24889C33005D0051 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
