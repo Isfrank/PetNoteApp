@@ -35,7 +35,7 @@ class PetTableViewController: UITableViewController, UITextFieldDelegate, UIImag
         let cameraAction = UIAlertAction(title: "Camera", style: .default) { (action) in
             if UIImagePickerController.isSourceTypeAvailable(.camera){
                 let imagePicker = UIImagePickerController()
-                imagePicker.allowsEditing = false
+                imagePicker.allowsEditing = true
                 imagePicker.delegate = self
                 imagePicker.sourceType = .camera
                 self.present(imagePicker, animated: true, completion: nil)
@@ -44,7 +44,7 @@ class PetTableViewController: UITableViewController, UITextFieldDelegate, UIImag
         let photoLibraryAction = UIAlertAction(title: "Photo library", style: .default) { (action) in
             if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
                 let imagePicker = UIImagePickerController()
-                imagePicker.allowsEditing = false
+                imagePicker.allowsEditing = true
                 imagePicker.sourceType = .photoLibrary
                 imagePicker.delegate = self
                 
@@ -231,7 +231,7 @@ class PetTableViewController: UITableViewController, UITextFieldDelegate, UIImag
     }*/
     //MARK: UIImagePickerControllerDelegate
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let selectedImage = info[.originalImage] as? UIImage{
+        if let selectedImage = info[.editedImage] as? UIImage{
             photoImageView.image = selectedImage
             let image = selectedImage
             let imageData = image.jpegData(compressionQuality: 32)

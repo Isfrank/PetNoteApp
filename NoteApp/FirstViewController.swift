@@ -68,6 +68,8 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.homeTitleLabel.adjustsFontForContentSizeCategory = true
         self.ageLabel.font = UIFontMetrics.default.scaledFont(for: customFont)
         self.ageLabel.adjustsFontForContentSizeCategory = true
+        self.lastWalkLabel.font = UIFontMetrics.default.scaledFont(for: customFont)
+        self.lastWalkLabel.adjustsFontForContentSizeCategory = true
         
         let path = NSHomeDirectory() + "/Documents/" + "Main.jpg"
         let url = URL(fileURLWithPath: path)
@@ -92,12 +94,12 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         CoreDataHelper.shared.saveContext()
         //pet.lastwalkDate = now
         //        self.lastWalkDay.text = formatter.string(from: now)
-        self.lastWalkLabel.text = "0天沒散步"
+        self.lastWalkLabel.text = "0天未散步"
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        pieChartView.animateChart()
-    }
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        pieChartView.animateChart()
+//    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addPet"{
             let showPV = segue.destination as? PetTableViewController
@@ -163,8 +165,9 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         self.homeLabel.text = "\(String(describing: homediffDateComponents.year!))年" + "\(String(describing: homediffDateComponents.month!))個月" + "\(String(describing: homediffDateComponents.day!))天"
         //home widget
-        userDefaults?.set( self.homeLabel.text, forKey: "homelabel")
-        CoreDataHelper.shared.saveContext()
+        let homeuserDefaults = UserDefaults(suiteName: "group.org.iiiedu.lab.NoteApp10.PetWidget")
+        homeuserDefaults?.set( self.homeLabel.text, forKey: "homelabel")
+//        CoreDataHelper.shared.saveContext()
         //walk
         let pet = data[0]
         guard let walk = pet.lastwalkDate else {
@@ -172,8 +175,11 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
             return
         }
         let walkdiffDateComponents = Calendar.current.dateComponents([.month,.day], from: walk, to: now)
-        self.lastWalkLabel.text = "已經\(String(describing: walkdiffDateComponents.day!))天沒散步"
+        self.lastWalkLabel.text = "\(String(describing: walkdiffDateComponents.day!))天未散步"
         //walkwidget
+        let walkuserDefaults = UserDefaults(suiteName: "group.org.iiiedu.lab.NoteApp10.PetWidget")
+        walkuserDefaults?.set(self.lastWalkLabel.text, forKey: "walklabel")
+
        
         
         //CoreDataHelper.shared.saveContext()
@@ -195,7 +201,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
             if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
                 
                 let imagePicker = UIImagePickerController()
-                imagePicker.allowsEditing = false
+//                imagePicker.allowsEditing = false
                 imagePicker.sourceType = .photoLibrary
                 imagePicker.delegate = self
                 imagePicker.allowsEditing = true

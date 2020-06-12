@@ -13,10 +13,12 @@ import NotificationCenter
 class TodayViewController: UIViewController, NCWidgetProviding {
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var bdText: UILabel!
+    @IBOutlet weak var homeText: UILabel!
     @IBOutlet weak var bdLabelWidget: UILabel!
     @IBOutlet weak var dataLabel: UILabel!
     @IBOutlet weak var homeLabel: UILabel!
-    @IBAction func TapGesture(_ sender: Any) {
+    @IBAction func tapBtn(_ sender: Any) {
         guard let url = URL(string: "toWidget://") else{
             assertionFailure("Invalid URL")
             return
@@ -24,17 +26,50 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         self.extensionContext?.open(url, completionHandler: nil)
     }
     
+    @IBAction func TapGesture(_ sender: Any) {
+        guard let url = URL(string: "toWidget://") else{
+            assertionFailure("Invalid URL")
+            return
+        }
+        self.extensionContext?.open(url, completionHandler: nil)
+    }
+    @IBOutlet weak var walkLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //customFont
+        
+        guard let customFont = UIFont(name: "Nagurigaki Crayon", size: UIFont.labelFontSize) else {
+                  fatalError("""
+                      Failed to load the "CustomFont-Light" font.
+                      Make sure the font file is included in the project and the font name is spelled correctly.
+                      """
+                  )
+              }
+        self.bdText.font = UIFontMetrics.default.scaledFont(for: customFont)
+        self.bdText.adjustsFontForContentSizeCategory = true
+        self.homeText.font = UIFontMetrics.default.scaledFont(for: customFont)
+        self.homeText.adjustsFontForContentSizeCategory = true
+        self.bdLabelWidget.font = UIFontMetrics.default.scaledFont(for: customFont)
+        self.bdLabelWidget.adjustsFontForContentSizeCategory = true
+        self.homeLabel.font = UIFontMetrics.default.scaledFont(for: customFont)
+        self.homeLabel.adjustsFontForContentSizeCategory = true
+        self.walkLabel.font = UIFontMetrics.default.scaledFont(for: customFont)
+        self.walkLabel.adjustsFontForContentSizeCategory = true
         // Do any additional setup after loading the view.
         self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
         let userDefaults = UserDefaults(suiteName: "group.org.iiiedu.lab.NoteApp10.PetWidget")
         if let bdlabel = userDefaults?.string(forKey: "bdlabel"){
             self.bdLabelWidget.text = bdlabel
         }
-        if let homelabel = userDefaults?.string(forKey: "homelabel"){
+        let homeuserDefaults = UserDefaults(suiteName: "group.org.iiiedu.lab.NoteApp10.PetWidget")
+        if let homelabel = homeuserDefaults?.string(forKey: "homelabel"){
                    self.homeLabel.text = homelabel
                }
+        let walkuserDefaults = UserDefaults(suiteName: "group.org.iiiedu.lab.NoteApp10.PetWidget")
+        if let walkLabel = walkuserDefaults?.string(forKey: "walklabel"){
+                         self.walkLabel.text = walkLabel
+                     }
             let myUserDefault = UserDefaults(suiteName: "group.org.iiiedu.lab.NoteApp10.PetWidget")
             
             if let viewimage = myUserDefault?.data(forKey: "image"){
