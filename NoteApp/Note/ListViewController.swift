@@ -19,13 +19,13 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
     var bannerView: GADBannerView!
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
-    var data : [Note] = []//model:資料用Array來裝，裏面只能放Note類型的物件
-    var filteredNotes :[Note]  = []
+    var data: [Note] = []//model:資料用Array來裝，裏面只能放Note類型的物件
+    var dataStringArray = [String]()
+    var searchResult: [String]  = []
     var searchController: UISearchController!
-    var isSearchBarEmpty: Bool {
-      return searchController.searchBar.text?.isEmpty ?? true
-    }
+    var isSearching = false
     //storyboard會呼叫
     //xib
     
@@ -84,24 +84,22 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
         self.bannerView.load(GADRequest())
         //search
         self.searchController = UISearchController(searchResultsController: nil)
-        self.searchController.searchBar.sizeToFit()
+//        self.searchController.searchBar.sizeToFit()
         self.searchController.searchBar.delegate = self
-        self.searchController.searchResultsUpdater = self
-        self.searchController.obscuresBackgroundDuringPresentation = false
+//        self.searchController.searchResultsUpdater = self
+//        self.searchController.obscuresBackgroundDuringPresentation = false
         self.searchController.searchBar.placeholder = "Search text"
         self.navigationItem.searchController = searchController
         definesPresentationContext = true
-    }
-    func filterContent(searchText: String){
-        filteredNotes = filteredNotes.filter({ (Note) -> Bool in
-            if let text = Note.text {
-                let isMatch = text.localizedCaseInsensitiveContains(searchText)
-                return isMatch
+        if data.count > 0 {
+            for i in 0...data.count - 1{
+                let note = data[i]
+                guard let noteText = note.text else {return}
+                dataStringArray.append(noteText)
             }
-            return false
-        })
+        }
     }
-    
+
     //廣告進來時會呼叫,GADBannerViewDelegate
     func adViewDidReceiveAd(_ bannerView: GADBannerView) {
         //self.tableView.tableHeaderView = self.bannerView
@@ -152,41 +150,45 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
          self.present(alert, animated: true, completion: nil)
          */
         
-        
-        
     }
     
     // MARK: UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searchController.isActive{
-            return filteredNotes.count
+        if isSearching {
+            return searchResult.count
         }else{
             return self.data.count
         }
     }
     
+        
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //每一筆長的什麼像什麼樣子，回傳cell物件，如果回傳有10筆（self.data.count），這方法會被呼10次
         //let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")//舊的作法
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath)//storyboard作法 「留意」：noteCell 一定要定義在storyboard上
-        
-        //let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! NoteCell//子類別，多型
-        if (searchController.isActive) {
-            cell.textLabel?.text = filteredNotes[indexPath.row].text
-            if filteredNotes[indexPath.row].imageName != nil {
-                cell.imageView?.image = filteredNotes[indexPath.row].thumbnailImage()
-            }else{
-                cell.imageView?.image = UIImage(named: "dog-park-100.png")
-            }
-            cell.showsReorderControl = true
-            cell.selectedBackgroundView?.backgroundColor = .blue
-            cell.detailTextLabel?.text = filteredNotes[indexPath.row].date
-            return cell
-        }else{
-        
         let note = self.data[indexPath.row]//如果傳入的位置是(s:0,row:0)，那就取self.data[0]
-
+        if isSearching {
+            cell.textLabel?.text = searchResult[indexPath.row]
+        }else{
+            let note = data[indexPath.row]
+            cell.textLabel?.text = note.text
+        }
+        //let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! NoteCell//子類別，多型
+//        if (searchController.isActive) {
+//            cell.textLabel?.text = searchResult[indexPath.row].text
+//            if searchResult[indexPath.row].imageName != nil {
+//                cell.imageView?.image = searchResult[indexPath.row].thumbnailImage()
+//            }else{
+//                cell.imageView?.image = UIImage(named: "dog-park-100.png")
+//            }
+//            cell.showsReorderControl = true
+//            cell.selectedBackgroundView?.backgroundColor = .blue
+//            cell.detailTextLabel?.text = searchResult[indexPath.row].date
+//            return cell
+//        }
+        
         cell.textLabel?.text = note.text
         if note.imageName != nil {
             cell.imageView?.image = note.thumbnailImage()
@@ -220,7 +222,7 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
 //        cell.detailTextLabel?.text = NumberFormatter.localizedString(from: 1234.56, number: .currencyAccounting)
 //
         return cell
-        }
+        
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -479,14 +481,23 @@ extension Notification.Name{
     static let noteUpdated = Notification.Name("noteUpdated")
 }
 //NSFetchedResultsControllerDelegate,UISearchControllerDelegate
-extension ListViewController: UISearchResultsUpdating, UISearchBarDelegate {
-    func updateSearchResults(for searchController: UISearchController) {
-        if let searchText = searchController.searchBar.text{
-            filterContent(searchText: searchText)
-            tableView.reloadData()
-        }
+extension ListViewController: UISearchBarDelegate {
+//    func updateSearchResults(for searchController: UISearchController) {
+////        if let searchText = searchController.searchBar.text{
+////            filterContent(searchText: searchText)
+////            tableView.reloadData()
+////        }
+//    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchResult = dataStringArray.filter({ $0.prefix(searchText.count) == searchText})
+        isSearching = true
+        tableView.reloadData()
     }
-    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        isSearching = false
+        searchController.searchBar.text = ""
+        tableView.reloadData()
+    }
     
 }
 
