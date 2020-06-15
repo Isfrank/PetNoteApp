@@ -77,9 +77,22 @@ class PetTableViewController: UITableViewController, UITextFieldDelegate, UIImag
         homedatePicker.reloadInputViews()
         addDoneButtonOnKeyboard()
         photoImageView.isUserInteractionEnabled = true
-//        if self.pet.petName != nil{
-//            self.nameTextField.text = self.pet.petName
+        //edit
+//        if self.pet.petName != nil {
+//            self.nameTextField?.text = self.pet.petName
 //        }
+//        if self.pet.birthdayPicker != nil {
+//            let bdtext =  self.pet.birthdayPicker
+//            self.bdTextField.text = "\(String(describing: bdtext!))"
+//        }
+//        if self.pet.homePicker != nil{
+//            let hometext = self.pet.homePicker
+//            self.homeTextField.text = "\(String(describing: hometext!))"
+//        }
+//        if self.pet.petimage() != nil {
+//            self.photoImageView.image = self.pet.petimage()
+//        }
+//
     }
     @IBAction func Done(_ sender: Any) {
         if self.nameTextField.text?.isEmpty == true || self.bdTextField.text?.isEmpty == true || self.homeTextField.text?.isEmpty == true {
@@ -90,11 +103,9 @@ class PetTableViewController: UITableViewController, UITextFieldDelegate, UIImag
         present(controller, animated: true, completion: nil)
             return
     }
-        
-        self.pet = Pet(context: CoreDataHelper.shared.managedObjectContext())
-//        if self.pet.petName != nil{
-//            self.pet.petName = self.nameTextField.text
-//
+        //edit
+//        if self.pet.petName == nil {
+            self.pet = Pet(context: CoreDataHelper.shared.managedObjectContext())
 //        }
         if self.isNewImage {
             //image寫到檔案中  c:\iOS\Documents\uuidxxxxxxx.jpg
@@ -143,8 +154,8 @@ class PetTableViewController: UITableViewController, UITextFieldDelegate, UIImag
         self.pet.homePicker = homeanniversary
         let homediffDateComponents = Calendar.current.dateComponents([.year,.month,.day], from: homeanniversary, to: now)
         
-        guard let namepet = self.nameTextField?.text else{return}
-        self.pet.petName = namepet
+        self.pet.petName = self.nameTextField?.text
+        
 //        guard var bdpet = self.bdTextField.text else{return}
 //        bdpet = "今年\(String(describing: diffDateComponents.year!))歲"
 //        self.pet.bdtext = " 距離生日還有\(String(describing: diffDateComponents.month!))個月" + "\(String(describing: diffDateComponents.day!))天"
@@ -153,6 +164,7 @@ class PetTableViewController: UITableViewController, UITextFieldDelegate, UIImag
         self.delegate.didFinishupdate(pet: self.pet)
         CoreDataHelper.shared.saveContext()
         self.dismiss(animated: true, completion: nil)
+        
 }
     //    MARK: DatePicker
     func addDoneButtonOnKeyboard() {
@@ -167,6 +179,7 @@ class PetTableViewController: UITableViewController, UITextFieldDelegate, UIImag
         doneToolbar.sizeToFit()
         self.bdTextField.inputAccessoryView = doneToolbar
         self.homeTextField.inputAccessoryView = doneToolbar
+        
     }
 
     @objc func doneButtonAction() {

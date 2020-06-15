@@ -62,12 +62,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         if let bdlabel = userDefaults?.string(forKey: "bdlabel"){
             self.bdLabelWidget.text = bdlabel
         }
-        let homeuserDefaults = UserDefaults(suiteName: "group.org.iiiedu.lab.NoteApp10.PetWidget")
-        if let homelabel = homeuserDefaults?.string(forKey: "homelabel"){
+//        let homeuserDefaults = UserDefaults(suiteName: "group.org.iiiedu.lab.NoteApp10.PetWidget")
+        if let homelabel = userDefaults?.string(forKey: "homelabel"){
                    self.homeLabel.text = homelabel
                }
-        let walkuserDefaults = UserDefaults(suiteName: "group.org.iiiedu.lab.NoteApp10.PetWidget")
-        if let walkLabel = walkuserDefaults?.string(forKey: "walklabel"){
+//        let walkuserDefaults = UserDefaults(suiteName: "group.org.iiiedu.lab.NoteApp10.PetWidget")
+        if let walkLabel = userDefaults?.string(forKey: "walklabel"){
                          self.walkLabel.text = walkLabel
                      }
             let myUserDefault = UserDefaults(suiteName: "group.org.iiiedu.lab.NoteApp10.PetWidget")

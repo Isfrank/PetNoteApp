@@ -87,6 +87,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         // Do any additional setup after loading the view.
     }
     @IBAction func walkBtn(_ sender: Any) {
+        if self.data.count > 0 {
         let pet = data[0]
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy年MM月dd日"
@@ -95,6 +96,9 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         //pet.lastwalkDate = now
         //        self.lastWalkDay.text = formatter.string(from: now)
         self.lastWalkLabel.text = "0天未散步"
+        let userDefaults = UserDefaults(suiteName: "group.org.iiiedu.lab.NoteApp10.PetWidget")
+        userDefaults?.set(self.lastWalkLabel.text, forKey: "walklabel")
+        }
     }
 //    override func viewDidAppear(_ animated: Bool) {
 //        super.viewDidAppear(animated)
@@ -104,8 +108,12 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         if segue.identifier == "addPet"{
             let showPV = segue.destination as? PetTableViewController
             showPV?.delegate = self
-//            if self.data.count > 0 {
+//            if self.data.count > 0{
 //                showPV?.pet.petName = self.data[0].petName
+//                showPV?.pet.birthdayPicker = self.data[0].birthdayPicker
+//                showPV?.pet.homePicker = self.data[0].homePicker
+//                showPV?.pet.petimage() =
+//                    self.data[0].petimage()
 //            }
         }
     }
@@ -165,8 +173,8 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         self.homeLabel.text = "\(String(describing: homediffDateComponents.year!))年" + "\(String(describing: homediffDateComponents.month!))個月" + "\(String(describing: homediffDateComponents.day!))天"
         //home widget
-        let homeuserDefaults = UserDefaults(suiteName: "group.org.iiiedu.lab.NoteApp10.PetWidget")
-        homeuserDefaults?.set( self.homeLabel.text, forKey: "homelabel")
+//        let homeuserDefaults = UserDefaults(suiteName: "group.org.iiiedu.lab.NoteApp10.PetWidget")
+        userDefaults?.set( self.homeLabel.text, forKey: "homelabel")
 //        CoreDataHelper.shared.saveContext()
         //walk
         let pet = data[0]
@@ -177,11 +185,9 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         let walkdiffDateComponents = Calendar.current.dateComponents([.month,.day], from: walk, to: now)
         self.lastWalkLabel.text = "\(String(describing: walkdiffDateComponents.day!))天未散步"
         //walkwidget
-        let walkuserDefaults = UserDefaults(suiteName: "group.org.iiiedu.lab.NoteApp10.PetWidget")
-        walkuserDefaults?.set(self.lastWalkLabel.text, forKey: "walklabel")
+//        let walkuserDefaults = UserDefaults(suiteName: "group.org.iiiedu.lab.NoteApp10.PetWidget")
+        userDefaults?.set(self.lastWalkLabel.text, forKey: "walklabel")
 
-       
-        
         //CoreDataHelper.shared.saveContext()
 //        self.imageView.image = data.petimage()
     }
@@ -191,7 +197,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         let cameraAction = UIAlertAction(title: "Camera", style: .default) { (action) in
             if UIImagePickerController.isSourceTypeAvailable(.camera){
                 let imagePicker = UIImagePickerController()
-                imagePicker.allowsEditing = false
+                imagePicker.allowsEditing = true
                 imagePicker.delegate = self
                 imagePicker.sourceType = .camera
                 self.present(imagePicker, animated: true, completion: nil)
