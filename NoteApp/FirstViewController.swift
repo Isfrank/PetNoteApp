@@ -125,6 +125,8 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.birthdatPicker = pet.birthdayPicker
         self.homePicker = pet.homePicker
 //        self.imageView.image = pet.petimage()
+        addBtn.setImage(pet.thumbnailImage(), for: .normal)
+//        addBtn.layer.cornerRadius = addBtn.frame.width / 2
 //        self.addBtn.imageView?.image = pet.petimage()
         let userDefaults = UserDefaults(suiteName: "group.org.iiiedu.lab.NoteApp10.PetWidget")
         userDefaults?.set( self.bdLabel.text, forKey: "bdlabel")
@@ -137,7 +139,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
             print("Fail to birthdatPicker.")
             return
         }
-//        self.imageView.image =
+        addBtn.setImage(data[0].thumbnailImage(), for: .normal)
         self.petNameLabel.text = data[0].petName
         //birthday
         guard let anniversary = data[0].birthdayPicker else{

@@ -280,6 +280,7 @@
 				436D335B45546BE354353016 /* [CP] Embed Pods Frameworks */,
 				D4CE4970247379110025F277 /* Run Script */,
 				D4DF65D724889C33005D0051 /* Embed App Extensions */,
+				3CBF3871098DC3261BD021AD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -381,6 +382,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3CBF3871098DC3261BD021AD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NoteApp/Pods-NoteApp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NoteApp/Pods-NoteApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NoteApp/Pods-NoteApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		436D335B45546BE354353016 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

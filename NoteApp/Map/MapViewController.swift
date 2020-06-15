@@ -10,11 +10,13 @@ import UIKit
 import CoreLocation
 import MapKit
 
+
 class MapViewController: UIViewController, MKMapViewDelegate {
     //stored property -> instance
     let LocationManager = CLLocationManager()
     var nearbyAnnotations = [MKAnnotation]()
     @IBOutlet weak var mainMapView: MKMapView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     //自己發明的 把圖標放在哪個經緯度
     //儲存屬性是比較重要的,用struct,一樣的東西struct運行速度是class的10倍
@@ -113,6 +115,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             self.mainMapView.showAnnotations(self.nearbyAnnotations, animated: true)
         }
     }
+//    func updateSearchResults(for searchController: UISearchController) {
+//        // Ask `MKLocalSearchCompleter` for new completion suggestions based on the change in the text entered in `UISearchBar`.
+//        searchCompleter?.queryFragment = searchController.searchBar.text ?? ""
+//    }
 }
 
 
