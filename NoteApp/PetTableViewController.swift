@@ -78,20 +78,20 @@ class PetTableViewController: UITableViewController, UITextFieldDelegate, UIImag
         addDoneButtonOnKeyboard()
         photoImageView.isUserInteractionEnabled = true
         //edit
-//        if self.pet.petName != nil {
-//            self.nameTextField?.text = self.pet.petName
-//        }
-//        if self.pet.birthdayPicker != nil {
-//            let bdtext =  self.pet.birthdayPicker
-//            self.bdTextField.text = "\(String(describing: bdtext!))"
-//        }
-//        if self.pet.homePicker != nil{
-//            let hometext = self.pet.homePicker
-//            self.homeTextField.text = "\(String(describing: hometext!))"
-//        }
-//        if self.pet.petimage() != nil {
-//            self.photoImageView.image = self.pet.petimage()
-//        }
+        
+        if self.pet != nil {
+            self.nameTextField?.text = self.pet.petName
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            let dateString = dateFormatter.string(from: self.pet.birthdayPicker ?? now )
+            self.bdTextField.text = dateString
+            let bdtext = dateString
+            self.bdTextField.text = "\(String(describing: bdtext))"
+            let homedateString = dateFormatter.string(from: self.pet.homePicker ?? now )
+            let hometext = homedateString
+            self.homeTextField.text = "\(String(describing: hometext))"
+            self.photoImageView.image = self.pet.petimage()
+        }
 //
     }
     @IBAction func Done(_ sender: Any) {
@@ -104,9 +104,12 @@ class PetTableViewController: UITableViewController, UITextFieldDelegate, UIImag
             return
     }
         //edit
-//        if self.pet.petName == nil {
+        if self.pet == nil {
             self.pet = Pet(context: CoreDataHelper.shared.managedObjectContext())
-//        }
+        }
+        guard self.pet != nil else {
+            fatalError("pet shouldn't be nil")
+        }
         if self.isNewImage {
             //image寫到檔案中  c:\iOS\Documents\uuidxxxxxxx.jpg
             let homeURL = URL(fileURLWithPath: NSHomeDirectory()) //取得Sandbox

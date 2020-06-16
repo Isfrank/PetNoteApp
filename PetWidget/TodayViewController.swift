@@ -62,11 +62,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         if let bdlabel = userDefaults?.string(forKey: "bdlabel"){
             self.bdLabelWidget.text = bdlabel
         }
-//        let homeuserDefaults = UserDefaults(suiteName: "group.org.iiiedu.lab.NoteApp10.PetWidget")
         if let homelabel = userDefaults?.string(forKey: "homelabel"){
                    self.homeLabel.text = homelabel
                }
-//        let walkuserDefaults = UserDefaults(suiteName: "group.org.iiiedu.lab.NoteApp10.PetWidget")
         if let walkLabel = userDefaults?.string(forKey: "walklabel"){
                          self.walkLabel.text = walkLabel
                      }
@@ -79,8 +77,34 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                 imageView.image = UIImage(named: "setup.png")
             }
         
-        
     }
+    func widgetPerformUpdate(completionHandler: @escaping (NCUpdateResult) -> Void) {
+               let userDefaults = UserDefaults(suiteName: "group.org.iiiedu.lab.NoteApp10.PetWidget")
+         if let bdlabel = userDefaults?.string(forKey: "bdlabel"){
+             self.bdLabelWidget.text = bdlabel
+         }
+         if let walkLabel = userDefaults?.string(forKey: "walklabel"){
+             self.walkLabel.text = walkLabel
+         }
+         if let homelabel = userDefaults?.string(forKey: "homelabel"){
+             self.homeLabel.text = homelabel
+         }
+         completionHandler(NCUpdateResult.newData)
+    }
+
+    //    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        let userDefaults = UserDefaults(suiteName: "group.org.iiiedu.lab.NoteApp10.PetWidget")
+//        if let bdlabel = userDefaults?.string(forKey: "bdlabel"){
+//            self.bdLabelWidget.text = bdlabel
+//        }
+//        if let walkLabel = userDefaults?.string(forKey: "walklabel"){
+//            self.walkLabel.text = walkLabel
+//        }
+//        if let homelabel = userDefaults?.string(forKey: "homelabel"){
+//            self.homeLabel.text = homelabel
+//        }
+//    }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         //            if let image = UserDefaults.init(suiteName: "group.org.iiiedu.lab.NoteApp10.Widget")?.value(forKey: "image"){

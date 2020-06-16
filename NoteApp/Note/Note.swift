@@ -52,6 +52,7 @@ class Note : NSManagedObject {
     @NSManaged var imageName : String?//照片檔名（noteID.jpg or ni)
     @NSManaged var date : String?//照片檔名（noteID.jpg or ni)
     @NSManaged var coreDate : Date?//照片檔名（noteID.jpg or ni)
+    @NSManaged var conteneLabel : String?//照片檔名（noteID.jpg or ni)
 
     //var image : UIImage?//image可能為空的，用optional
     

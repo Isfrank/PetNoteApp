@@ -12,14 +12,13 @@ import GoogleMobileAds
 protocol NoteViewControllerDelegate : class {
     func didFinishUpdate(note : Note)
 }
-
-
 class NoteViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate, GADInterstitialDelegate {
     
     var adView: GADInterstitial!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var toolbar: UIToolbar!
+    @IBOutlet weak var contentLabel: UITextView!
     var currentNote : Note!
     weak var delegate : NoteViewControllerDelegate?
     var isNewImage : Bool = false
@@ -28,10 +27,14 @@ class NoteViewController: UIViewController,UIImagePickerControllerDelegate,UINav
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.contentLabel.text =  self.currentNote.conteneLabel
         self.textView.text = self.currentNote.text
         self.imageView.image = self.currentNote.image()
         
+        self.textView.layer.borderWidth = 2
+        self.textView.layer.borderColor = UIColor.gray.cgColor
+        self.contentLabel.layer.borderWidth = 2
+        self.contentLabel.layer.borderColor = UIColor.green.cgColor
         self.imageView.layer.borderWidth = 10
         self.imageView.layer.borderColor = UIColor.orange.cgColor
         //CG: Core Graphic是 UIKit的老爸
@@ -85,7 +88,7 @@ class NoteViewController: UIViewController,UIImagePickerControllerDelegate,UINav
         
         self.currentNote.text = self.textView.text
         //self.currentNote.image = self.imageView.image
-        
+        self.currentNote.conteneLabel = self.contentLabel.text
         if self.isNewImage {
             //image寫到檔案中  c:\iOS\Documents\uuidxxxxxxx.jpg
             let homeURL = URL(fileURLWithPath: NSHomeDirectory()) //取得Sandbox

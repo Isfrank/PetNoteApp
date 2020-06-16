@@ -37,9 +37,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         mainMapView.addAnnotation(annotation)
     }
-    func mapThisRoute(){
-        
-    }
     @IBAction func modeChanged(_ sender: UISegmentedControl) {
         
         let targetIndex = sender.selectedSegmentIndex
@@ -112,13 +109,17 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                     self.nearbyAnnotations.append(annotation)
                 }
             }
-            self.mainMapView.showAnnotations(self.nearbyAnnotations, animated: true)
+            self.mainMapView.removeAnnotations(self.mainMapView.annotations)
+            //self.mainMapView.showAnnotations(self.nearbyAnnotations, animated: true)
+            self.mainMapView.addAnnotations(self.nearbyAnnotations)
         }
     }
 //    func updateSearchResults(for searchController: UISearchController) {
 //        // Ask `MKLocalSearchCompleter` for new completion suggestions based on the change in the text entered in `UISearchBar`.
 //        searchCompleter?.queryFragment = searchController.searchBar.text ?? ""
 //    }
+}
+extension MapViewController: MKLocalSearchCompleterDelegate{
 }
 
 

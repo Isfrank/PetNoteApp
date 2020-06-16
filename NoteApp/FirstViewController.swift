@@ -108,13 +108,12 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         if segue.identifier == "addPet"{
             let showPV = segue.destination as? PetTableViewController
             showPV?.delegate = self
-//            if self.data.count > 0{
-//                showPV?.pet.petName = self.data[0].petName
+            if self.data.count > 0{
+                showPV?.pet = self.data[0]
 //                showPV?.pet.birthdayPicker = self.data[0].birthdayPicker
 //                showPV?.pet.homePicker = self.data[0].homePicker
-//                showPV?.pet.petimage() =
-//                    self.data[0].petimage()
-//            }
+//                showPV?.pet.petimage() = self.data[0].petimage()
+            }
         }
     }
     func didFinishupdate(pet: Pet){
@@ -124,19 +123,23 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.homeLabel.text = pet.hometext
         self.birthdatPicker = pet.birthdayPicker
         self.homePicker = pet.homePicker
-//        self.imageView.image = pet.petimage()
         addBtn.setImage(pet.thumbnailImage(), for: .normal)
-//        addBtn.layer.cornerRadius = addBtn.frame.width / 2
 //        self.addBtn.imageView?.image = pet.petimage()
         let userDefaults = UserDefaults(suiteName: "group.org.iiiedu.lab.NoteApp10.PetWidget")
         userDefaults?.set( self.bdLabel.text, forKey: "bdlabel")
         CoreDataHelper.shared.saveContext()
+        let request = NSFetchRequest<Pet>(entityName: "Pet")
+        do{
+            data = try CoreDataHelper.shared.managedObjectContext().fetch(request)
+        }catch{
+            print("error \(error)")
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         var components = DateComponents()
         guard data.count > 0 else{
-            print("Fail to birthdatPicker.")
+            print("Fail to birthdayPicker.")
             return
         }
         addBtn.setImage(data[0].thumbnailImage(), for: .normal)
