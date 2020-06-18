@@ -9,6 +9,9 @@
 import UIKit
 import Firebase
 import GoogleMobileAds
+import GoogleMaps
+import GooglePlaces
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -22,6 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         //print(UserDefaults.standard.string(forKey: "user-account"))
         //print(UserDefaults.standard.string(forKey: "user-password"))
+        //googleMap Key
+        GMSServices.provideAPIKey("AIzaSyAm4sqJZtXGSk2XVACeFTUjcb9WkcZLEfs")
+        GMSPlacesClient.provideAPIKey("AIzaSyAm4sqJZtXGSk2XVACeFTUjcb9WkcZLEfs")
+        
+        
         return true
     }
     

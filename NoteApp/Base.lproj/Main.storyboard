@@ -213,8 +213,8 @@
                     <connections>
                         <segue destination="UZb-3n-Tgo" kind="relationship" relationship="viewControllers" id="Ogc-yB-nQt"/>
                         <segue destination="J9e-pq-82g" kind="relationship" relationship="viewControllers" id="Ez4-Ks-tKy"/>
-                        <segue destination="dRA-Uf-u4F" kind="relationship" relationship="viewControllers" id="2pQ-On-uUy"/>
                         <segue destination="W5t-mj-7vh" kind="relationship" relationship="viewControllers" id="KfD-zh-hXS"/>
+                        <segue destination="o2A-nj-3Qq" kind="relationship" relationship="viewControllers" id="Z1Z-OD-ovh"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wOL-3i-7Bw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -608,6 +608,59 @@
             </objects>
             <point key="canvasLocation" x="1320.8" y="172.90640394088672"/>
         </scene>
+        <!--Google Maps-->
+        <scene sceneID="YLK-t4-k9V">
+            <objects>
+                <viewController id="o2A-nj-3Qq" customClass="GoogleMapVC" customModule="NoteApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bhI-vA-oUh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8rg-AJ-Zf3" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="44" width="375" height="685"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Locations" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Se-TL-KM1">
+                                <rect key="frame" x="10" y="54" width="355" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="HFl-bf-XQd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8JH-aK-Qzt">
+                                <rect key="frame" x="10" y="54" width="355" height="40"/>
+                                <connections>
+                                    <action selector="loactionTapped:" destination="o2A-nj-3Qq" eventType="touchUpInside" id="fMu-x8-ncN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="8Se-TL-KM1" firstAttribute="top" secondItem="Uu0-Lz-wfo" secondAttribute="top" constant="10" id="2hE-eG-UmG"/>
+                            <constraint firstItem="8Se-TL-KM1" firstAttribute="leading" secondItem="Uu0-Lz-wfo" secondAttribute="leading" constant="10" id="D0G-ZB-dB0"/>
+                            <constraint firstItem="8JH-aK-Qzt" firstAttribute="leading" secondItem="8Se-TL-KM1" secondAttribute="leading" id="FdC-LV-5K3"/>
+                            <constraint firstItem="8JH-aK-Qzt" firstAttribute="bottom" secondItem="8Se-TL-KM1" secondAttribute="bottom" id="OO1-Dm-u7M"/>
+                            <constraint firstItem="8JH-aK-Qzt" firstAttribute="top" secondItem="8Se-TL-KM1" secondAttribute="top" id="P4N-TG-Ti7"/>
+                            <constraint firstItem="Uu0-Lz-wfo" firstAttribute="trailing" secondItem="8Se-TL-KM1" secondAttribute="trailing" constant="10" id="SH0-xR-aZw"/>
+                            <constraint firstItem="8rg-AJ-Zf3" firstAttribute="leading" secondItem="Uu0-Lz-wfo" secondAttribute="leading" id="Ue9-du-9Kr"/>
+                            <constraint firstItem="8rg-AJ-Zf3" firstAttribute="top" secondItem="Uu0-Lz-wfo" secondAttribute="top" id="VlA-1S-KcX"/>
+                            <constraint firstItem="Uu0-Lz-wfo" firstAttribute="trailing" secondItem="8rg-AJ-Zf3" secondAttribute="trailing" id="etQ-1c-rxW"/>
+                            <constraint firstItem="8rg-AJ-Zf3" firstAttribute="bottom" secondItem="Uu0-Lz-wfo" secondAttribute="bottom" id="jBB-7h-6Ga"/>
+                            <constraint firstItem="8JH-aK-Qzt" firstAttribute="trailing" secondItem="8Se-TL-KM1" secondAttribute="trailing" id="tBO-8D-8Ak"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Uu0-Lz-wfo"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Google Maps" id="9hb-ce-tcW"/>
+                    <connections>
+                        <outlet property="mapView" destination="8rg-AJ-Zf3" id="ACN-d7-pgg"/>
+                        <outlet property="textSearch" destination="8Se-TL-KM1" id="pWn-5R-HcJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N4f-p5-oEe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2264.8000000000002" y="166.99507389162562"/>
+        </scene>
         <!--日曆-->
         <scene sceneID="GqS-DE-Unz">
             <objects>
@@ -617,7 +670,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YRu-yk-Cs8" customClass="FSCalendar">
-                                <rect key="frame" x="20" y="68" width="335" height="472"/>
+                                <rect key="frame" x="20" y="68" width="335" height="521"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                         </subviews>
@@ -634,7 +687,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dIH-jc-NOn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-539.13043478260875" y="180.80357142857142"/>
+            <point key="canvasLocation" x="-716" y="228"/>
         </scene>
         <!--紀錄-->
         <scene sceneID="p0P-Vm-wEX">

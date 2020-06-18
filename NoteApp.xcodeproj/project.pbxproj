@@ -28,6 +28,7 @@
 		BF4D77C62457D4250052E461 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D77C52457D4250052E461 /* CoreDataHelper.swift */; };
 		D40205F1247F74FD00FF1898 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40205F0247F74FD00FF1898 /* FirstViewController.swift */; };
 		D46ED7C1248F2D7F00D5595A /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46ED7C0248F2D7F00D5595A /* Camera.swift */; };
+		D484A6BE249B145A00369D49 /* GoogleMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D484A6BD249B145A00369D49 /* GoogleMapVC.swift */; };
 		D4936355247FCA5E0050FA64 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4936354247FCA5E0050FA64 /* Pet.swift */; };
 		D4A9628C2484FC85001D0594 /* dog-park-100.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A9628B2484FC84001D0594 /* dog-park-100.png */; };
 		D4AEC39D2488D0C40063BCC8 /* FSCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AEC39C2488D0C40063BCC8 /* FSCalendarViewController.swift */; };
@@ -95,6 +96,7 @@
 		BF4D77C72457FF0C0052E461 /* 2.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = 2.0.xcdatamodel; sourceTree = "<group>"; };
 		D40205F0247F74FD00FF1898 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		D46ED7C0248F2D7F00D5595A /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		D484A6BD249B145A00369D49 /* GoogleMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapVC.swift; sourceTree = "<group>"; };
 		D4936354247FCA5E0050FA64 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		D4A9628B2484FC84001D0594 /* dog-park-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dog-park-100.png"; sourceTree = "<group>"; };
 		D4AEC39C2488D0C40063BCC8 /* FSCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSCalendarViewController.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 		BF31117B2448088E0015FD94 /* NoteApp */ = {
 			isa = PBXGroup;
 			children = (
+				D484A6BD249B145A00369D49 /* GoogleMapVC.swift */,
 				010EDD7D24913E7D00AC6775 /* fonts */,
 				BF3111822448088E0015FD94 /* Main.storyboard */,
 				013994F7248A7D87001A3619 /* Note */,
@@ -479,6 +482,7 @@
 				BF3F1EB4244953170016F99D /* NoteViewController.swift in Sources */,
 				D4AEC39D2488D0C40063BCC8 /* FSCalendarViewController.swift in Sources */,
 				D4FE0FAB247D2A68008C6A8A /* MapViewController+LocationSupport.swift in Sources */,
+				D484A6BE249B145A00369D49 /* GoogleMapVC.swift in Sources */,
 				D4FE0FA9247D2A42008C6A8A /* MapViewController.swift in Sources */,
 				BF3F1EB22449454A0016F99D /* NoteCell.swift in Sources */,
 				01836852247EB08F008900CE /* PetTableViewController.swift in Sources */,
