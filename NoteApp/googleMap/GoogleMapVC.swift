@@ -9,14 +9,17 @@
 import UIKit
 import GoogleMaps
 import GooglePlaces
-class GoogleMapVC: UIViewController {
-
+class GoogleMapVC: UIViewController{
+    
+    var userLocation: CLLocation?
+    
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var textSearch: UITextField!
     var path: GMSMutablePath!
     @IBAction func loactionTapped(_ sender: Any) {
         gotoPlaces()
     }
+    let key = "AIzaSyAm4sqJZtXGSk2XVACeFTUjcb9WkcZLEfs"
     override func viewDidLoad() {
         super.viewDidLoad()
         //Google maps sdk: Compass
@@ -25,7 +28,7 @@ class GoogleMapVC: UIViewController {
         mapView.isMyLocationEnabled = true
         mapView.settings.myLocationButton = true
 //        let url = URL(string: "comgooglemaps://?saddr=&daddr=25.033671,121.564427&directionsmode=driving")
-//        
+//
 //        if UIApplication.shared.canOpenURL(url!) {
 //            UIApplication.shared.open(url!, options: [:], completionHandler: nil)
 //        } else {
@@ -63,13 +66,63 @@ class GoogleMapVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-}
+    //userlocation
+    func nearbyLocations(userLocation: CLLocation?) {
+        
+        guard let userLocation = userLocation else {
+           print("No user")
+            return
+        }
+        
+       let jsonUrlString = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(userLocation.coordinate.latitude),\(userLocation.coordinate.longitude)&radius=1500&type=pet_store&keyword=pet&key=\(key)"
 
+        guard let url = URL(string: jsonUrlString) else { return }
+
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+            }
+
+            guard let data = data else { return }
+
+            do {
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let root = try decoder.decode(PetSearch.self, from: data)
+                //var cafeCountIndex = root.results.count - 1
+                print(root)
+                for index in 0...root.results.count - 1 {
+                    print("AAA: \(root.results[index].name)")
+                }
+                print("root.results.count: \(root.results.count)")
+                //print(cafeCountIndex)
+                print(root.results.first?.name ?? -1)
+                print(root.results.first?.icon ?? -1)
+                print(root.results)
+               
+                DispatchQueue.main.async {
+    //                self.search.text = "Name: \(root.results[3].name) + PlaceID: \(root.results[3].placeId) + OpeningHours: \(String(describing: root.results[3].openingHours?["open_now"]!) )"
+                }
+                
+            } catch  {
+                print("Fail to root: \(error)")
+            }
+        }.resume()
+    }
+}
 
 extension GoogleMapVC: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        //search
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else{return}
         print("locations: \(locValue.latitude) \(locValue.longitude)")
+        //userlocation
+        guard let userlocation = locations.first else{return}
+        print("userlocation:\(userlocation)")
+        print("userlocation latitude: \(userlocation.coordinate.latitude)")
+        print("userlocation longitude: \(userlocation.coordinate.longitude)")
+
     }
 }
 extension GoogleMapVC: GMSAutocompleteViewControllerDelegate{

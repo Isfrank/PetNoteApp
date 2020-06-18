@@ -39,7 +39,7 @@ extension MapViewController : CLLocationManagerDelegate{
     }
     func moveRegion(coordinate : CLLocationCoordinate2D){
         
-        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         let region = MKCoordinateRegion(center: coordinate, span: span)
         mainMapView.setRegion(region, animated: true)
         showNearBy(searchName: "寵物用品")
