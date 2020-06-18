@@ -17,7 +17,14 @@ extension MapViewController : CLLocationManagerDelegate{
     //        if let coordinate = locations.last?.coordinate{
     //            print("Coordinate: \(coordinate.latitude ),\(coordinate.longitude)")
     //        }
-            //用guard else let就不會一直像if縮排
+//            let c = locations[0]
+//            var nowUserLocation = CLLocationCoordinate2D(latitude: c.coordinate.latitude, longitude: c.coordinate.longitude)
+//            //導航
+//            let pstarCoor = CLLocationCoordinate2D(latitude: nowUserLocation.latitude, longitude: nowUserLocation.longitude)
+//            let pstar = MKPlacemark(coordinate: pstarCoor)
+//            let pendCoor = CLLocationCoordinate2D(latitude:  ?? 25.150931, longitude: yPosition ?? 121.772389)
+            
+            //original 用guard else let就不會一直像if縮排
             guard let coordinate = locations.last?.coordinate else{
                 return
             }
@@ -25,7 +32,6 @@ extension MapViewController : CLLocationManagerDelegate{
             
             DispatchQueue.once(token:"Co"){
                  addAnnoatation(coordinate: coordinate)
-                
             }
             DispatchQueue.once(token:"moveRegion"){
                 moveRegion(coordinate: coordinate)
@@ -33,9 +39,9 @@ extension MapViewController : CLLocationManagerDelegate{
     }
     func moveRegion(coordinate : CLLocationCoordinate2D){
         
-        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
         let region = MKCoordinateRegion(center: coordinate, span: span)
-        mainMapView.setRegion(region, animated: false)
+        mainMapView.setRegion(region, animated: true)
         showNearBy(searchName: "寵物用品")
 //        showNearBy(searchName: "寵物餐廳")
 //        showNearBy(searchName: "公園")

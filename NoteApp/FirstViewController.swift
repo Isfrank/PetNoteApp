@@ -31,7 +31,9 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageView.contentMode = .scaleAspectFill
+//        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleToFill
+//        imageView.contentMode = .scaleAspectFit
         addBtn.imageView?.contentMode = .scaleAspectFill
 //        pieChartView.slices = [
 //            Slice(percent: 0.4, color: UIColor.red),
@@ -77,7 +79,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         if let data = try? Data(contentsOf: url) {
             imageView.image = UIImage(data: data)
         } else {
-            imageView.image = UIImage(named: "512.png")
+            imageView.image = UIImage(named: "beach-863139_640.jpg")
         }
         
 //        self.bdLabel.font = UIFontMetrics.default.scaledFont(for: customFont)

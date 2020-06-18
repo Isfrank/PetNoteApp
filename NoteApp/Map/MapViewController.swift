@@ -74,8 +74,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         LocationManager.allowsBackgroundLocationUpdates = true
         mainMapView.delegate = self
         //MKDirections Request
-//
-
+    }
+    //背景執行關閉定位功能
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        LocationManager.stopUpdatingLocation()
+        
     }
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
            let renderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
@@ -102,6 +106,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                     let annotation = MKPointAnnotation()
                     annotation.title = item.name
                     annotation.subtitle = item.phoneNumber
+                    
                     
                     if let location = item.placemark.location{
                         annotation.coordinate = location.coordinate
