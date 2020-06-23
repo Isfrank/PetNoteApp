@@ -34,6 +34,8 @@
 		D465849E249B70BD007809A5 /* PetSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D465849D249B70BD007809A5 /* PetSearch.swift */; };
 		D46ED7C1248F2D7F00D5595A /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46ED7C0248F2D7F00D5595A /* Camera.swift */; };
 		D484A6BE249B145A00369D49 /* GoogleMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D484A6BD249B145A00369D49 /* GoogleMapVC.swift */; };
+		D48E3F2324A1E33F001593BA /* cat-2489845_640.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D48E3F2224A1E33F001593BA /* cat-2489845_640.jpg */; };
+		D48E3F2424A1E33F001593BA /* cat-2489845_640.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D48E3F2224A1E33F001593BA /* cat-2489845_640.jpg */; };
 		D4936355247FCA5E0050FA64 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4936354247FCA5E0050FA64 /* Pet.swift */; };
 		D4A9628C2484FC85001D0594 /* dog-park-100.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A9628B2484FC84001D0594 /* dog-park-100.png */; };
 		D4AEC39D2488D0C40063BCC8 /* FSCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AEC39C2488D0C40063BCC8 /* FSCalendarViewController.swift */; };
@@ -105,6 +107,7 @@
 		D465849D249B70BD007809A5 /* PetSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetSearch.swift; sourceTree = "<group>"; };
 		D46ED7C0248F2D7F00D5595A /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		D484A6BD249B145A00369D49 /* GoogleMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapVC.swift; sourceTree = "<group>"; };
+		D48E3F2224A1E33F001593BA /* cat-2489845_640.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cat-2489845_640.jpg"; sourceTree = "<group>"; };
 		D4936354247FCA5E0050FA64 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		D4A9628B2484FC84001D0594 /* dog-park-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dog-park-100.png"; sourceTree = "<group>"; };
 		D4AEC39C2488D0C40063BCC8 /* FSCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSCalendarViewController.swift; sourceTree = "<group>"; };
@@ -259,6 +262,7 @@
 		D4A9628D2484FC9E001D0594 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				D48E3F2224A1E33F001593BA /* cat-2489845_640.jpg */,
 				D465849A249B658A007809A5 /* dog-3122494_640.jpg */,
 				D4658491249B5F66007809A5 /* dog-647528_640.jpg */,
 				010EDD8124923D8C00AC6775 /* 512.png */,
@@ -388,6 +392,7 @@
 				D465849B249B658A007809A5 /* dog-3122494_640.jpg in Resources */,
 				BF311186244808920015FD94 /* Assets.xcassets in Resources */,
 				BF3111842448088E0015FD94 /* Main.storyboard in Resources */,
+				D48E3F2324A1E33F001593BA /* cat-2489845_640.jpg in Resources */,
 				013994FA248CE55B001A3619 /* dog-tags-military.png in Resources */,
 				D4CE496F247374060025F277 /* GoogleService-Info.plist in Resources */,
 			);
@@ -399,6 +404,7 @@
 			files = (
 				010EDD7C24913CF900AC6775 /* crayon_1-1.ttf in Resources */,
 				D4658493249B5F66007809A5 /* dog-647528_640.jpg in Resources */,
+				D48E3F2424A1E33F001593BA /* cat-2489845_640.jpg in Resources */,
 				010EDD8324923D8C00AC6775 /* 512.png in Resources */,
 				D465849C249B658A007809A5 /* dog-3122494_640.jpg in Resources */,
 				D4DF65CF24889C33005D0051 /* MainInterface.storyboard in Resources */,
@@ -703,6 +709,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = NoteApp/NoteApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = CKXN44F8N2;
 				INFOPLIST_FILE = NoteApp/Info.plist;
@@ -711,10 +718,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.iiiedu.lab.NoteApp10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -726,6 +734,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = NoteApp/NoteApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.0;
 				DEVELOPMENT_TEAM = CKXN44F8N2;
 				INFOPLIST_FILE = NoteApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -733,10 +742,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.iiiedu.lab.NoteApp10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

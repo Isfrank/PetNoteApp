@@ -18,7 +18,7 @@ class NoteViewController: UIViewController,UIImagePickerControllerDelegate,UINav
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var toolbar: UIToolbar!
-    @IBOutlet weak var contentLabel: UITextView!
+    @IBOutlet weak var contentTextView: UITextView!
     var currentNote : Note!
     weak var delegate : NoteViewControllerDelegate?
     var isNewImage : Bool = false
@@ -27,14 +27,29 @@ class NoteViewController: UIViewController,UIImagePickerControllerDelegate,UINav
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.contentLabel.text =  self.currentNote.conteneLabel
+        self.contentTextView.text =  self.currentNote.conteneLabel
         self.textView.text = self.currentNote.text
         self.imageView.image = self.currentNote.image()
+        self.textView.delegate = self
+        self.textView.returnKeyType = .default
+//        self.textView.returnKeyType = UIReturnKeyType.done
+        self.contentTextView.delegate = self
+        if self.contentTextView.text == nil{
+        self.contentTextView.text = "請輸入內容"
+        self.contentTextView.textColor = .lightGray
+        }
+//        self.contentTextView.returnKeyType = .default
+        self.contentTextView.keyboardType = .default
+//        contentTextView.becomeFirstResponder()
+        contentTextView.selectedTextRange = contentTextView.textRange(from: contentTextView.beginningOfDocument, to: contentTextView.beginningOfDocument)
+        //關鍵盤
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
+        self.view.addGestureRecognizer(tap) // to Replace "TouchesBegan"
         
         self.textView.layer.borderWidth = 2
         self.textView.layer.borderColor = UIColor.gray.cgColor
-        self.contentLabel.layer.borderWidth = 2
-        self.contentLabel.layer.borderColor = UIColor.green.cgColor
+        self.contentTextView.layer.borderWidth = 2
+        self.contentTextView.layer.borderColor = UIColor.green.cgColor
         self.imageView.layer.borderWidth = 10
         self.imageView.layer.borderColor = UIColor.orange.cgColor
         //CG: Core Graphic是 UIKit的老爸
@@ -58,6 +73,38 @@ class NoteViewController: UIViewController,UIImagePickerControllerDelegate,UINav
         }
         
         print(self.toolbar.intrinsicContentSize)
+    }
+    //MARK:KeyBoard
+    @objc func dismissKeyBoard() {
+           self.view.endEditing(true)
+       }
+    
+    //MARK:UITextViewDelegate
+//    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+//        if textView.text == "\n" {
+//               self.view?.endEditing(false)
+//               return false
+//
+//           }
+//
+//           //字數限制，在這裏我的處理是給了一個簡單的提示，
+//           if range.location >= 1000 {
+//               print("超過1000字數了")
+//               return false
+//           }
+//           return true
+//       }
+    func textViewDidBeginEditing(_ contentTextView: UITextView) {
+        if contentTextView.textColor == UIColor.lightGray {
+            contentTextView.text = nil
+            contentTextView.textColor = UIColor.black
+        }
+    }
+    func textViewDidEndEditing(_ contentTextView: UITextView) {
+        if contentTextView.text.isEmpty {
+            contentTextView.text = "請輸入內容"
+            contentTextView.textColor = UIColor.lightGray
+        }
     }
     //MARK:GADInterstitialDelegate
     func interstitialDidDismissScreen(_ ad: GADInterstitial) {
@@ -88,7 +135,7 @@ class NoteViewController: UIViewController,UIImagePickerControllerDelegate,UINav
         
         self.currentNote.text = self.textView.text
         //self.currentNote.image = self.imageView.image
-        self.currentNote.conteneLabel = self.contentLabel.text
+        self.currentNote.conteneLabel = self.contentTextView.text
         if self.isNewImage {
             //image寫到檔案中  c:\iOS\Documents\uuidxxxxxxx.jpg
             let homeURL = URL(fileURLWithPath: NSHomeDirectory()) //取得Sandbox
@@ -174,5 +221,8 @@ class NoteViewController: UIViewController,UIImagePickerControllerDelegate,UINav
      // Pass the selected object to the new view controller.
      }
      */
+    
+}
+extension NoteViewController: UITextViewDelegate{
     
 }
