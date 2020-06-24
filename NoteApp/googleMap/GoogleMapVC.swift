@@ -13,6 +13,7 @@ class GoogleMapVC: UIViewController{
     
     var userLocation: CLLocation?
     
+    
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var textSearch: UITextField!
     var path: GMSMutablePath!
@@ -29,9 +30,19 @@ class GoogleMapVC: UIViewController{
         mapView.isMyLocationEnabled = true
         mapView.settings.myLocationButton = true
         googleLocationManager = CLLocationManager()
+<<<<<<< HEAD
         googleLocationManager.requestWhenInUseAuthorization()
         googleLocationManager.startUpdatingLocation()
         googleLocationManager.delegate = self
+=======
+//        googleLocationManager.desiredAccuracy =
+        googleLocationManager.requestAlwaysAuthorization()
+        googleLocationManager.startUpdatingLocation()
+        
+        
+        googleLocationManager.delegate = self
+        
+>>>>>>> ef7b455d5c8aa049833c55b9dadf9ba990487e76
 //        let url = URL(string: "comgooglemaps://?saddr=&daddr=25.033671,121.564427&directionsmode=driving")
 //
 //        if UIApplication.shared.canOpenURL(url!) {
@@ -128,9 +139,16 @@ extension GoogleMapVC: CLLocationManagerDelegate{
         print("userlocation latitude: \(userlocation.coordinate.latitude)")
         print("userlocation longitude: \(userlocation.coordinate.longitude)")
         
+<<<<<<< HEAD
         let camera = GMSCameraPosition.camera(withLatitude: userlocation.coordinate.latitude, longitude: userlocation.coordinate.longitude, zoom: 15)
         mapView.animate(to: camera)
 //        self.googleLocationManager.stopUpdatingLocation()
+=======
+        let camera = GMSCameraPosition.camera(withLatitude: userlocation.coordinate.latitude, longitude: userlocation.coordinate.longitude, zoom: 12)
+        mapView.animate(to: camera)
+//        self.googleLocationManager.stopUpdatingLocation()
+        
+>>>>>>> ef7b455d5c8aa049833c55b9dadf9ba990487e76
     }
 }
 extension GoogleMapVC: GMSAutocompleteViewControllerDelegate{
