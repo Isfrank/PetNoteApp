@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="87U-3K-FXp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="87U-3K-FXp">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -137,7 +137,7 @@
                                 <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="輸入回憶" translatesAutoresizingMaskIntoConstraints="NO" id="00F-zS-BUz">
-                                <rect key="frame" x="10" y="191.00000000000003" width="394" height="386.66666666666674"/>
+                                <rect key="frame" x="20" y="191.00000000000003" width="374" height="386.66666666666674"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
@@ -147,11 +147,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="jKS-At-cUY" firstAttribute="leading" secondItem="RQp-20-i3t" secondAttribute="leading" id="3ZA-L4-Ph4"/>
+                            <constraint firstItem="00F-zS-BUz" firstAttribute="leading" secondItem="RQp-20-i3t" secondAttribute="leading" constant="20" id="5g3-q5-tyd"/>
                             <constraint firstItem="jKS-At-cUY" firstAttribute="leading" secondItem="RQp-20-i3t" secondAttribute="leading" id="EhJ-Kg-XNZ"/>
                             <constraint firstItem="jKS-At-cUY" firstAttribute="bottom" secondItem="RQp-20-i3t" secondAttribute="bottom" id="I0n-rL-A73"/>
                             <constraint firstItem="DOs-SX-joi" firstAttribute="height" secondItem="RQp-20-i3t" secondAttribute="height" multiplier="1/4" id="NAC-pF-2v5"/>
-                            <constraint firstItem="00F-zS-BUz" firstAttribute="leading" secondItem="RQp-20-i3t" secondAttribute="leading" constant="10" id="SMh-pP-rqf"/>
-                            <constraint firstItem="RQp-20-i3t" firstAttribute="trailing" secondItem="00F-zS-BUz" secondAttribute="trailing" constant="10" id="U1e-Jf-gXw"/>
+                            <constraint firstItem="00F-zS-BUz" firstAttribute="top" secondItem="1P9-iV-obm" secondAttribute="bottom" constant="8" id="RP7-WW-L9t"/>
+                            <constraint firstItem="RQp-20-i3t" firstAttribute="trailing" secondItem="00F-zS-BUz" secondAttribute="trailing" constant="20" id="VgF-5G-HGI"/>
                             <constraint firstItem="jKS-At-cUY" firstAttribute="bottom" secondItem="RQp-20-i3t" secondAttribute="bottom" id="W1D-Ld-I1X"/>
                             <constraint firstItem="1P9-iV-obm" firstAttribute="leading" secondItem="RQp-20-i3t" secondAttribute="leading" constant="10" id="aOY-IC-Y4N"/>
                             <constraint firstItem="jKS-At-cUY" firstAttribute="trailing" secondItem="RQp-20-i3t" secondAttribute="trailing" id="dRI-PF-iuT"/>
@@ -160,8 +161,7 @@
                             <constraint firstItem="jKS-At-cUY" firstAttribute="top" secondItem="DOs-SX-joi" secondAttribute="bottom" constant="10" id="giP-YB-XZU"/>
                             <constraint firstItem="RQp-20-i3t" firstAttribute="trailing" secondItem="DOs-SX-joi" secondAttribute="trailing" constant="10" id="nOK-rr-JR7"/>
                             <constraint firstItem="RQp-20-i3t" firstAttribute="trailing" secondItem="1P9-iV-obm" secondAttribute="trailing" constant="10" id="om0-96-m48"/>
-                            <constraint firstItem="DOs-SX-joi" firstAttribute="top" secondItem="00F-zS-BUz" secondAttribute="bottom" constant="8" id="svP-7F-VeE"/>
-                            <constraint firstItem="00F-zS-BUz" firstAttribute="top" secondItem="1P9-iV-obm" secondAttribute="bottom" constant="8" id="tVd-27-3Au"/>
+                            <constraint firstItem="DOs-SX-joi" firstAttribute="top" secondItem="00F-zS-BUz" secondAttribute="bottom" constant="8" id="uXH-57-tLL"/>
                             <constraint firstItem="DOs-SX-joi" firstAttribute="leading" secondItem="RQp-20-i3t" secondAttribute="leading" constant="10" id="woI-FS-y4B"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RQp-20-i3t"/>
@@ -191,7 +191,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="contentLabel" destination="00F-zS-BUz" id="3fS-go-LWf"/>
+                        <outlet property="contentTextView" destination="00F-zS-BUz" id="3fS-go-LWf"/>
                         <outlet property="imageView" destination="DOs-SX-joi" id="tT6-qu-lyY"/>
                         <outlet property="textView" destination="1P9-iV-obm" id="rMa-KN-lAL"/>
                         <outlet property="toolbar" destination="jKS-At-cUY" id="Vsw-7q-uOC"/>
@@ -246,23 +246,15 @@
                                     <action selector="modeChanged:" destination="W5t-mj-7vh" eventType="valueChanged" id="j37-IY-evN"/>
                                 </connections>
                             </segmentedControl>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="9op-Kq-N4h">
-                                <rect key="frame" x="0.0" y="96" width="414" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="9op-Kq-N4h" firstAttribute="trailing" secondItem="d79-vn-cBl" secondAttribute="trailing" id="7L7-Yl-sc5"/>
                             <constraint firstItem="d79-vn-cBl" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xkR-GL-f3n" secondAttribute="trailing" symbolic="YES" id="Cpa-N1-NYK"/>
                             <constraint firstItem="xkR-GL-f3n" firstAttribute="top" secondItem="d79-vn-cBl" secondAttribute="top" constant="21" id="GKf-Ii-zDU"/>
                             <constraint firstItem="8Jq-DW-rWK" firstAttribute="top" secondItem="zS5-Pg-TbJ" secondAttribute="top" id="JaP-xO-NFz"/>
-                            <constraint firstItem="9op-Kq-N4h" firstAttribute="leading" secondItem="d79-vn-cBl" secondAttribute="leading" id="Kho-vu-Srs"/>
                             <constraint firstItem="xkR-GL-f3n" firstAttribute="leading" secondItem="d79-vn-cBl" secondAttribute="leading" constant="20" id="Lyt-fO-Ha6"/>
                             <constraint firstItem="8Jq-DW-rWK" firstAttribute="leading" secondItem="d79-vn-cBl" secondAttribute="leading" id="Zdu-vA-W8t"/>
-                            <constraint firstItem="9op-Kq-N4h" firstAttribute="top" secondItem="xkR-GL-f3n" secondAttribute="bottom" id="bHy-cq-blk"/>
                             <constraint firstItem="8Jq-DW-rWK" firstAttribute="trailing" secondItem="d79-vn-cBl" secondAttribute="trailing" id="cSr-Ru-KKL"/>
-                            <constraint firstItem="9op-Kq-N4h" firstAttribute="top" secondItem="xkR-GL-f3n" secondAttribute="bottom" id="jZa-eY-X7s"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="d79-vn-cBl"/>
                     </view>
@@ -270,7 +262,6 @@
                     <navigationItem key="navigationItem" id="2eN-Nb-1Sg"/>
                     <connections>
                         <outlet property="mainMapView" destination="8Jq-DW-rWK" id="w3X-hY-D5a"/>
-                        <outlet property="searchBar" destination="9op-Kq-N4h" id="vRk-Gz-qLb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lbv-fs-Dpc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -297,7 +288,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8X-fZ-hb1">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8X-fZ-hb1">
                                         <rect key="frame" x="181" y="32.666666666666671" width="52" height="30.333333333333329"/>
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -312,7 +303,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="age" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dW-Et-phU">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dW-Et-phU">
                                                 <rect key="frame" x="140.66666666666669" y="0.0" width="132.66666666666669" height="30.666666666666668"/>
                                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -329,13 +320,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="90" translatesAutoresizingMaskIntoConstraints="NO" id="5cx-Dy-zIp">
                                         <rect key="frame" x="0.0" y="97.666666666666657" width="414" height="30.666666666666657"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="bd" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p55-HX-YdT">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p55-HX-YdT">
                                                 <rect key="frame" x="0.0" y="0.0" width="162" height="30.666666666666668"/>
                                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="25"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="home" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6F-Rl-srU">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6F-Rl-srU">
                                                 <rect key="frame" x="252" y="0.0" width="162" height="30.666666666666668"/>
                                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="25"/>
                                                 <nil key="textColor"/>
@@ -652,7 +643,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Uu0-Lz-wfo"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Google Maps" id="9hb-ce-tcW"/>
+                    <tabBarItem key="tabBarItem" title="Google Maps" image="map" catalog="system" id="9hb-ce-tcW"/>
                     <connections>
                         <outlet property="mapView" destination="8rg-AJ-Zf3" id="ACN-d7-pgg"/>
                         <outlet property="textSearch" destination="8Se-TL-KM1" id="pWn-5R-HcJ"/>

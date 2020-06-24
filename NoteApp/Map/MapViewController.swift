@@ -16,9 +16,9 @@ class MapViewController: UIViewController {
     let LocationManager = CLLocationManager()
     var nearbyAnnotations = [MKAnnotation]()
     @IBOutlet weak var mainMapView: MKMapView!
-    @IBOutlet weak var searchBar: UISearchBar!
     var nearByPointAnnotation: MKPointAnnotation!
     var nearByItem: [MKMapItem]!
+    var selectedAnnotation: MKPointAnnotation!
     
     //自己發明的 把圖標放在哪個經緯度
     //儲存屬性是比較重要的,用struct,一樣的東西struct運行速度是class的10倍
@@ -163,45 +163,63 @@ extension MapViewController: MKMapViewDelegate{
         //有的話return
     }
     
-    @objc func buttonPress(sender:Any){
-        print("press")
-//        navigateTo(address: "台北市館前路45號")
-        let gecoder2 = CLGeocoder()
-
-        if nearByItem.count > 0{
-            for item in nearByItem{
-                let annotation = MKPointAnnotation()
-                annotation.title = item.name
-                annotation.subtitle = item.phoneNumber
-                
-                if let location = item.placemark.location{
-                    annotation.coordinate = location.coordinate
-                    
-                    let nearByLocation = CLLocation(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
-                    
-                    gecoder2.reverseGeocodeLocation(nearByLocation) { (placemarks, error) in
-                        if let error = error{
-                            print("geocodeArrressSting: \(error)")
-                            return
-                        }
-                        guard let placemark = placemarks?.first,
-                            let coordinate = placemark.location?.coordinate else{
-                                assertionFailure("Invalid placemark")
-                                return
-                        }
-                        if annotation.title == placemark.name{
-                        let description = placemark.description
-                        let postalCode = placemark.postalCode ?? "n/a"
-                        let countryCode = placemark.isoCountryCode ?? "n/a"
-                        print("\(description), \(postalCode), \(countryCode)")
-                        
-                        self.navigateTo(address: "\(placemark.description)")
-                    }
-                }
-//        navigateTo(address: "\(self.nearbyAnnotations.description)")
-        }
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        selectedAnnotation = view.annotation as? MKPointAnnotation
+//        print("\(selectedAnnotation.coordinate)")
+//        print("\(selectedAnnotation.title)")
     }
-}
+    @objc func buttonPress(sender:Any){
+        
+//        let sourceCoordinate = CLLocationCoordinate2D(latitude: (selectedAnnotation?.coordinate.latitude)! , longitude: (selectedAnnotation?.coordinate.longitude)!)
+        //導航
+        let sourceCoordinate = CLLocationCoordinate2D(latitude: selectedAnnotation.coordinate.latitude, longitude: selectedAnnotation.coordinate.longitude)
+        let sourcePlacemark = MKPlacemark(coordinate: sourceCoordinate)
+        let sourceMapItem = MKMapItem(placemark: sourcePlacemark)
+        sourceMapItem.name = self.selectedAnnotation.title
+        let options = [MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving]
+        sourceMapItem.openInMaps(launchOptions: options)
+        
+        
+        
+        
+//        print("press")
+////        navigateTo(address: "台北市館前路45號")
+//        let gecoder2 = CLGeocoder()
+//
+//        if nearByItem.count > 0{
+//            for item in nearByItem{
+//                let annotation = MKPointAnnotation()
+//                annotation.title = item.name
+//                annotation.subtitle = item.phoneNumber
+//
+//                if let location = item.placemark.location{
+//                    annotation.coordinate = location.coordinate
+//
+//                    let nearByLocation = CLLocation(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
+//
+//                    gecoder2.reverseGeocodeLocation(nearByLocation) { (placemarks, error) in
+//                        if let error = error{
+//                            print("geocodeArrressSting: \(error)")
+//                            return
+//                        }
+//                        guard let placemark = placemarks?.first,
+//                            let coordinate = placemark.location?.coordinate else{
+//                                assertionFailure("Invalid placemark")
+//                                return
+//                        }
+//                        if annotation.title == placemark.name{
+//                        let description = placemark.description
+//                        let postalCode = placemark.postalCode ?? "n/a"
+//                        let countryCode = placemark.isoCountryCode ?? "n/a"
+//                        print("\(description), \(postalCode), \(countryCode)")
+//
+//                        self.navigateTo(address: "\(placemark.description)")
+//                    }
+//                }
+//        navigateTo(address: "\(self.nearbyAnnotations.description)")
+//        }
+//    }
+//}
     }
     func navigateTo(address: String){
         //異步執行 Async Task
