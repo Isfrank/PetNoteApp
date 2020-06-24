@@ -32,7 +32,6 @@ class NoteViewController: UIViewController,UIImagePickerControllerDelegate,UINav
         self.imageView.image = self.currentNote.image()
         self.textView.delegate = self
         self.textView.returnKeyType = .default
-<<<<<<< HEAD
         self.contentTextView.delegate = self
         if self.contentTextView.text == nil{
             self.contentTextView.text = "請輸入內容"
@@ -44,21 +43,6 @@ class NoteViewController: UIViewController,UIImagePickerControllerDelegate,UINav
         self.view.addGestureRecognizer(tap) // to Replace "TouchesBegan"
         
         
-=======
-//        self.textView.returnKeyType = UIReturnKeyType.done
-        self.contentTextView.delegate = self
-        if self.contentTextView.text == nil{
-        self.contentTextView.text = "請輸入內容"
-        self.contentTextView.textColor = .lightGray
-        }
-//        self.contentTextView.returnKeyType = .default
-        self.contentTextView.keyboardType = .default
-//        contentTextView.becomeFirstResponder()
-        contentTextView.selectedTextRange = contentTextView.textRange(from: contentTextView.beginningOfDocument, to: contentTextView.beginningOfDocument)
-        //關鍵盤
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
-        self.view.addGestureRecognizer(tap) // to Replace "TouchesBegan"
->>>>>>> ef7b455d5c8aa049833c55b9dadf9ba990487e76
         
         self.textView.layer.borderWidth = 2
         self.textView.layer.borderColor = UIColor.gray.cgColor
@@ -89,7 +73,6 @@ class NoteViewController: UIViewController,UIImagePickerControllerDelegate,UINav
         print(self.toolbar.intrinsicContentSize)
     }
     //MARK:KeyBoard
-<<<<<<< HEAD
         @objc func dismissKeyBoard() {
                self.view.endEditing(true)
            }
@@ -121,39 +104,6 @@ class NoteViewController: UIViewController,UIImagePickerControllerDelegate,UINav
                 contentTextView.textColor = UIColor.lightGray
             }
         }
-=======
-    @objc func dismissKeyBoard() {
-           self.view.endEditing(true)
-       }
-    
-    //MARK:UITextViewDelegate
-//    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-//        if textView.text == "\n" {
-//               self.view?.endEditing(false)
-//               return false
-//
-//           }
-//
-//           //字數限制，在這裏我的處理是給了一個簡單的提示，
-//           if range.location >= 1000 {
-//               print("超過1000字數了")
-//               return false
-//           }
-//           return true
-//       }
-    func textViewDidBeginEditing(_ contentTextView: UITextView) {
-        if contentTextView.textColor == UIColor.lightGray {
-            contentTextView.text = nil
-            contentTextView.textColor = UIColor.black
-        }
-    }
-    func textViewDidEndEditing(_ contentTextView: UITextView) {
-        if contentTextView.text.isEmpty {
-            contentTextView.text = "請輸入內容"
-            contentTextView.textColor = UIColor.lightGray
-        }
-    }
->>>>>>> ef7b455d5c8aa049833c55b9dadf9ba990487e76
     //MARK:GADInterstitialDelegate
     func interstitialDidDismissScreen(_ ad: GADInterstitial) {
         //使用者按下x
@@ -269,8 +219,5 @@ class NoteViewController: UIViewController,UIImagePickerControllerDelegate,UINav
      // Pass the selected object to the new view controller.
      }
      */
-    
-}
-extension NoteViewController: UITextViewDelegate{
     
 }

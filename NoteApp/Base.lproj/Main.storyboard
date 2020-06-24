@@ -136,13 +136,8 @@
                                 <rect key="frame" x="10" y="585.66666666666663" width="394" height="168.33333333333337"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
-<<<<<<< HEAD
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="輸入回憶" translatesAutoresizingMaskIntoConstraints="NO" id="00F-zS-BUz">
                                 <rect key="frame" x="20" y="191.00000000000003" width="374" height="386.66666666666674"/>
-=======
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="請輸入內容" translatesAutoresizingMaskIntoConstraints="NO" id="00F-zS-BUz">
-                                <rect key="frame" x="20" y="193.00000000000003" width="374" height="384.66666666666674"/>
->>>>>>> ef7b455d5c8aa049833c55b9dadf9ba990487e76
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
@@ -156,27 +151,17 @@
                             <constraint firstItem="jKS-At-cUY" firstAttribute="leading" secondItem="RQp-20-i3t" secondAttribute="leading" id="EhJ-Kg-XNZ"/>
                             <constraint firstItem="jKS-At-cUY" firstAttribute="bottom" secondItem="RQp-20-i3t" secondAttribute="bottom" id="I0n-rL-A73"/>
                             <constraint firstItem="DOs-SX-joi" firstAttribute="height" secondItem="RQp-20-i3t" secondAttribute="height" multiplier="1/4" id="NAC-pF-2v5"/>
-<<<<<<< HEAD
                             <constraint firstItem="00F-zS-BUz" firstAttribute="top" secondItem="1P9-iV-obm" secondAttribute="bottom" constant="8" id="RP7-WW-L9t"/>
                             <constraint firstItem="RQp-20-i3t" firstAttribute="trailing" secondItem="00F-zS-BUz" secondAttribute="trailing" constant="20" id="VgF-5G-HGI"/>
-=======
-                            <constraint firstItem="00F-zS-BUz" firstAttribute="top" secondItem="1P9-iV-obm" secondAttribute="bottom" constant="10" id="UdF-mI-7YD"/>
->>>>>>> ef7b455d5c8aa049833c55b9dadf9ba990487e76
                             <constraint firstItem="jKS-At-cUY" firstAttribute="bottom" secondItem="RQp-20-i3t" secondAttribute="bottom" id="W1D-Ld-I1X"/>
                             <constraint firstItem="1P9-iV-obm" firstAttribute="leading" secondItem="RQp-20-i3t" secondAttribute="leading" constant="10" id="aOY-IC-Y4N"/>
                             <constraint firstItem="jKS-At-cUY" firstAttribute="trailing" secondItem="RQp-20-i3t" secondAttribute="trailing" id="dRI-PF-iuT"/>
                             <constraint firstItem="jKS-At-cUY" firstAttribute="trailing" secondItem="RQp-20-i3t" secondAttribute="trailing" id="dSC-Ys-C7e"/>
                             <constraint firstItem="1P9-iV-obm" firstAttribute="top" secondItem="RQp-20-i3t" secondAttribute="top" constant="10" id="eZi-wU-BPd"/>
                             <constraint firstItem="jKS-At-cUY" firstAttribute="top" secondItem="DOs-SX-joi" secondAttribute="bottom" constant="10" id="giP-YB-XZU"/>
-                            <constraint firstItem="DOs-SX-joi" firstAttribute="top" secondItem="00F-zS-BUz" secondAttribute="bottom" constant="8" id="jnt-oM-Ey5"/>
-                            <constraint firstItem="RQp-20-i3t" firstAttribute="trailing" secondItem="00F-zS-BUz" secondAttribute="trailing" constant="20" id="kag-yf-KwN"/>
-                            <constraint firstItem="00F-zS-BUz" firstAttribute="leading" secondItem="RQp-20-i3t" secondAttribute="leading" constant="20" id="lsH-QS-d1X"/>
                             <constraint firstItem="RQp-20-i3t" firstAttribute="trailing" secondItem="DOs-SX-joi" secondAttribute="trailing" constant="10" id="nOK-rr-JR7"/>
                             <constraint firstItem="RQp-20-i3t" firstAttribute="trailing" secondItem="1P9-iV-obm" secondAttribute="trailing" constant="10" id="om0-96-m48"/>
-<<<<<<< HEAD
                             <constraint firstItem="DOs-SX-joi" firstAttribute="top" secondItem="00F-zS-BUz" secondAttribute="bottom" constant="8" id="uXH-57-tLL"/>
-=======
->>>>>>> ef7b455d5c8aa049833c55b9dadf9ba990487e76
                             <constraint firstItem="DOs-SX-joi" firstAttribute="leading" secondItem="RQp-20-i3t" secondAttribute="leading" constant="10" id="woI-FS-y4B"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RQp-20-i3t"/>
@@ -254,7 +239,7 @@
                                 <rect key="frame" x="20" y="65" width="218" height="32"/>
                                 <segments>
                                     <segment title="寵物用品"/>
-                                    <segment title="動物醫院"/>
+                                    <segment title="寵物餐廳"/>
                                     <segment title="公園"/>
                                 </segments>
                                 <connections>
@@ -387,7 +372,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJr-mK-5Ve">
-                                <rect key="frame" x="67.666666666666671" y="753.33333333333337" width="52" height="51.333333333333414"/>
+                                <rect key="frame" x="67.666666666666671" y="753.33333333333337" width="52" height="51.333333333333371"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fJr-mK-5Ve" secondAttribute="height" multiplier="50:51" id="YbG-AI-Rc2"/>
                                 </constraints>
