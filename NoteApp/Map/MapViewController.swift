@@ -51,6 +51,8 @@ class MapViewController: UIViewController {
             showNearBy(searchName: "寵物餐廳")
         case 2:
             showNearBy(searchName: "公園")
+        case 3:
+            showNearBy(searchName: "動物醫院")
         default:
             showNearBy(searchName: "寵物用品")
         }

@@ -129,7 +129,7 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         //SKStoreReviewController.requestReview()//是否評分APP,app內建的
-        askForRating()
+//        askForRating()
         /*
          let alert = UIAlertController(title: "請登入", message: "輸入帳號密碼", preferredStyle: .alert)
          

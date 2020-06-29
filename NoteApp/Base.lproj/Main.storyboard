@@ -236,11 +236,12 @@
                                 </constraints>
                             </mapView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xkR-GL-f3n">
-                                <rect key="frame" x="20" y="65" width="218" height="32"/>
+                                <rect key="frame" x="20" y="65" width="291" height="32"/>
                                 <segments>
                                     <segment title="寵物用品"/>
                                     <segment title="寵物餐廳"/>
                                     <segment title="公園"/>
+                                    <segment title="動物醫院"/>
                                 </segments>
                                 <connections>
                                     <action selector="modeChanged:" destination="W5t-mj-7vh" eventType="valueChanged" id="j37-IY-evN"/>
@@ -656,6 +657,7 @@
         <!--日曆-->
         <scene sceneID="GqS-DE-Unz">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dIH-jc-NOn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="dRA-Uf-u4F" customClass="FSCalendarViewController" customModule="NoteApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BZX-1h-L2m">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -677,7 +679,6 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="日曆" image="goforward.60.hi" catalog="system" id="Zlq-4o-Bst"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dIH-jc-NOn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-759" y="479"/>
         </scene>
