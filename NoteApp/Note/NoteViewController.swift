@@ -72,6 +72,54 @@ class NoteViewController: UIViewController,UIImagePickerControllerDelegate,UINav
         
         print(self.toolbar.intrinsicContentSize)
     }
+    func showAlert(title: String, message: String) {
+        // 建立一個提示框
+        let alertController = UIAlertController(
+            title: "\(title)",
+            message: "\(message)",
+            preferredStyle: .alert)
+
+        // 建立[確認]按鈕
+        let okAction = UIAlertAction(
+            title: "確認",
+            style: .default,
+            handler: {
+            (action: UIAlertAction!) -> Void in
+              print("按下確認後，閉包裡的動作")
+        })
+        alertController.addAction(okAction)
+
+        // 顯示提示框
+        self.present(
+          alertController,
+          animated: true,
+          completion: nil)
+    }
+    //UIActivityViewController
+    @IBAction func shareBtn(_ sender: Any) {
+        
+        if self.textView.text?.isEmpty == true || self.contentTextView.text?.isEmpty == true || self.imageView.image == nil {
+                let controller = UIAlertController(title: "有空格及無照片將無法分享", message: "請輸入完成", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                controller.addAction(okAction)
+                present(controller, animated: true, completion: nil)
+                    return
+        }else{
+            let activityViewController = UIActivityViewController(activityItems: [self.textView.text!, self.contentTextView.text!, self.imageView.image!], applicationActivities: nil)
+            activityViewController.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
+                // 如果錯誤存在，跳出錯誤視窗並顯示給使用者。
+                if error != nil {
+                    self.showAlert(title: "分享失敗", message: "Error:\(error!.localizedDescription)")
+                    return
+                }
+                // 如果發送成功，跳出提示視窗顯示成功。
+                if completed {
+                    self.showAlert(title: "分享成功", message: "\(self.textView.text!).")
+                }
+            }
+            self.present(activityViewController, animated: true, completion: nil)
+        }
+    }
     //MARK:KeyBoard
         @objc func dismissKeyBoard() {
                self.view.endEditing(true)

@@ -120,6 +120,12 @@
                                             <action selector="camera:" destination="y80-Q0-T1a" id="Uh0-Jg-1Xs"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="t2r-y2-Eb2"/>
+                                    <barButtonItem title="Item" systemItem="action" id="nkq-XS-1mv">
+                                        <connections>
+                                            <action selector="shareBtn:" destination="y80-Q0-T1a" id="8ZI-eD-UWQ"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="標題" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1P9-iV-obm">
