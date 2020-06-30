@@ -45,8 +45,9 @@ class WeatherViewController: UIViewController {
         self.temperatureLabel.adjustsFontForContentSizeCategory = true
         self.cityLabel.font = UIFontMetrics.default.scaledFont(for: customFont)
         self.cityLabel.adjustsFontForContentSizeCategory = true
-        background.image = UIImage(named: "weather.jpg")
-        background.contentMode = .scaleAspectFill
+        
+       // background.image = UIImage(named: "weather.jpg")
+        //background.contentMode = .scaleAspectFill
 
 
     }

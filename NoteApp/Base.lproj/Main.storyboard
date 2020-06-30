@@ -216,8 +216,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uZK-7L-9XG">
+                            <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weather" translatesAutoresizingMaskIntoConstraints="NO" id="uZK-7L-9XG">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                <color key="backgroundColor" red="0.6148123741" green="0.1017967239" blue="0.1002308354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="z0g-7U-cM4">
                                 <rect key="frame" x="10" y="54" width="394" height="310"/>
@@ -277,13 +278,13 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="uZK-7L-9XG" secondAttribute="bottom" constant="83" id="4xc-rH-2cS"/>
                             <constraint firstItem="r5p-ci-5Ey" firstAttribute="trailing" secondItem="z0g-7U-cM4" secondAttribute="trailing" constant="10" id="C9l-NR-UcN"/>
+                            <constraint firstItem="uZK-7L-9XG" firstAttribute="bottom" secondItem="r5p-ci-5Ey" secondAttribute="bottom" id="M2t-Gw-t3O"/>
+                            <constraint firstItem="uZK-7L-9XG" firstAttribute="top" secondItem="DUU-Lk-7cX" secondAttribute="top" id="OlV-Bd-otN"/>
                             <constraint firstAttribute="trailing" secondItem="uZK-7L-9XG" secondAttribute="trailing" id="RWd-o7-ZGV"/>
                             <constraint firstItem="uZK-7L-9XG" firstAttribute="leading" secondItem="DUU-Lk-7cX" secondAttribute="leading" id="fy7-rJ-4dp"/>
                             <constraint firstItem="z0g-7U-cM4" firstAttribute="leading" secondItem="r5p-ci-5Ey" secondAttribute="leading" constant="10" id="qxJ-Rd-SyM"/>
                             <constraint firstItem="z0g-7U-cM4" firstAttribute="top" secondItem="r5p-ci-5Ey" secondAttribute="top" constant="10" id="rST-wF-9df"/>
-                            <constraint firstItem="uZK-7L-9XG" firstAttribute="top" secondItem="DUU-Lk-7cX" secondAttribute="top" id="rzb-FJ-bjF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="r5p-ci-5Ey"/>
                     </view>
@@ -369,10 +370,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Jq-DW-rWK">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="748"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="748" id="dLw-vD-LxW"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                             </mapView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xkR-GL-f3n">
                                 <rect key="frame" x="20" y="65" width="291" height="32"/>
@@ -391,10 +389,11 @@
                         <constraints>
                             <constraint firstItem="d79-vn-cBl" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xkR-GL-f3n" secondAttribute="trailing" symbolic="YES" id="Cpa-N1-NYK"/>
                             <constraint firstItem="xkR-GL-f3n" firstAttribute="top" secondItem="d79-vn-cBl" secondAttribute="top" constant="21" id="GKf-Ii-zDU"/>
-                            <constraint firstItem="8Jq-DW-rWK" firstAttribute="top" secondItem="zS5-Pg-TbJ" secondAttribute="top" id="JaP-xO-NFz"/>
                             <constraint firstItem="xkR-GL-f3n" firstAttribute="leading" secondItem="d79-vn-cBl" secondAttribute="leading" constant="20" id="Lyt-fO-Ha6"/>
-                            <constraint firstItem="8Jq-DW-rWK" firstAttribute="leading" secondItem="d79-vn-cBl" secondAttribute="leading" id="Zdu-vA-W8t"/>
-                            <constraint firstItem="8Jq-DW-rWK" firstAttribute="trailing" secondItem="d79-vn-cBl" secondAttribute="trailing" id="cSr-Ru-KKL"/>
+                            <constraint firstItem="8Jq-DW-rWK" firstAttribute="trailing" secondItem="d79-vn-cBl" secondAttribute="trailing" id="gDZ-vv-j8D"/>
+                            <constraint firstItem="8Jq-DW-rWK" firstAttribute="top" secondItem="zS5-Pg-TbJ" secondAttribute="top" id="jwB-iK-A74"/>
+                            <constraint firstItem="8Jq-DW-rWK" firstAttribute="bottom" secondItem="d79-vn-cBl" secondAttribute="bottom" id="rfh-AF-wne"/>
+                            <constraint firstItem="8Jq-DW-rWK" firstAttribute="leading" secondItem="d79-vn-cBl" secondAttribute="leading" id="wig-nx-Jee"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="d79-vn-cBl"/>
                     </view>
@@ -406,7 +405,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lbv-fs-Dpc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1868" y="182"/>
+            <point key="canvasLocation" x="-1868.1159420289857" y="181.47321428571428"/>
         </scene>
         <!--首頁-->
         <scene sceneID="Are-7k-eRn">
@@ -793,34 +792,6 @@
             </objects>
             <point key="canvasLocation" x="2264.8000000000002" y="166.99507389162562"/>
         </scene>
-        <!--日曆-->
-        <scene sceneID="GqS-DE-Unz">
-            <objects>
-                <viewController id="dRA-Uf-u4F" customClass="FSCalendarViewController" customModule="NoteApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="BZX-1h-L2m">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YRu-yk-Cs8" customClass="FSCalendar">
-                                <rect key="frame" x="20" y="68" width="374" height="605"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="YRu-yk-Cs8" firstAttribute="leading" secondItem="pl8-Zk-wdU" secondAttribute="leading" constant="20" id="SVL-Eq-kE7"/>
-                            <constraint firstItem="pl8-Zk-wdU" firstAttribute="trailing" secondItem="YRu-yk-Cs8" secondAttribute="trailing" constant="20" id="dEy-Zy-CTy"/>
-                            <constraint firstItem="YRu-yk-Cs8" firstAttribute="top" secondItem="pl8-Zk-wdU" secondAttribute="top" constant="24" id="fRc-KY-kph"/>
-                            <constraint firstItem="pl8-Zk-wdU" firstAttribute="bottom" secondItem="YRu-yk-Cs8" secondAttribute="bottom" constant="189" id="iz3-jS-ecS"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="pl8-Zk-wdU"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="日曆" image="goforward.60.hi" catalog="system" id="Zlq-4o-Bst"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dIH-jc-NOn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-759" y="479"/>
-        </scene>
         <!--紀錄-->
         <scene sceneID="p0P-Vm-wEX">
             <objects>
@@ -844,7 +815,6 @@
     </scenes>
     <resources>
         <image name="camera.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="goforward.60.hi" catalog="system" width="121" height="128"/>
         <image name="house" catalog="system" width="128" height="110"/>
         <image name="location.circle" catalog="system" width="128" height="121"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
@@ -852,5 +822,6 @@
         <image name="photo" catalog="system" width="128" height="93"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <image name="sun.min" catalog="system" width="128" height="121"/>
+        <image name="weather" width="1024" height="1024"/>
     </resources>
 </document>
