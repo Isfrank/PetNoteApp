@@ -16,6 +16,7 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var searchTextField: UITextField!
     
+    @IBOutlet weak var background: UIImageView!
     var weatherManager = WeatherManager()
     let locationManager = CLLocationManager()
     
@@ -28,12 +29,32 @@ class WeatherViewController: UIViewController {
         locationManager.delegate = self
         weatherManager.delegate = self
         searchTextField.delegate = self
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
+        self.view.addGestureRecognizer(tap) // to Replace "TouchesBegan"
+
+        //customFont
+        guard let customFont = UIFont(name: "Nagurigaki Crayon", size: 40.0) else {
+            fatalError("""
+                Failed to load the "CustomFont-Light" font.
+                Make sure the font file is included in the project and the font name is spelled correctly.
+                """
+            )
+        }
+        self.temperatureLabel.font = UIFontMetrics.default.scaledFont(for: customFont)
+        self.temperatureLabel.adjustsFontForContentSizeCategory = true
+        self.cityLabel.font = UIFontMetrics.default.scaledFont(for: customFont)
+        self.cityLabel.adjustsFontForContentSizeCategory = true
+        background.image = UIImage(named: "weather.jpg")
+        background.contentMode = .scaleAspectFill
+
+
     }
     @IBAction func locationPressed(_ sender: UIButton) {
         locationManager.requestLocation()
     }
 }
-
+    
 //MARK: - UITextFieldDelegate
 
 extension WeatherViewController: UITextFieldDelegate {
@@ -78,6 +99,9 @@ extension WeatherViewController: WeatherManagerDelegate {
     
     func didFailWithError(error: Error) {
         print(error)
+    }
+    @objc func dismissKeyBoard() {
+        self.view.endEditing(true)
     }
 }
 

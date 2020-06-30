@@ -25,6 +25,8 @@
 		017F45D824A9EA45007121AE /* weatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017F45D724A9EA45007121AE /* weatherModel.swift */; };
 		017F45D924A9EA45007121AE /* weatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017F45D724A9EA45007121AE /* weatherModel.swift */; };
 		01836852247EB08F008900CE /* PetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01836851247EB08F008900CE /* PetTableViewController.swift */; };
+		01B0FC1524AAEBF000E3E19F /* weather.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01B0FC1424AAEBF000E3E19F /* weather.jpg */; };
+		01B0FC1624AAEBF000E3E19F /* weather.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01B0FC1424AAEBF000E3E19F /* weather.jpg */; };
 		4493867CA496BC4F2DC50F20 /* Pods_NoteApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAFD1F87DE519514B6CC5476 /* Pods_NoteApp.framework */; };
 		BF31117D2448088E0015FD94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF31117C2448088E0015FD94 /* AppDelegate.swift */; };
 		BF3111842448088E0015FD94 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF3111822448088E0015FD94 /* Main.storyboard */; };
@@ -100,6 +102,7 @@
 		017F45D424A9E590007121AE /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		017F45D724A9EA45007121AE /* weatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherModel.swift; sourceTree = "<group>"; };
 		01836851247EB08F008900CE /* PetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetTableViewController.swift; sourceTree = "<group>"; };
+		01B0FC1424AAEBF000E3E19F /* weather.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = weather.jpg; path = ../../../../Downloads/weather.jpg; sourceTree = "<group>"; };
 		181742C86D120D067F13A4FB /* Pods-NoteApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoteApp.debug.xcconfig"; path = "Target Support Files/Pods-NoteApp/Pods-NoteApp.debug.xcconfig"; sourceTree = "<group>"; };
 		B50FE9DC0EBE4EE5B7A4AFA1 /* Pods-NoteApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoteApp.release.xcconfig"; path = "Target Support Files/Pods-NoteApp/Pods-NoteApp.release.xcconfig"; sourceTree = "<group>"; };
 		BF3111792448088E0015FD94 /* NoteApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -280,6 +283,7 @@
 		D4A9628D2484FC9E001D0594 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				01B0FC1424AAEBF000E3E19F /* weather.jpg */,
 				016332A324A2510300012792 /* cat-2489845_640.jpg */,
 				D465849A249B658A007809A5 /* dog-3122494_640.jpg */,
 				D4658491249B5F66007809A5 /* dog-647528_640.jpg */,
@@ -405,6 +409,7 @@
 				010EDD7B24913CF900AC6775 /* crayon_1-1.ttf in Resources */,
 				D4ED5129246E783F006F8FE0 /* InfoPlist.strings in Resources */,
 				D4C010DD247D2DD600A50673 /* pointRed@3x.png in Resources */,
+				01B0FC1524AAEBF000E3E19F /* weather.jpg in Resources */,
 				011F2F832483861600E90A9B /* PieChartView.xib in Resources */,
 				D465849B249B658A007809A5 /* dog-3122494_640.jpg in Resources */,
 				BF311186244808920015FD94 /* Assets.xcassets in Resources */,
@@ -423,6 +428,7 @@
 				D4658493249B5F66007809A5 /* dog-647528_640.jpg in Resources */,
 				010EDD8324923D8C00AC6775 /* 512.png in Resources */,
 				D465849C249B658A007809A5 /* dog-3122494_640.jpg in Resources */,
+				01B0FC1624AAEBF000E3E19F /* weather.jpg in Resources */,
 				D4DF65CF24889C33005D0051 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
