@@ -17,6 +17,8 @@ class GoogleMapVC: UIViewController{
     @IBOutlet weak var textSearch: UITextField!
     var path: GMSMutablePath!
     var googleLocationManager: CLLocationManager!
+    var usernowLocation: CLLocation!
+    var gotoplace: GMSPlace!
     @IBAction func loactionTapped(_ sender: Any) {
         gotoPlaces()
     }
@@ -127,10 +129,10 @@ extension GoogleMapVC: CLLocationManagerDelegate{
         print("userlocation:\(userlocation)")
         print("userlocation latitude: \(userlocation.coordinate.latitude)")
         print("userlocation longitude: \(userlocation.coordinate.longitude)")
-        
+        self.usernowLocation = userlocation
         let camera = GMSCameraPosition.camera(withLatitude: userlocation.coordinate.latitude, longitude: userlocation.coordinate.longitude, zoom: 15)
         mapView.animate(to: camera)
-//        self.googleLocationManager.stopUpdatingLocation()
+        self.googleLocationManager.stopUpdatingLocation()
     }
 }
 extension GoogleMapVC: GMSAutocompleteViewControllerDelegate{
@@ -140,12 +142,13 @@ extension GoogleMapVC: GMSAutocompleteViewControllerDelegate{
         
         self.mapView.clear()
         self.textSearch.text = place.name
+        self.gotoplace = place
         
         let core2D = CLLocationCoordinate2D(latitude: (place.coordinate.latitude), longitude: (place.coordinate.longitude))
         let marker = GMSMarker()
         marker.position = core2D
-        marker.title = "Location"
-        marker.snippet = place.name
+        marker.title = "\(place.name!)"
+        marker.snippet = place.phoneNumber
         
         let markerImage = UIImage(named: "Icon_offer_pickup")
         let markerView = UIImageView(image: markerImage)
@@ -155,12 +158,22 @@ extension GoogleMapVC: GMSAutocompleteViewControllerDelegate{
         self.mapView.camera = GMSCameraPosition.camera(withTarget: core2D, zoom: 15)
         //path
         self.path = GMSMutablePath()
-        self.path.add(CLLocationCoordinate2D(latitude:25.033671, longitude: 121.564427))
+//        self.path.add(CLLocationCoordinate2D(latitude:25.033671, longitude: 121.564427))
+        self.path.add(CLLocationCoordinate2D(latitude:self.usernowLocation.coordinate.latitude, longitude: self.usernowLocation.coordinate.longitude))
 //        self.path.add(core2D)
-        self.path.add(CLLocationCoordinate2D(latitude:25.0326708, longitude: 121.56953640000006))
+        self.path.add(CLLocationCoordinate2D(latitude: place.coordinate.latitude, longitude: place.coordinate.longitude))
         
         let line = GMSPolyline(path: self.path)
         line.map = self.mapView
+        let url = URL(string: "comgooglemaps://?\(self.usernowLocation.coordinate.latitude),\(self.usernowLocation.coordinate.longitude)=&daddr=\( self.gotoplace.coordinate.latitude),\(self.gotoplace.coordinate.longitude)&directionsmode=driving")
+        if UIApplication.shared.canOpenURL(url!) {
+            UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+        } else {
+            // 若手機沒安裝 Google Map App 則導到 App Store(id443904275 為 Google Map App 的 ID)
+            let appStoreGoogleMapURL = URL(string: "itms-apps://itunes.apple.com/app/id585027354")!
+            UIApplication.shared.open(appStoreGoogleMapURL, options: [:], completionHandler: nil)
+        }
+        
     }
     
     func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
@@ -173,3 +186,4 @@ extension GoogleMapVC: GMSAutocompleteViewControllerDelegate{
     
     
 }
+

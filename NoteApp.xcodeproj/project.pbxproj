@@ -205,6 +205,17 @@
 			path = Map;
 			sourceTree = "<group>";
 		};
+		01B0FC2024AB4D0200E3E19F /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				017F45D724A9EA45007121AE /* weatherModel.swift */,
+				017F45D424A9E590007121AE /* WeatherData.swift */,
+				017F45D124A9DBA4007121AE /* WeatherViewController.swift */,
+				017F45CE24A9DA15007121AE /* WeatherManager.swift */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
 		12530027D6ACC30B696E8134 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,10 +228,7 @@
 		BF3111702448088E0015FD94 = {
 			isa = PBXGroup;
 			children = (
-				017F45D724A9EA45007121AE /* weatherModel.swift */,
-				017F45D424A9E590007121AE /* WeatherData.swift */,
-				017F45D124A9DBA4007121AE /* WeatherViewController.swift */,
-				017F45CE24A9DA15007121AE /* WeatherManager.swift */,
+				01B0FC2024AB4D0200E3E19F /* Weather */,
 				017F45CC24A9CB33007121AE /* CollectionViewCell.swift */,
 				D46ED7C0248F2D7F00D5595A /* Camera.swift */,
 				BF31117B2448088E0015FD94 /* NoteApp */,
@@ -720,7 +728,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = NoteApp/NoteApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.2;
+				CURRENT_PROJECT_VERSION = 1.0.3;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = CKXN44F8N2;
 				INFOPLIST_FILE = NoteApp/Info.plist;
@@ -745,7 +753,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = NoteApp/NoteApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.2;
+				CURRENT_PROJECT_VERSION = 1.0.3;
 				DEVELOPMENT_TEAM = CKXN44F8N2;
 				INFOPLIST_FILE = NoteApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -766,7 +774,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = PetWidget/PetWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.2;
+				CURRENT_PROJECT_VERSION = 1.0.3;
 				DEVELOPMENT_TEAM = CKXN44F8N2;
 				INFOPLIST_FILE = PetWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
@@ -789,7 +797,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = PetWidget/PetWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.2;
+				CURRENT_PROJECT_VERSION = 1.0.3;
 				DEVELOPMENT_TEAM = CKXN44F8N2;
 				INFOPLIST_FILE = PetWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;

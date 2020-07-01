@@ -31,6 +31,11 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-4880651604060982~7165625370</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>googlechromes</string>
+		<string>comgooglemaps</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -43,13 +48,13 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>使用Camera的權限請求</string>
+	<string>使用Camera的權限請求以存入照片</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>取得用戶位置</string>
+	<string>取得用戶當前位置顯示周圍資訊及進行導航</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>取得用戶位置</string>
+	<string>取得用戶當前位置顯示周圍資訊及進行導航</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>取得用戶位置</string>
+	<string>取得用戶當前位置顯示周圍資訊及進行導航</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>寫入 photo album的權限請求</string>
 	<key>NSPhotoLibraryUsageDescription</key>
