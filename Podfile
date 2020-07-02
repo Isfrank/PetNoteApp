@@ -12,4 +12,5 @@ pod 'Google-Mobile-Ads-SDK'
 pod 'FSCalendar'
 pod 'GoogleMaps'
 pod 'GooglePlaces'
+pod 'GoogleSignIn'
 end
