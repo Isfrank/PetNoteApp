@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		010C61AD24ACC9AC0071DA20 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010C61AC24ACC9AC0071DA20 /* User.swift */; };
-		010C61AE24ACC9AC0071DA20 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010C61AC24ACC9AC0071DA20 /* User.swift */; };
 		010EDD7B24913CF900AC6775 /* crayon_1-1.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 010EDD7A24913CF800AC6775 /* crayon_1-1.ttf */; };
 		010EDD7C24913CF900AC6775 /* crayon_1-1.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 010EDD7A24913CF800AC6775 /* crayon_1-1.ttf */; };
 		010EDD8224923D8C00AC6775 /* 512.png in Resources */ = {isa = PBXBuildFile; fileRef = 010EDD8124923D8C00AC6775 /* 512.png */; };
@@ -27,12 +25,7 @@
 		017F45D824A9EA45007121AE /* weatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017F45D724A9EA45007121AE /* weatherModel.swift */; };
 		017F45D924A9EA45007121AE /* weatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017F45D724A9EA45007121AE /* weatherModel.swift */; };
 		01836852247EB08F008900CE /* PetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01836851247EB08F008900CE /* PetTableViewController.swift */; };
-		01B0FC1E24AAFF8300E3E19F /* 256.png in Resources */ = {isa = PBXBuildFile; fileRef = 01B0FC1D24AAFF8300E3E19F /* 256.png */; };
-		01B0FC1F24AAFF8300E3E19F /* 256.png in Resources */ = {isa = PBXBuildFile; fileRef = 01B0FC1D24AAFF8300E3E19F /* 256.png */; };
 		01B0FC2224AC779000E3E19F /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B0FC2124AC779000E3E19F /* UserViewController.swift */; };
-		01B0FC2324AC779000E3E19F /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B0FC2124AC779000E3E19F /* UserViewController.swift */; };
-		01B736CD24AC87A700F0A7C7 /* GSigninManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B736CC24AC87A600F0A7C7 /* GSigninManager.swift */; };
-		01B736CE24AC87A700F0A7C7 /* GSigninManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B736CC24AC87A600F0A7C7 /* GSigninManager.swift */; };
 		4493867CA496BC4F2DC50F20 /* Pods_NoteApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAFD1F87DE519514B6CC5476 /* Pods_NoteApp.framework */; };
 		BF31117D2448088E0015FD94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF31117C2448088E0015FD94 /* AppDelegate.swift */; };
 		BF3111842448088E0015FD94 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF3111822448088E0015FD94 /* Main.storyboard */; };
@@ -60,6 +53,8 @@
 		D4C010DD247D2DD600A50673 /* pointRed@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C010DA247D2DD600A50673 /* pointRed@3x.png */; };
 		D4C010DF247D382C00A50673 /* EGImageAnnotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C010DE247D382C00A50673 /* EGImageAnnotionView.swift */; };
 		D4CE496F247374060025F277 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4CE496E247374060025F277 /* GoogleService-Info.plist */; };
+		D4D5EF9D24AF029500FFB34F /* GSigninManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D5EF9C24AF029400FFB34F /* GSigninManager.swift */; };
+		D4D5EFA424AF116B00FFB34F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D5EFA324AF116A00FFB34F /* User.swift */; };
 		D4DF65C924889C33005D0051 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DF65C824889C33005D0051 /* NotificationCenter.framework */; };
 		D4DF65CC24889C33005D0051 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DF65CB24889C33005D0051 /* TodayViewController.swift */; };
 		D4DF65CF24889C33005D0051 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4DF65CD24889C33005D0051 /* MainInterface.storyboard */; };
@@ -96,7 +91,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		010C61AC24ACC9AC0071DA20 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = "../../../Downloads/Happy-AppleID-Login-master/HappyAppleIDLogin/User.swift"; sourceTree = "<group>"; };
 		010EDD7A24913CF800AC6775 /* crayon_1-1.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "crayon_1-1.ttf"; sourceTree = "<group>"; };
 		010EDD8124923D8C00AC6775 /* 512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 512.png; sourceTree = "<group>"; };
 		011F2F802483860F00E90A9B /* PieChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
@@ -109,9 +103,7 @@
 		017F45D424A9E590007121AE /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		017F45D724A9EA45007121AE /* weatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherModel.swift; sourceTree = "<group>"; };
 		01836851247EB08F008900CE /* PetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetTableViewController.swift; sourceTree = "<group>"; };
-		01B0FC1D24AAFF8300E3E19F /* 256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 256.png; path = "../../../../Downloads/AppIcons-2/Assets.xcassets/AppIcon.appiconset/256.png"; sourceTree = "<group>"; };
 		01B0FC2124AC779000E3E19F /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
-		01B736CC24AC87A600F0A7C7 /* GSigninManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GSigninManager.swift; path = "../../Downloads/GDrive王冠之/MyGDrive/GSigninManager.swift"; sourceTree = "<group>"; };
 		181742C86D120D067F13A4FB /* Pods-NoteApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoteApp.debug.xcconfig"; path = "Target Support Files/Pods-NoteApp/Pods-NoteApp.debug.xcconfig"; sourceTree = "<group>"; };
 		B50FE9DC0EBE4EE5B7A4AFA1 /* Pods-NoteApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoteApp.release.xcconfig"; path = "Target Support Files/Pods-NoteApp/Pods-NoteApp.release.xcconfig"; sourceTree = "<group>"; };
 		BF3111792448088E0015FD94 /* NoteApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,6 +136,8 @@
 		D4C2147F2488BBE200EC0D4F /* NoteApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NoteApp.entitlements; sourceTree = "<group>"; };
 		D4C214802488BC4E00EC0D4F /* PetWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PetWidget.entitlements; sourceTree = "<group>"; };
 		D4CE496E247374060025F277 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D4D5EF9C24AF029400FFB34F /* GSigninManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSigninManager.swift; sourceTree = "<group>"; };
+		D4D5EFA324AF116A00FFB34F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D4DF65C724889C33005D0051 /* PetWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PetWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4DF65C824889C33005D0051 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		D4DF65CB24889C33005D0051 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -217,7 +211,7 @@
 		01B0FC2024AB4D0200E3E19F /* Weather */ = {
 			isa = PBXGroup;
 			children = (
-				010C61AC24ACC9AC0071DA20 /* User.swift */,
+				D4D5EFA324AF116A00FFB34F /* User.swift */,
 				017F45D724A9EA45007121AE /* weatherModel.swift */,
 				017F45D424A9E590007121AE /* WeatherData.swift */,
 				017F45D124A9DBA4007121AE /* WeatherViewController.swift */,
@@ -241,8 +235,8 @@
 				01B0FC2024AB4D0200E3E19F /* Weather */,
 				017F45CC24A9CB33007121AE /* CollectionViewCell.swift */,
 				D46ED7C0248F2D7F00D5595A /* Camera.swift */,
-				01B736CC24AC87A600F0A7C7 /* GSigninManager.swift */,
 				01B0FC2124AC779000E3E19F /* UserViewController.swift */,
+				D4D5EF9C24AF029400FFB34F /* GSigninManager.swift */,
 				BF31117B2448088E0015FD94 /* NoteApp */,
 				ED560A9C6644492210458275 /* Pods */,
 				D4DF65CA24889C33005D0051 /* PetWidget */,
@@ -303,7 +297,6 @@
 		D4A9628D2484FC9E001D0594 /* image */ = {
 			isa = PBXGroup;
 			children = (
-				01B0FC1D24AAFF8300E3E19F /* 256.png */,
 				016332A324A2510300012792 /* cat-2489845_640.jpg */,
 				D465849A249B658A007809A5 /* dog-3122494_640.jpg */,
 				D4658491249B5F66007809A5 /* dog-647528_640.jpg */,
@@ -422,7 +415,6 @@
 				D4A9628C2484FC85001D0594 /* dog-park-100.png in Resources */,
 				D4658492249B5F66007809A5 /* dog-647528_640.jpg in Resources */,
 				D4ED512F246E7FCF006F8FE0 /* Localizable.strings in Resources */,
-				01B0FC1E24AAFF8300E3E19F /* 256.png in Resources */,
 				D4C010DC247D2DD600A50673 /* pointRed@2x.png in Resources */,
 				D4C010DB247D2DD600A50673 /* pointRed.png in Resources */,
 				BF311189244808920015FD94 /* LaunchScreen.storyboard in Resources */,
@@ -444,7 +436,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01B0FC1F24AAFF8300E3E19F /* 256.png in Resources */,
 				010EDD7C24913CF900AC6775 /* crayon_1-1.ttf in Resources */,
 				D4658493249B5F66007809A5 /* dog-647528_640.jpg in Resources */,
 				010EDD8324923D8C00AC6775 /* 512.png in Resources */,
@@ -520,11 +511,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF4D77C42457CDBB0052E461 /* NoteDataModel.xcdatamodeld in Sources */,
-				01B736CD24AC87A700F0A7C7 /* GSigninManager.swift in Sources */,
 				BF31117D2448088E0015FD94 /* AppDelegate.swift in Sources */,
 				D4FE0FAD247D2A85008C6A8A /* DispatchQueue+Once.swift in Sources */,
 				017F45CF24A9DA15007121AE /* WeatherManager.swift in Sources */,
-				010C61AD24ACC9AC0071DA20 /* User.swift in Sources */,
 				BF4D77C62457D4250052E461 /* CoreDataHelper.swift in Sources */,
 				BF31119324480A930015FD94 /* ListViewController.swift in Sources */,
 				D40205F1247F74FD00FF1898 /* FirstViewController.swift in Sources */,
@@ -540,10 +529,12 @@
 				D465849E249B70BD007809A5 /* PetSearch.swift in Sources */,
 				D4FE0FAB247D2A68008C6A8A /* MapViewController+LocationSupport.swift in Sources */,
 				D484A6BE249B145A00369D49 /* GoogleMapVC.swift in Sources */,
+				D4D5EFA424AF116B00FFB34F /* User.swift in Sources */,
 				D4FE0FA9247D2A42008C6A8A /* MapViewController.swift in Sources */,
 				BF3F1EB22449454A0016F99D /* NoteCell.swift in Sources */,
 				01B0FC2224AC779000E3E19F /* UserViewController.swift in Sources */,
 				01836852247EB08F008900CE /* PetTableViewController.swift in Sources */,
+				D4D5EF9D24AF029500FFB34F /* GSigninManager.swift in Sources */,
 				017F45D824A9EA45007121AE /* weatherModel.swift in Sources */,
 				017F45D224A9DBA4007121AE /* WeatherViewController.swift in Sources */,
 			);
@@ -554,10 +545,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				017F45D024A9DA15007121AE /* WeatherManager.swift in Sources */,
-				01B0FC2324AC779000E3E19F /* UserViewController.swift in Sources */,
 				017F45D324A9DBA4007121AE /* WeatherViewController.swift in Sources */,
-				01B736CE24AC87A700F0A7C7 /* GSigninManager.swift in Sources */,
-				010C61AE24ACC9AC0071DA20 /* User.swift in Sources */,
 				017F45D624A9E590007121AE /* WeatherData.swift in Sources */,
 				D4DF65CC24889C33005D0051 /* TodayViewController.swift in Sources */,
 				017F45D924A9EA45007121AE /* weatherModel.swift in Sources */,

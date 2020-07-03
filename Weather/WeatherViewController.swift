@@ -25,13 +25,13 @@ class WeatherViewController: UIViewController {
         
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-        
+
         locationManager.delegate = self
         weatherManager.delegate = self
         searchTextField.delegate = self
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
-        self.view.addGestureRecognizer(tap) // to Replace "TouchesBegan"
+        //self.view.addGestureRecognizer(tap) // to Replace "TouchesBegan"
 
         //customFont
         guard let customFont = UIFont(name: "Nagurigaki Crayon", size: 40.0) else {
@@ -51,6 +51,11 @@ class WeatherViewController: UIViewController {
 
 
     }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.searchTextField.resignFirstResponder()
+        //self.dismissKeyBoard()
+    }
+    
     @IBAction func locationPressed(_ sender: UIButton) {
         locationManager.requestLocation()
     }
@@ -70,14 +75,14 @@ extension WeatherViewController: UITextFieldDelegate {
         return true
     }
     
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        if searchTextField.text != "" {
-            return true
-        } else {
-            textField.placeholder = "Search"
-            return false
-        }
-    }
+//    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+//        if searchTextField.text != "" {
+//            return true
+//        } else {
+//            textField.placeholder = "Search"
+//            return false
+//        }
+//    }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if let city = searchTextField.text {

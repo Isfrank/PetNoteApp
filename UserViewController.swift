@@ -10,10 +10,13 @@ import UIKit
 import StoreKit
 import MessageUI
 import AuthenticationServices
+import GoogleSignIn
 
 
 class UserViewController: UIViewController, MFMailComposeViewControllerDelegate {
-
+    @IBOutlet weak var supportOutlet: UIButton!
+    @IBOutlet weak var askForRatingOutlet: UIButton!
+    
 //    let signinmaager = GSigninManager()
 //    @IBAction func googleSignIn(_ sender: UIButton) {
 //        signinmanager.prepareSigninAndDidApper(clientID: clientID, viewController: self) { (success, authorizer) in
@@ -26,6 +29,9 @@ class UserViewController: UIViewController, MFMailComposeViewControllerDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        self.supportOutlet.layer.cornerRadius = 10
+        self.askForRatingOutlet.layer.cornerRadius = 10
+        
 //        signinmaager.delegate = self
 
         // Do any additional setup after loading the view.
@@ -65,24 +71,24 @@ class UserViewController: UIViewController, MFMailComposeViewControllerDelegate 
     }
     @IBAction func askForRating(){
         
-         SKStoreReviewController.requestReview()
-//        let askController = UIAlertController(title: "Hello App User",
-//                                              message: "If you like this app,please rate in App Store. Thanks.",
-//                                              preferredStyle: .alert)
-//        let laterAction = UIAlertAction(title: "稍候再評",
-//                                        style: .default, handler: nil)
-//        askController.addAction(laterAction)
-//        let okAction = UIAlertAction(title: "我要評分", style: .default)
-//        { (action) -> Void in
-//            let appID = "12345"
-//            let appURL =
-//                URL(string: "https://itunes.apple.com/us/app/itunes-u/id\(appID)?action=write-review")!
-//            UIApplication.shared.open(appURL, options: [:],
-//                                      completionHandler: { (success) in
-//            })
-//        }
-//        askController.addAction(okAction)
-//        self.present(askController, animated: true, completion: nil)
+//         SKStoreReviewController.requestReview()
+        let askController = UIAlertController(title: "Hello App User",
+                                              message: "If you like this app,please rate in App Store. Thanks.",
+                                              preferredStyle: .alert)
+        let laterAction = UIAlertAction(title: "稍候再評",
+                                        style: .default, handler: nil)
+        askController.addAction(laterAction)
+        let okAction = UIAlertAction(title: "我要評分", style: .default)
+        { (action) -> Void in
+            let appID = "12345"
+            let appURL =
+                URL(string: "https://itunes.apple.com/us/app/itunes-u/id\(appID)?action=write-review")!
+            UIApplication.shared.open(appURL, options: [:],
+                                      completionHandler: { (success) in
+            })
+        }
+        askController.addAction(okAction)
+        self.present(askController, animated: true, completion: nil)
     }
     //apple Sign in
      @objc
