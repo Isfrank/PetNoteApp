@@ -139,17 +139,17 @@ extension MapViewController: MKMapViewDelegate{
         }
         let reuseID = "store"
         var result = mapView.dequeueReusableAnnotationView(withIdentifier: reuseID)
-        //as? MKPinAnnotationView//跑出出的reuse//animatesDrop,pinTintColor下面兒子才有所以要轉型
+        as? MKPinAnnotationView//跑出出的reuse//animatesDrop,pinTintColor下面兒子才有所以要轉型
         if result == nil{
             
             //Creat Pin
-            //result = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
-            result = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
+            result = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
+//            result = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
             
         }
         result?.canShowCallout = true
-        //result?.animatesDrop = true
-        //result?.pinTintColor = .green
+        result?.animatesDrop = true
+        result?.pinTintColor = .black
         let image = UIImage(named: "pointRed")
         result?.image = image
         
