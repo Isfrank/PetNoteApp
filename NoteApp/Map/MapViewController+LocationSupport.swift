@@ -42,7 +42,7 @@ extension MapViewController : CLLocationManagerDelegate{
         let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         let region = MKCoordinateRegion(center: coordinate, span: span)
         mainMapView.setRegion(region, animated: false)
-        showNearBy(searchName: "寵物用品")
+        showNearBy(searchName: "公園")
 //        showNearBy(searchName: "寵物餐廳")
 //        showNearBy(searchName: "公園")
 
