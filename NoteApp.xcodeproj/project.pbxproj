@@ -15,6 +15,7 @@
 		011F2F832483861600E90A9B /* PieChartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 011F2F822483861600E90A9B /* PieChartView.xib */; };
 		013994FA248CE55B001A3619 /* dog-tags-military.png in Resources */ = {isa = PBXBuildFile; fileRef = 013994F9248CE55A001A3619 /* dog-tags-military.png */; };
 		016332A424A2510400012792 /* cat-2489845_640.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 016332A324A2510300012792 /* cat-2489845_640.jpg */; };
+		016962FB24C0381000468920 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016962FA24C0380F00468920 /* CardView.swift */; };
 		017F45CD24A9CB33007121AE /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017F45CC24A9CB33007121AE /* CollectionViewCell.swift */; };
 		017F45CF24A9DA15007121AE /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017F45CE24A9DA15007121AE /* WeatherManager.swift */; };
 		017F45D024A9DA15007121AE /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017F45CE24A9DA15007121AE /* WeatherManager.swift */; };
@@ -97,6 +98,7 @@
 		011F2F822483861600E90A9B /* PieChartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PieChartView.xib; sourceTree = "<group>"; };
 		013994F9248CE55A001A3619 /* dog-tags-military.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dog-tags-military.png"; sourceTree = "<group>"; };
 		016332A324A2510300012792 /* cat-2489845_640.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cat-2489845_640.jpg"; sourceTree = "<group>"; };
+		016962FA24C0380F00468920 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		017F45CC24A9CB33007121AE /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		017F45CE24A9DA15007121AE /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 		017F45D124A9DBA4007121AE /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 			children = (
 				01B0FC2024AB4D0200E3E19F /* Weather */,
 				017F45CC24A9CB33007121AE /* CollectionViewCell.swift */,
+				016962FA24C0380F00468920 /* CardView.swift */,
 				D46ED7C0248F2D7F00D5595A /* Camera.swift */,
 				01B0FC2124AC779000E3E19F /* UserViewController.swift */,
 				D4D5EF9C24AF029400FFB34F /* GSigninManager.swift */,
@@ -525,6 +528,7 @@
 				017F45D524A9E590007121AE /* WeatherData.swift in Sources */,
 				D4C010DF247D382C00A50673 /* EGImageAnnotionView.swift in Sources */,
 				BF3F1EB4244953170016F99D /* NoteViewController.swift in Sources */,
+				016962FB24C0381000468920 /* CardView.swift in Sources */,
 				D4AEC39D2488D0C40063BCC8 /* FSCalendarViewController.swift in Sources */,
 				D465849E249B70BD007809A5 /* PetSearch.swift in Sources */,
 				D4FE0FAB247D2A68008C6A8A /* MapViewController+LocationSupport.swift in Sources */,
@@ -734,7 +738,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = NoteApp/NoteApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.3;
+				CURRENT_PROJECT_VERSION = 2.0.1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = CKXN44F8N2;
 				INFOPLIST_FILE = NoteApp/Info.plist;
@@ -743,7 +747,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.iiiedu.lab.NoteApp10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -759,7 +763,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = NoteApp/NoteApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.3;
+				CURRENT_PROJECT_VERSION = 2.0.1;
 				DEVELOPMENT_TEAM = CKXN44F8N2;
 				INFOPLIST_FILE = NoteApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -767,7 +771,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.iiiedu.lab.NoteApp10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -780,16 +784,16 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = PetWidget/PetWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.3;
+				CURRENT_PROJECT_VERSION = 2.0.1;
 				DEVELOPMENT_TEAM = CKXN44F8N2;
 				INFOPLIST_FILE = PetWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.iiiedu.lab.NoteApp10.PetWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -803,16 +807,16 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = PetWidget/PetWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.3;
+				CURRENT_PROJECT_VERSION = 2.0.1;
 				DEVELOPMENT_TEAM = CKXN44F8N2;
 				INFOPLIST_FILE = PetWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.iiiedu.lab.NoteApp10.PetWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

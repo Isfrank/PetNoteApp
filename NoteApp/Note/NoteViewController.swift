@@ -2,7 +2,7 @@
 //  NoteViewController.swift
 //  NoteApp
 //
-//  Created by Frank on 2020/4/16.
+//  Created by Frank on 2020/6/16.
 //  Copyright © 2020 Frank. All rights reserved.
 //
 
@@ -37,6 +37,7 @@ class NoteViewController: UIViewController,UIImagePickerControllerDelegate,UINav
             self.contentTextView.text = "請輸入內容"
             self.contentTextView.textColor = .lightGray
         }
+        addDoneButtonOnKeyboard()
         self.contentTextView.keyboardType = .default
         //關鍵盤
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
@@ -47,9 +48,9 @@ class NoteViewController: UIViewController,UIImagePickerControllerDelegate,UINav
         self.textView.layer.borderWidth = 2
         self.textView.layer.borderColor = UIColor.gray.cgColor
         self.contentTextView.layer.borderWidth = 2
-        self.contentTextView.layer.borderColor = UIColor.green.cgColor
+        self.contentTextView.layer.borderColor = UIColor.gray.cgColor
         self.imageView.layer.borderWidth = 10
-        self.imageView.layer.borderColor = UIColor.orange.cgColor
+        self.imageView.layer.borderColor = UIColor.gray.cgColor
         //CG: Core Graphic是 UIKit的老爸
         self.imageView.layer.cornerRadius = 10
         //self.imageView.clipsToBounds = true
@@ -71,6 +72,27 @@ class NoteViewController: UIViewController,UIImagePickerControllerDelegate,UINav
         }
         
         print(self.toolbar.intrinsicContentSize)
+    }
+    func addDoneButtonOnKeyboard() {
+            let doneToolbar = UIToolbar()
+
+            let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,target: nil, action: nil)
+
+            let done: UIBarButtonItem = UIBarButtonItem(title: NSLocalizedString("完成", comment: ""), style: .done,target: self,action: #selector(doneButtonAction))
+
+            var items:[UIBarButtonItem] = []
+
+            items.append(flexSpace)
+            items.append(done)
+
+            doneToolbar.items = items
+            doneToolbar.sizeToFit()
+            self.contentTextView.inputAccessoryView = doneToolbar
+//            self.textView.inputAccessoryView = doneToolbar
+        }
+    @objc func doneButtonAction() {
+    self.contentTextView.resignFirstResponder()
+//    self.textView.resignFirstResponder()
     }
     func showAlert(title: String, message: String) {
         // 建立一個提示框

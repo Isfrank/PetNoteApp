@@ -1,8 +1,8 @@
 //
 //  ViewController+LocationSupport.swift
-//  MyMap
+//  NoteApp
 //
-//  Created by student46 on 2020/4/21.
+//  Created by student46 on 2020/6/13.
 //  Copyright © 2020 Frank. All rights reserved.
 //
 

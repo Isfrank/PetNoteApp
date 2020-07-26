@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  MyMap
+//  NoteApp
 //
-//  Created by Frank on 2020/4/16.
+//  Created by Frank on 2020/6/13.
 //  Copyright © 2020 Frank. All rights reserved.
 //
 
@@ -47,14 +47,19 @@ class MapViewController: UIViewController {
             
         case 0:
            showNearBy(searchName: "公園")
+//           showNearBy(searchName: "park")
         case 1:
             showNearBy(searchName: "寵物餐廳")
+//            showNearBy(searchName: "Pet restaurant")
         case 2:
             showNearBy(searchName: "寵物用品")
+//            showNearBy(searchName: "Pet shops")
         case 3:
             showNearBy(searchName: "動物醫院")
+//            showNearBy(searchName: "Animal hospitals")
         default:
             showNearBy(searchName: "公園")
+//            showNearBy(searchName: "park")
         }
         
     }
@@ -66,16 +71,16 @@ class MapViewController: UIViewController {
             return
         }
         // Ask permission
-        //LocationManager.requestWhenInUseAuthorization()
+        LocationManager.requestWhenInUseAuthorization()
         //Instance method, instance function 實例, 實體
-        LocationManager.requestAlwaysAuthorization()
+//        LocationManager.requestAlwaysAuthorization()
         //精確度到什麼程度,ios盡力達到
         LocationManager.desiredAccuracy = kCLLocationAccuracyBest
         //app活動的種類 (車輛導航 單車)不指定就是other
         LocationManager.activityType = .automotiveNavigation
         LocationManager.delegate = self
         LocationManager.startUpdatingLocation()
-        LocationManager.allowsBackgroundLocationUpdates = true
+//        LocationManager.allowsBackgroundLocationUpdates = true
         mainMapView.delegate = self
         //MKDirections Request
     }
@@ -150,11 +155,11 @@ extension MapViewController: MKMapViewDelegate{
         result?.canShowCallout = true
         result?.animatesDrop = true
         result?.pinTintColor = .black
-        let image = UIImage(named: "pointRed")
-        result?.image = image
-        
-        let imageView = UIImageView(image: image)
-        result?.leftCalloutAccessoryView = imageView
+//        let image = UIImage(named: "pointRed")
+//        result?.image = image
+//
+//        let imageView = UIImageView(image: image)
+//        result?.leftCalloutAccessoryView = imageView
         
         let button = UIButton(type: .detailDisclosure)
         //touchUpInside:event 觸發 #selector：method

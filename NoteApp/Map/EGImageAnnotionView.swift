@@ -1,8 +1,8 @@
 //
 //  EGImageAnnotionView.swift
-//  SwiftHelloMap
+//  NoteApp
 //
-//  Created by Frank on 2020/4/16.
+//  Created by Frank on 2020/6/13.
 //  Copyright © 2020 Frank. All rights reserved.
 //
 

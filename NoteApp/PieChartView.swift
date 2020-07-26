@@ -1,8 +1,9 @@
 //
 //  PieChartView.swift
-//  PieChart
+//  NoteApp
 //
-//  Copyright © 2019 TNODA.com. All rights reserved.
+//  Created by frank on 2020/6/29.
+//  Copyright © 2020 Frank. All rights reserved.
 //
 
 import os.log

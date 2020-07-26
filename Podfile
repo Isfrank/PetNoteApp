@@ -13,4 +13,5 @@ pod 'FSCalendar'
 pod 'GoogleMaps'
 pod 'GooglePlaces'
 pod 'GoogleSignIn'
+pod 'FBSDKLoginKit'
 end

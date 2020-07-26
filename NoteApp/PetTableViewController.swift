@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+
 protocol PetTableViewControllerdelegate: class {
     func didFinishupdate(pet: Pet)
 }
@@ -58,10 +59,14 @@ class PetTableViewController: UITableViewController, UITextFieldDelegate, UIImag
         self.present(photoSourceRequestController, animated: true, completion: nil)
         
     }
+    let defaultImage = UIImage(systemName:"photo")
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.tableView.backgroundColor = UIColor.cyan
         nameTextField.delegate = self
+        nameTextField.placeholder = "請輸入名字"
         bdTextField.delegate = self
+//        self.bdTextField.placeholder
         homeTextField.delegate = self
         bddatePicker.maximumDate = Date()
         homedatePicker.maximumDate = Date()
@@ -91,13 +96,16 @@ class PetTableViewController: UITableViewController, UITextFieldDelegate, UIImag
             let hometext = homedateString
             self.homeTextField.text = "\(String(describing: hometext))"
             self.photoImageView.image = self.pet.petimage()
+        }else{
+            self.photoImageView.image = defaultImage
         }
 //
     }
     @IBAction func Done(_ sender: Any) {
-        if self.nameTextField.text?.isEmpty == true || self.bdTextField.text?.isEmpty == true || self.homeTextField.text?.isEmpty == true {
+        
+        if self.photoImageView.image == self.defaultImage || self.nameTextField.text?.isEmpty == true || self.bdTextField.text?.isEmpty == true || self.homeTextField.text?.isEmpty == true {
             
-        let controller = UIAlertController(title: "不可以有空格", message: "請輸入完成", preferredStyle: .alert)
+        let controller = UIAlertController(title: "不可以沒照片或有空格哦", message: "請輸入完成", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         controller.addAction(okAction)
         present(controller, animated: true, completion: nil)

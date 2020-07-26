@@ -26,15 +26,29 @@
 				<string>toWidget</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb901787300335042</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>FacebookAppID</key>
+	<string>901787300335042</string>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-4880651604060982~7165625370</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>googlechromes</string>
 		<string>comgooglemaps</string>
+		<string>fbapi</string>
+		<string>fb-messenger-share-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
@@ -49,10 +63,6 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>使用Camera的權限請求以存入照片</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>取得用戶當前位置顯示周圍資訊及進行導航</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>取得用戶當前位置顯示周圍資訊及進行導航</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>取得用戶當前位置顯示周圍資訊及進行導航</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
@@ -64,9 +74,7 @@
 		<string>crayon_1-1.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
-	<array>
-		<string>location</string>
-	</array>
+	<array/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

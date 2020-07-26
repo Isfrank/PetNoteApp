@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import StoreKit
+import UserNotifications
 
 class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, PetTableViewControllerdelegate {
     
@@ -88,6 +89,37 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         
         // Do any additional setup after loading the view.
+        
+        let content = UNMutableNotificationContent()
+        content.title = "該帶您的愛寵出門了！"
+//        content.subtitle = "subtitle："
+//        content.body = "body："
+        content.badge = 1
+        content.sound = UNNotificationSound.default
+        
+        // 設置通知的圖片
+//        if let data = try? Data(contentsOf: url) {
+//            let path = NSHomeDirectory() + "/Documents/" + "Main.jpg"
+//            //let imageURL: URL = Bundle.main.url(forResource: "\(path)", withExtension: "jpg")!
+//            let imageURL: URL = URL(fileURLWithPath: path)
+//            let attachment = try! UNNotificationAttachment(identifier: "image1", url: imageURL, options: nil)
+//            content.attachments = [attachment]
+//        } else {
+//            let imageURL: URL = Bundle.main.url(forResource: "cat-2489845_640", withExtension: "jpg")!
+//            let attachment = try! UNNotificationAttachment(identifier: "image2", url: imageURL, options: nil)
+//            content.attachments = [attachment]
+//        }
+        let imageURL: URL = Bundle.main.url(forResource: "cat-2489845_640", withExtension: "jpg")!
+        let attachment = try! UNNotificationAttachment(identifier: "image", url: imageURL, options: nil)
+        content.attachments = [attachment]
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 86400, repeats: true)
+        
+        let notificationrequest = UNNotificationRequest(identifier: "notification", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(notificationrequest, withCompletionHandler: {error in
+            print("成功建立通知...")
+        })
     }
     @IBAction func walkBtn(_ sender: Any) {
         if self.data.count > 0 {

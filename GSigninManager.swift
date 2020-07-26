@@ -1,9 +1,9 @@
 //
 //  GSigninManager.swift
-//  MyGDrive
+//  NoteApp
 //
-//  Created by 王冠之 on 2020/5/18.
-//  Copyright © 2020 Wangkuanchih. All rights reserved.
+//  Created by frank on 2020/6/29.
+//  Copyright © 2020 Frank. All rights reserved.
 //
 
 import UIKit
